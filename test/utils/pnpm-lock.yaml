@@ -1,0 +1,5 @@
+dependencies:
+  '@make-mjs/utils': 'link:../../packages/utils'
+lockfileVersion: 5.1
+specifiers:
+  '@make-mjs/utils': 'file:../../packages/utils'
