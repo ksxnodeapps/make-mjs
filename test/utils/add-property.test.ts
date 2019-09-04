@@ -1,3 +1,4 @@
+import { pass } from '@tsfun/pipe'
 import { addProperty } from '@make-mjs/utils'
 
 const value = Symbol('value')
@@ -97,5 +98,27 @@ describe('with an object as proto', () => {
     it('returns an object that is not proto', () => {
       expect(get()).not.toBe(proto)
     })
+  })
+})
+
+describe('works with @tsfun/pipe', () => {
+  const symbol = Symbol('symbol')
+
+  const get = () => pass(null)
+    .to(addProperty, 'abc' as const, 123 as const)
+    .to(addProperty, 456 as const, 'def' as const)
+    .to(addProperty, symbol, value)
+    .get()
+
+  it('first property', () => {
+    expect(get()).toHaveProperty('abc', 123)
+  })
+
+  it('second property', () => {
+    expect(get()).toHaveProperty(String(456), 'def')
+  })
+
+  it('third property', () => {
+    expect(get()[symbol]).toBe(value)
   })
 })

@@ -1,6 +1,7 @@
 {
   "private": true,
   "dependencies": {
+    "@tsfun/pipe": "^0.0.2",
     "@make-mjs/utils": "file:../../packages/utils"
   }
 }
