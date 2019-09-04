@@ -66,9 +66,11 @@ type AddProperty<
   Proto extends object | null,
   Key extends string | number | symbol,
   Value
-> = ObjectExtends<Proto, {
-  [key in Key]: Value
-}>
+> = {
+  [SoleKey in Key]: ObjectExtends<Proto, {
+    [key in SoleKey]: Value
+  }>
+}[Key]
 
 /**
  * Create an object with `proto` as prototype

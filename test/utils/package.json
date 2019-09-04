@@ -1,6 +1,7 @@
 {
   "private": true,
   "dependencies": {
+    "static-type-assert": "3.0.1",
     "@tsfun/pipe": "^0.0.2",
     "@make-mjs/utils": "file:../../packages/utils"
   }
