@@ -15,7 +15,7 @@ export {
 type FullOptions = Required<MjsPathOptions>
 
 export interface ModulePathResolver {
-  (modulePath: FullOptions): MaybePromise<string>
+  (options: FullOptions): MaybePromise<string>
 }
 
 export interface ModulePathTester {
