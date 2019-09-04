@@ -19,7 +19,7 @@ export interface ModulePathResolver {
 }
 
 export interface ModulePathTester {
-  (modulePath: string): MaybePromise<boolean>
+  (options: FullOptions): MaybePromise<boolean>
 }
 
 export interface MjsPathOptions {
@@ -51,7 +51,7 @@ export async function getMjsPath (options: MjsPathOptions): Promise<string> {
   }
 
   async function handleFile () {
-    if (await isMjsPath(modulePath)) return modulePath
+    if (await isMjsPath(fullOptions)) return modulePath
     return fromFile(fullOptions)
   }
 
@@ -70,7 +70,7 @@ export async function getMjsPath (options: MjsPathOptions): Promise<string> {
   }
 
   return handleRoute(
-    isInternalModule(modulePath)
+    isInternalModule(fullOptions)
       ? modulePath
       : joinPath(moduleContainer, modulePath)
   )
