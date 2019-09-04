@@ -39,3 +39,7 @@ describe('when input promise rejects', () => {
     expect(catchSpy).toBeCalledWith(REJECTION_SILENCER)
   })
 })
+
+it('silencer returns undefined', () => {
+  expect(REJECTION_SILENCER()).toBe(undefined)
+})
