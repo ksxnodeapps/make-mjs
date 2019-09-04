@@ -34,10 +34,26 @@ assert<typeof unionObject>({ 1: 'value' } as const)
 const unionProto = { abc: 123, def: 456 } as const
 const unionMergedObject = addProperty(unionProto, ANY as 'a' | 'b' | 0 | 1, 'value' as const)
 assert<
-  { readonly a: 'value' } |
-  { readonly b: 'value' } |
-  { readonly 0: 'value' } |
-  { readonly 1: 'value' }
+  {
+    readonly abc: 123,
+    readonly def: 456,
+    readonly a: 'value'
+  } |
+  {
+    readonly abc: 123,
+    readonly def: 456,
+    readonly b: 'value'
+  } |
+  {
+    readonly abc: 123,
+    readonly def: 456,
+    readonly 0: 'value'
+  } |
+  {
+    readonly abc: 123,
+    readonly def: 456,
+    readonly 1: 'value'
+  }
 >(unionMergedObject)
 assert<typeof unionMergedObject>({ a: 'value', abc: 123, def: 456 } as const)
 assert<typeof unionMergedObject>({ b: 'value', abc: 123, def: 456 } as const)
