@@ -30,3 +30,33 @@ export function joinPath (...paths: string[]) {
     .map(removeTrailingSeparator)
     .join('/')
 }
+
+/**
+ * Returns a function that
+ * takes an `x`,
+ * returns `f(x)` if `f(x)` is falsy
+ * or `g(x)` if `f(x)` is truthy
+ * @param f First function to call
+ * @param g Second function to call
+ */
+export function fnAnd<X, Y, Z> (
+  f: (x: X) => Y,
+  g: (x: X) => Z
+): (x: X) => Y | Z {
+  return x => f(x) && g(x)
+}
+
+/**
+ * Returns a function that
+ * takes an `x`,
+ * returns `f(x)` if `f(x)` is truthy
+ * or `g(x)` if `f(x)` is falsy
+ * @param f First function to call
+ * @param g Second function to call
+ */
+export function fnOr<X, Y, Z> (
+  f: (x: X) => Y,
+  g: (x: X) => Z
+): (x: X) => Y | Z {
+  return x => f(x) || g(x)
+}
