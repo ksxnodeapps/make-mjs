@@ -32,7 +32,36 @@ import {
   EXTERNAL_MODULE_ENTRY_DEFAULT_MJS
 } from './paths'
 
-export const allThatIs = [
+type ElementOf<Iter extends Iterable<any>> = Iter extends Iterable<infer X> ? X : never
+
+const EMPTY_ARRAY = [] as const
+
+function mockArray<
+  MainArray extends readonly any[]
+> (main: MainArray) {
+  type Item = ElementOf<MainArray>
+  let current: MainArray | readonly Item[] = main
+
+  const get = () => current
+  const fill = () => alter(main)
+  const empty = () => alter(EMPTY_ARRAY)
+
+  function alter (value: typeof current) {
+    current = value
+  }
+
+  function toggle () {
+    if (current === main) {
+      empty()
+    } else {
+      fill()
+    }
+  }
+
+  return { main, get, fill, empty, alter, toggle }
+}
+
+export const allThatIs = mockArray([
   MODULE_CONTAINER,
   INTERNAL_FILE_MODULE_PATH,
   INTERNAL_FILE_MODULE_PATH_JS,
@@ -61,9 +90,9 @@ export const allThatIs = [
   EXTERNAL_MODULE_MANIFEST_DEFAULT,
   EXTERNAL_MODULE_ENTRY_DEFAULT,
   EXTERNAL_MODULE_ENTRY_DEFAULT_MJS
-] as const
+] as const)
 
-export const files = [
+export const files = mockArray([
   INTERNAL_FILE_MODULE_PATH,
   INTERNAL_FILE_MODULE_PATH_JS,
   INTERNAL_FILE_MODULE_PATH_MJS,
@@ -80,9 +109,9 @@ export const files = [
   EXTERNAL_MODULE_MANIFEST_DEFAULT,
   EXTERNAL_MODULE_ENTRY_DEFAULT,
   EXTERNAL_MODULE_ENTRY_DEFAULT_MJS
-] as const
+] as const)
 
-export const directories = [
+export const directories = mockArray([
   MODULE_CONTAINER,
   INTERNAL_DIR_MODULE_PATH,
   INTERNAL_DIR_MODULE_PATH_SUPER,
@@ -91,10 +120,20 @@ export const directories = [
   EXTERNAL_MODULE_PATH_BROWSER,
   EXTERNAL_MODULE_PATH_MAIN,
   EXTERNAL_MODULE_PATH_DEFAULT
-] as const
+] as const)
+
+const allMockedArrays = [allThatIs, files, directories]
+
+export function fillAllMockedArrays () {
+  allMockedArrays.forEach(x => x.fill())
+}
+
+export function emptyAllMockedArrays () {
+  allMockedArrays.forEach(x => x.empty())
+}
 
 export async function pathExists (path: string) {
-  return allThatIs.includes(path)
+  return allThatIs.get().includes(path)
 }
 
 export const enum StatType {
@@ -104,8 +143,8 @@ export const enum StatType {
 }
 
 export function getStatType (path: string) {
-  if (files.includes(path)) return StatType.File
-  if (directories.includes(path)) return StatType.Dir
+  if (files.get().includes(path)) return StatType.File
+  if (directories.get().includes(path)) return StatType.Dir
   return StatType.Unknown
 }
 
