@@ -1,34 +1,29 @@
 import { pathExists, stat } from 'fs-extra'
-import { MaybePromise, silenceRejection, joinPath } from '@make-mjs/utils'
+import { silenceRejection, joinPath } from '@make-mjs/utils'
 import DEFAULT_FILE_PATH_RESOLVER from './from-file'
 import DEFAULT_DIR_PATH_RESOLVER from './from-dir'
 import DEFAULT_MJS_PATH_TESTER from './is-mjs-path'
 import DEFAULT_INTERNAL_MODULE_TESTER from './is-internal-module'
+import DEFAULT_MJS_PACKAGE_TESTER from './is-mjs-package'
+
+import {
+  MjsPathOptions,
+  FullMjsPathOptions,
+  ModulePathResolver,
+  ModulePathTester,
+  MjsPackageTester
+} from '../utils/options'
 
 export {
   DEFAULT_FILE_PATH_RESOLVER,
   DEFAULT_DIR_PATH_RESOLVER,
   DEFAULT_INTERNAL_MODULE_TESTER,
-  DEFAULT_MJS_PATH_TESTER
-}
-
-type FullOptions = Required<MjsPathOptions>
-
-export interface ModulePathResolver {
-  (options: FullOptions): MaybePromise<string>
-}
-
-export interface ModulePathTester {
-  (options: FullOptions): MaybePromise<boolean>
-}
-
-export interface MjsPathOptions {
-  readonly modulePath: string
-  readonly moduleContainer: string
-  readonly fromFile?: ModulePathResolver
-  readonly fromDir?: ModulePathResolver
-  readonly isMjsPath?: ModulePathTester
-  readonly isInternalModule?: ModulePathTester
+  DEFAULT_MJS_PATH_TESTER,
+  DEFAULT_MJS_PACKAGE_TESTER,
+  MjsPathOptions,
+  ModulePathResolver,
+  ModulePathTester,
+  MjsPackageTester
 }
 
 export async function getMjsPath (options: MjsPathOptions): Promise<string> {
@@ -38,16 +33,18 @@ export async function getMjsPath (options: MjsPathOptions): Promise<string> {
     fromFile = DEFAULT_FILE_PATH_RESOLVER,
     fromDir = DEFAULT_DIR_PATH_RESOLVER,
     isMjsPath = DEFAULT_MJS_PATH_TESTER,
-    isInternalModule = DEFAULT_INTERNAL_MODULE_TESTER
+    isInternalModule = DEFAULT_INTERNAL_MODULE_TESTER,
+    isMjsPackage = DEFAULT_MJS_PACKAGE_TESTER
   } = options
 
-  const fullOptions: FullOptions = {
+  const fullOptions: FullMjsPathOptions = {
     modulePath,
     moduleContainer,
     fromFile,
     fromDir,
     isMjsPath,
-    isInternalModule
+    isInternalModule,
+    isMjsPackage
   }
 
   async function handleFile () {

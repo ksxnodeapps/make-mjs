@@ -28,7 +28,10 @@ import {
   EXTERNAL_MODULE_PATH_DEFAULT,
   EXTERNAL_MODULE_MANIFEST_DEFAULT,
   EXTERNAL_MODULE_ENTRY_DEFAULT,
-  EXTERNAL_MODULE_ENTRY_DEFAULT_MJS
+  EXTERNAL_MODULE_ENTRY_DEFAULT_MJS,
+  EXTERNAL_MODULE_PATH_NONMJS,
+  EXTERNAL_MODULE_MANIFEST_NONMJS,
+  EXTERNAL_MODULE_ENTRY_NONMJS
 } from './paths'
 
 type ElementOf<Iter extends Iterable<any>> = Iter extends Iterable<infer X> ? X : never
@@ -87,7 +90,10 @@ export const allThatIs = mockArray([
   EXTERNAL_MODULE_PATH_DEFAULT,
   EXTERNAL_MODULE_MANIFEST_DEFAULT,
   EXTERNAL_MODULE_ENTRY_DEFAULT,
-  EXTERNAL_MODULE_ENTRY_DEFAULT_MJS
+  EXTERNAL_MODULE_ENTRY_DEFAULT_MJS,
+  EXTERNAL_MODULE_PATH_NONMJS,
+  EXTERNAL_MODULE_MANIFEST_NONMJS,
+  EXTERNAL_MODULE_ENTRY_NONMJS
 ] as const)
 
 export const files = mockArray([
@@ -105,7 +111,9 @@ export const files = mockArray([
   EXTERNAL_MODULE_ENTRY_MAIN,
   EXTERNAL_MODULE_ENTRY_MAIN_MJS,
   EXTERNAL_MODULE_MANIFEST_DEFAULT,
-  EXTERNAL_MODULE_ENTRY_DEFAULT
+  EXTERNAL_MODULE_ENTRY_DEFAULT,
+  EXTERNAL_MODULE_MANIFEST_NONMJS,
+  EXTERNAL_MODULE_ENTRY_NONMJS
 ] as const)
 
 export const directories = mockArray([
@@ -116,7 +124,8 @@ export const directories = mockArray([
   EXTERNAL_MODULE_PATH_MODULE,
   EXTERNAL_MODULE_PATH_BROWSER,
   EXTERNAL_MODULE_PATH_MAIN,
-  EXTERNAL_MODULE_PATH_DEFAULT
+  EXTERNAL_MODULE_PATH_DEFAULT,
+  EXTERNAL_MODULE_PATH_NONMJS
 ] as const)
 
 const allMockedArrays = [allThatIs, files, directories]
@@ -181,6 +190,8 @@ export async function readJSON (filename: string) {
       return { main: ENTRY_MAIN_JS } as const
     case EXTERNAL_MODULE_MANIFEST_DEFAULT:
       return {} as const
+    case EXTERNAL_MODULE_MANIFEST_NONMJS:
+      return { main: ENTRY_MAIN_JS } as const
   }
 
   throw new Error(`Unexpected read: ${JSON.stringify(filename)}`)
