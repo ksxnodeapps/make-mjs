@@ -67,7 +67,7 @@ export async function getMjsPath (options: MjsPathOptions): Promise<string> {
   }
 
   return handleRoute(
-    isInternalModule(fullOptions)
+    (await isInternalModule(fullOptions))
       ? modulePath
       : joinPath(moduleContainer, modulePath)
   )
