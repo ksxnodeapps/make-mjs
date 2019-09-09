@@ -1,0 +1,73 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`"" matches snapshot 1`] = `
+Object {
+  "base": "",
+  "dir": "",
+  "ext": "",
+  "name": "",
+}
+`;
+
+exports[`"/abc.def" matches snapshot 1`] = `
+Object {
+  "base": "abc.def",
+  "dir": "",
+  "ext": ".def",
+  "name": "abc",
+}
+`;
+
+exports[`"/abc.def" matches snapshot 2`] = `
+Object {
+  "base": "abc.def",
+  "dir": "",
+  "ext": ".def",
+  "name": "abc",
+}
+`;
+
+exports[`"abc.def" matches snapshot 1`] = `
+Object {
+  "base": "abc.def",
+  "dir": "",
+  "ext": ".def",
+  "name": "abc",
+}
+`;
+
+exports[`"abc/def/ghi/jkl" matches snapshot 1`] = `
+Object {
+  "base": "jkl",
+  "dir": "abc/def/ghi",
+  "ext": "",
+  "name": "jkl",
+}
+`;
+
+exports[`"abc/def/ghi/jkl." matches snapshot 1`] = `
+Object {
+  "base": "jkl.",
+  "dir": "abc/def/ghi",
+  "ext": ".",
+  "name": "jkl",
+}
+`;
+
+exports[`"abc/def/ghi/jkl.mno" matches snapshot 1`] = `
+Object {
+  "base": "jkl.mno",
+  "dir": "abc/def/ghi",
+  "ext": ".mno",
+  "name": "jkl",
+}
+`;
+
+exports[`"abc/def/ghi/jkl.mno/" matches snapshot 1`] = `
+Object {
+  "base": "jkl.mno",
+  "dir": "abc/def/ghi",
+  "ext": ".mno",
+  "name": "jkl",
+}
+`;

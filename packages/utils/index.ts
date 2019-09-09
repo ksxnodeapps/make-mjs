@@ -32,6 +32,30 @@ export function joinPath (...paths: string[]) {
 }
 
 /**
+ * Like `path.parse` but accept only `'/'` as separator
+ * @param path Path to parse
+ */
+export function parsePath (path: string): parsePath.Result {
+  if (path.endsWith('/')) return parsePath(path.slice(0, -1))
+  const segments = path.split('/')
+  const base = segments.pop()
+  if (!base) return { base: '', dir: '', name: '', ext: '' }
+  const dir = segments.join('/')
+  const [name, extWithoutDot] = base.split('.')
+  const ext = extWithoutDot as any === undefined ? '' : ('.' + extWithoutDot)
+  return { base, dir, name, ext }
+}
+
+export namespace parsePath {
+  export interface Result {
+    dir: string
+    base: string
+    name: string
+    ext: string
+  }
+}
+
+/**
  * Returns a function that
  * takes an `x`,
  * returns `f(x)` if `f(x)` is falsy
