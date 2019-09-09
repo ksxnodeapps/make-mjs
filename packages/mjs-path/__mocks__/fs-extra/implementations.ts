@@ -60,7 +60,11 @@ function mockArray<
     }
   }
 
-  return { main, get, fill, empty, alter, toggle }
+  function filter (predicate: (name: string) => boolean) {
+    alter(main.filter(predicate))
+  }
+
+  return { main, get, fill, empty, alter, toggle, filter }
 }
 
 export const allThatIs = mockArray([
