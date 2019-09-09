@@ -1,5 +1,4 @@
-import path from 'path'
-import { joinPath } from '@make-mjs/utils'
+import { joinPath, parsePath } from '@make-mjs/utils'
 
 interface Options {
   readonly modulePath: string
@@ -8,7 +7,7 @@ interface Options {
 
 export function fromFile (options: Options): string {
   const { modulePath, newExt = '.mjs' } = options
-  const { dir, name, ext } = path.parse(modulePath)
+  const { dir, name, ext } = parsePath(modulePath)
   if (ext === '.js' || ext === '') return joinPath(dir, name + newExt)
   return modulePath
 }
