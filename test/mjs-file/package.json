@@ -1,6 +1,0 @@
-{
-  "private": true,
-  "dependencies": {
-    "@make-mjs/mjs-file": "file:../../packages/mjs-file"
-  }
-}
