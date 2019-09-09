@@ -1,37 +1,19 @@
 import { pathExists, readJSON } from 'fs-extra'
-import { objectExtends } from '@tsfun/object'
+import { addProperty } from '@tsfun/object'
 import { silenceRejection, joinPath } from '@make-mjs/utils'
-import { FromDirOptions } from '../utils/options'
+import { ModulePathResolverOptions } from '../utils/options'
 import fromFile from './from-file'
-import { ModulePathKind, parseModulePath } from './parse-module-path'
 
-export async function fromDir (options: FromDirOptions): Promise<string> {
-  const { modulePath, moduleContainer, isMjsPackage, newExt } = options
+export async function fromDir (options: ModulePathResolverOptions): Promise<string> {
+  const { modulePath, moduleContainer } = options
   const manifest = joinPath(moduleContainer, modulePath, 'package.json')
   const manifestExistsPromise = silenceRejection(pathExists(manifest))
   const manifestContentPromise = silenceRejection(readJSON(manifest))
 
   async function handleMainEntry (entry: string) {
-    const parsingResult = parseModulePath(modulePath)
-    const mjsModulePath = fromFile({
-      modulePath: joinPath(modulePath, entry),
-      newExt
-    })
-
-    if (parsingResult.kind === ModulePathKind.Internal) return mjsModulePath
-
-    if (await pathExists(
-      joinPath(moduleContainer, mjsModulePath)
-    )) return mjsModulePath
-
-    if (await isMjsPackage(
-      objectExtends(options, {
-        packageName: parsingResult.name,
-        moduleEntry: entry
-      }))
-    ) return mjsModulePath
-
-    return modulePath
+    const newModulePath = joinPath(modulePath, entry)
+    const fileOptions = addProperty(options, 'modulePath', newModulePath)
+    return fromFile(fileOptions)
   }
 
   if (await manifestExistsPromise) {

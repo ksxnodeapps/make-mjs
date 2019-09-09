@@ -1,9 +1,20 @@
 import { MaybePromise } from '@make-mjs/utils'
+import { ModulePathParsingResult } from './module-parsing-result'
 
 export type FullMjsPathOptions = Required<MjsPathOptions>
+export type FullModulePathResolverOptions = Required<ModulePathResolverOptions>
 
 export interface ModulePathResolver {
-  (options: FullMjsPathOptions): MaybePromise<string>
+  (options: ModulePathResolverOptions): MaybePromise<string>
+}
+
+export interface ModulePathResolverOptions extends MjsPathOptions {
+  readonly modulePath: string
+  readonly moduleContainer: string
+  readonly isMjsPackage: MjsPackageTester
+  readonly modulePathParsingResult: ModulePathParsingResult
+  readonly forceMjs: boolean
+  readonly newExt?: string
 }
 
 export interface ModulePathTester {
@@ -12,7 +23,6 @@ export interface ModulePathTester {
 
 export interface MjsPackageTesterOptions extends MjsPathOptions {
   readonly packageName: string
-  readonly moduleEntry: string
 }
 
 export interface MjsPackageTester {
@@ -27,11 +37,4 @@ export interface MjsPathOptions {
   readonly isMjsPath?: ModulePathTester
   readonly isInternalModule?: ModulePathTester
   readonly isMjsPackage?: MjsPackageTester
-}
-
-export interface FromDirOptions extends MjsPathOptions {
-  readonly modulePath: string
-  readonly moduleContainer: string
-  readonly isMjsPackage: MjsPackageTester
-  readonly newExt?: string
 }
