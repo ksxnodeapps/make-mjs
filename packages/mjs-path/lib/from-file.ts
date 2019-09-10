@@ -1,7 +1,6 @@
 import { pathExists } from 'fs-extra'
 import once from 'exec-once'
 import { joinPath, parsePath } from '@make-mjs/utils'
-import { MjsPathOptions } from '../utils/options'
 
 interface OptionsWithoutForceMjs {
   readonly modulePath: string
@@ -16,7 +15,7 @@ export function fromFileWithoutChecking (options: OptionsWithoutForceMjs): strin
   return preferredCjsPath
 }
 
-interface Options extends MjsPathOptions {
+interface Options {
   readonly modulePath: string
   readonly moduleContainer: string
   readonly forceMjs: boolean

@@ -1,10 +1,9 @@
 import { pathExists, readJSON } from 'fs-extra'
 import { objectExtends } from '@tsfun/object'
 import { silenceRejection, joinPath } from '@make-mjs/utils'
-import { MjsPathOptions } from '../utils/options'
 import fromFile from './from-file'
 
-export interface Options extends MjsPathOptions {
+export interface Options {
   readonly modulePath: string
   readonly moduleContainer: string
   readonly forceMjs: boolean
