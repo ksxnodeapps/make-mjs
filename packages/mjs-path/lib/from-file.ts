@@ -17,14 +17,19 @@ export function fromFileWithoutChecking (options: OptionsWithoutForceMjs): strin
   return modulePath
 }
 
-export async function fromFile (options: ModulePathResolverOptions): Promise<string> {
+interface Options extends ModulePathResolverOptions {
+  readonly preferredCjsPath?: string
+}
+
+export async function fromFile (options: Options): Promise<string> {
   const {
     modulePath,
     moduleContainer,
     isMjsPackage,
     modulePathParsingResult,
     forceMjs,
-    newExt
+    newExt,
+    preferredCjsPath = modulePath
   } = options
 
   const mjsModulePath = once(() => fromFileWithoutChecking({ modulePath, newExt }))
@@ -39,7 +44,7 @@ export async function fromFile (options: ModulePathResolverOptions): Promise<str
     joinPath(moduleContainer, mjsModulePath())
   )) return mjsModulePath()
 
-  return modulePath
+  return preferredCjsPath
 }
 
 export default fromFile

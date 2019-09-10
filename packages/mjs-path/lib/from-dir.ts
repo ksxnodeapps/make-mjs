@@ -1,5 +1,5 @@
 import { pathExists, readJSON } from 'fs-extra'
-import { addProperty } from '@tsfun/object'
+import { objectExtends } from '@tsfun/object'
 import { silenceRejection, joinPath } from '@make-mjs/utils'
 import { ModulePathResolverOptions } from '../utils/options'
 import fromFile from './from-file'
@@ -12,7 +12,10 @@ export async function fromDir (options: ModulePathResolverOptions): Promise<stri
 
   async function handleMainEntry (entry: string) {
     const newModulePath = joinPath(modulePath, entry)
-    const fileOptions = addProperty(options, 'modulePath', newModulePath)
+    const fileOptions = objectExtends(options, {
+      modulePath: newModulePath,
+      preferredCjsPath: modulePath
+    })
     return fromFile(fileOptions)
   }
 
