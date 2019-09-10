@@ -61,10 +61,14 @@ function mockArray<
   }
 
   function filter (predicate: (name: string) => boolean) {
-    alter(main.filter(predicate))
+    alter(current.filter(predicate))
   }
 
-  return { main, get, fill, empty, alter, toggle, filter }
+  function append (addend: readonly Item[]) {
+    alter(current.concat(addend))
+  }
+
+  return { main, get, fill, empty, alter, toggle, filter, append }
 }
 
 export const allThatIs = mockArray([
@@ -140,6 +144,38 @@ export function fillAllMockedArrays () {
 
 export function emptyAllMockedArrays () {
   allMockedArrays.forEach(x => x.empty())
+}
+
+export function filterFilesOrDirs (
+  fs: typeof files | typeof directories,
+  predicate: (name: string) => boolean
+) {
+  fs.filter(predicate)
+  allThatIs.filter(predicate)
+}
+
+export function filterFiles (predicate: (name: string) => boolean) {
+  filterFilesOrDirs(files, predicate)
+}
+
+export function filterDirs (predicate: (name: string) => boolean) {
+  filterFilesOrDirs(directories, predicate)
+}
+
+export function appendFileOrDir (
+  fs: typeof files | typeof directories,
+  addend: readonly string[]
+) {
+  fs.append(addend)
+  allThatIs.append(addend)
+}
+
+export function appendFile (addend: readonly string[]) {
+  appendFileOrDir(files, addend)
+}
+
+export function appendDir (addend: readonly string[]) {
+  appendFileOrDir(directories, addend)
 }
 
 export async function pathExists (path: string) {
