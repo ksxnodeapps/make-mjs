@@ -1,4 +1,6 @@
 import { pathExists } from 'fs-extra'
+import once from 'exec-once'
+import { addProperty } from '@tsfun/object'
 import { joinPath, parsePath } from '@make-mjs/utils'
 import { ModulePathResolverOptions } from '../utils/options'
 import { ModulePathKind } from './parse-module-path'
@@ -25,15 +27,17 @@ export async function fromFile (options: ModulePathResolverOptions): Promise<str
     newExt
   } = options
 
-  const mjsModulePath = fromFileWithoutChecking({ modulePath, newExt })
+  const mjsModulePath = once(() => fromFileWithoutChecking({ modulePath, newExt }))
 
-  if (forceMjs) return mjsModulePath
-  if (isMjsPackage) return mjsModulePath
-  if (modulePathParsingResult.kind === ModulePathKind.Internal) return mjsModulePath
+  if (forceMjs) return mjsModulePath()
+  if (modulePathParsingResult.kind === ModulePathKind.Internal) return mjsModulePath()
+
+  const testerOptions = addProperty(options, 'packageName', modulePathParsingResult.name)
+  if (await isMjsPackage(testerOptions)) return mjsModulePath()
 
   if (await pathExists(
-    joinPath(moduleContainer, mjsModulePath)
-  )) return mjsModulePath
+    joinPath(moduleContainer, mjsModulePath())
+  )) return mjsModulePath()
 
   return modulePath
 }
