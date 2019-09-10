@@ -1,11 +1,18 @@
 import { pathExists, readJSON } from 'fs-extra'
 import { objectExtends } from '@tsfun/object'
 import { silenceRejection, joinPath } from '@make-mjs/utils'
-import { ModulePathResolverOptions } from '../utils/options'
+import { MjsPathOptions } from '../utils/options'
 import fromFile from './from-file'
 
-export async function fromDir (options: ModulePathResolverOptions): Promise<string> {
-  const { modulePath, moduleContainer } = options
+export interface Options extends MjsPathOptions {
+  readonly modulePath: string
+  readonly moduleContainer: string
+  readonly forceMjs: boolean
+  readonly newExt?: string
+}
+
+export async function fromDir (options: Options): Promise<string> {
+  const { modulePath, moduleContainer, forceMjs } = options
   const manifest = joinPath(moduleContainer, modulePath, 'package.json')
   const manifestExistsPromise = silenceRejection(pathExists(manifest))
   const manifestContentPromise = silenceRejection(readJSON(manifest))
@@ -14,7 +21,7 @@ export async function fromDir (options: ModulePathResolverOptions): Promise<stri
     const newModulePath = joinPath(modulePath, entry)
     const fileOptions = objectExtends(options, {
       modulePath: newModulePath,
-      preferredCjsPath: modulePath
+      preferredCjsPath: forceMjs ? newModulePath : modulePath
     })
     return fromFile(fileOptions)
   }

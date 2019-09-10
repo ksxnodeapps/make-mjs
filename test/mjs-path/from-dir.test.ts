@@ -14,18 +14,14 @@ import {
   EXTERNAL_MODULE_NAME_NONMJS
 } from './fsx-mocks'
 
-function SHOULDNT_CALL (): never {
-  throw new Error('This function was expected not to be called, but it is')
-}
-
 const getPresentMjs = (modulePath: string) =>
-  fromDir({ moduleContainer: MODULE_CONTAINER, isMjsPackage: SHOULDNT_CALL, modulePath })
+  fromDir({ moduleContainer: MODULE_CONTAINER, forceMjs: false, modulePath })
 
 const getAbsentMjs = (modulePath: string) =>
-  fromDir({ moduleContainer: MODULE_CONTAINER, isMjsPackage: () => true, modulePath })
+  fromDir({ moduleContainer: MODULE_CONTAINER, forceMjs: true, modulePath })
 
 const getNonMjs = (modulePath: string) =>
-  fromDir({ moduleContainer: MODULE_CONTAINER, isMjsPackage: () => false, modulePath })
+  fromDir({ moduleContainer: MODULE_CONTAINER, forceMjs: false, modulePath })
 
 it('when manifest does not exist', async () => {
   expect(await getPresentMjs(EXTERNAL_MODULE_NAME))
@@ -52,12 +48,12 @@ it('when manifest exists and contains "main"', async () => {
     .toBe(EXTERNAL_MODULE_NAME_MAIN + '/' + ENTRY_MAIN_MJS)
 })
 
-it('when mjs file does not exist and isMjsPackage returns true', async () => {
+it('when mjs file does not exist and forceMjs is true', async () => {
   expect(await getAbsentMjs(EXTERNAL_MODULE_NAME_NONMJS))
     .toBe(EXTERNAL_MODULE_NAME_NONMJS + '/' + ENTRY_MAIN_MJS)
 })
 
-it('when mjs file does not exist and isMjsPackage returns false', async () => {
+it('when mjs file does not exist and forceMjs is false', async () => {
   expect(await getNonMjs(EXTERNAL_MODULE_NAME_NONMJS))
     .toBe(EXTERNAL_MODULE_NAME_NONMJS)
 })
