@@ -1,6 +1,6 @@
-import { pathExists, stat } from 'fs-extra'
 import { addProperty, objectExtends } from '@tsfun/object'
 import { silenceRejection, joinPath } from '@make-mjs/utils'
+import { pathExists, stat } from '@make-mjs/fs-extra'
 import DEFAULT_FILE_PATH_RESOLVER from './from-file'
 import DEFAULT_DIR_PATH_RESOLVER from './from-dir'
 import DEFAULT_MJS_PATH_TESTER from './is-mjs-path'

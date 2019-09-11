@@ -5,7 +5,7 @@ import {
   fillAllMockedArrays
 } from './fsx-mocks'
 
-describe.skip('fromFileWithoutChecking', () => {
+describe('fromFileWithoutChecking', () => {
   const get = (modulePath: string) => fromFileWithoutChecking({ modulePath })
 
   it('without extension', () => {
