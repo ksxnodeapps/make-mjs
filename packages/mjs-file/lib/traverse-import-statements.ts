@@ -15,9 +15,6 @@ export type ImportStatement =
   ImportStatement.Expression
 
 export namespace ImportStatement {
-  // export type Declaration = ImportDeclaration
-  // export type Expression = CallExpression & { readonly callee: Import }
-
   export interface Declaration extends ImportDeclaration {}
 
   export interface Expression extends CallExpression {
