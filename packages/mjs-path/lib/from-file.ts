@@ -1,6 +1,6 @@
-import { pathExists } from 'fs-extra'
 import once from 'exec-once'
 import { joinPath, parsePath } from '@make-mjs/utils'
+import { pathExists } from '@make-mjs/fs-extra'
 
 interface OptionsWithoutForceMjs {
   readonly modulePath: string

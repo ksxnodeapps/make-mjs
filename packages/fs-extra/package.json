@@ -1,7 +1,7 @@
 {
-  "name": "@make-mjs/mjs-path",
+  "name": "@make-mjs/fs-extra",
   "version": "0.0.0",
-  "description": "Manipulate MJS module path",
+  "description": "Literally fs-extra",
   "author": "Hoàng Văn Khải <hvksmr1996@gmail.com>",
   "license": "MIT",
   "homepage": "https://github.com/ksxnodeapps/make-mjs#readme",
@@ -13,11 +13,10 @@
     "url": "https://github.com/ksxnodeapps/make-mjs/issues"
   },
   "dependencies": {
-    "exec-once": "^0.0.2",
-    "@tsfun/object": "^0.0.1",
+    "fs-extra": "8.1.0",
     "tslib": "^1.10.0",
     "@make-mjs/utils": "^0.0.0",
-    "@make-mjs/fs-extra": "^0.0.0",
+    "@types/fs-extra": "^8.0.0",
     "@types/node": "^12.7.4"
   }
 }
