@@ -1,5 +1,5 @@
 import { joinPath } from '@make-mjs/utils'
 
 it('works', () => {
-  expect(joinPath('abc', 'def/', 'ghi')).toBe('abc/def/ghi')
+  expect(joinPath('abc', 'def/', 'ghi', '', 'jkl')).toBe('abc/def/ghi/jkl')
 })

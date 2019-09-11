@@ -28,6 +28,7 @@ export function removeTrailingSeparator (path: string) {
 export function joinPath (...paths: string[]) {
   return paths
     .map(removeTrailingSeparator)
+    .filter(Boolean)
     .join('/')
 }
 
