@@ -217,6 +217,16 @@ export function emptyAllMockedMaps () {
   allMockedMaps.forEach(x => x.empty())
 }
 
+export function fillAll () {
+  fillAllMockedArrays()
+  fillAllMockedMaps()
+}
+
+export function emptyAll () {
+  emptyAllMockedArrays()
+  emptyAllMockedMaps()
+}
+
 export function filterFilesOrDirs (
   fs: typeof files | typeof directories,
   predicate: (name: string) => boolean
