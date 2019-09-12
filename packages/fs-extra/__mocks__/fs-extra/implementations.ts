@@ -71,6 +71,54 @@ function mockArray<
   return { main, get, fill, empty, alter, toggle, filter, append }
 }
 
+const EMPTY_MAP = new Map<never, never>()
+
+function mockMap<Key, Value> (main: ReadonlyMap<Key, Value>) {
+  let current: ReadonlyMap<Key, Value> = main
+
+  const get = () => current
+  const fill = () => alter(main)
+  const empty = () => alter(EMPTY_MAP)
+
+  function alter (map: typeof current) {
+    current = map
+  }
+
+  function toggle () {
+    if (current === main) {
+      empty()
+    } else {
+      fill()
+    }
+  }
+
+  function filter (predicate: (key: Key, value: Value) => boolean) {
+    alter(new Map(
+      Array
+        .from(current)
+        .filter(entry => predicate(...entry))
+    ))
+  }
+
+  function filterKeys (predicate: (key: Key) => boolean) {
+    filter(key => predicate(key))
+  }
+
+  function filterValues (predicate: (value: Value) => boolean) {
+    filter((_, value) => predicate(value))
+  }
+
+  function append (entries: Iterable<readonly [Key, Value]>) {
+    const newMap = new Map(current)
+    for (const [key, value] of entries) {
+      newMap.set(key, value)
+    }
+    alter(newMap)
+  }
+
+  return { main, get, fill, empty, toggle, filter, filterKeys, filterValues, append }
+}
+
 export const allThatIs = mockArray([
   MODULE_CONTAINER,
   INTERNAL_FILE_MODULE_PATH,
@@ -136,7 +184,22 @@ export const directories = mockArray([
   EXTERNAL_MODULE_PATH_NONMJS
 ] as const)
 
+export interface ManifestContent {
+  readonly main?: string
+  readonly module?: string
+  readonly browser?: string
+}
+
+export const manifestFiles = mockMap<string, ManifestContent>(new Map([
+  [EXTERNAL_MODULE_MANIFEST_MODULE, { module: ENTRY_MODULE }],
+  [EXTERNAL_MODULE_MANIFEST_BROWSER, { browser: ENTRY_BROWSER }],
+  [EXTERNAL_MODULE_MANIFEST_MAIN, { main: ENTRY_MAIN_JS }],
+  [EXTERNAL_MODULE_MANIFEST_DEFAULT, {}],
+  [EXTERNAL_MODULE_MANIFEST_NONMJS, { main: ENTRY_MAIN_JS }]
+]))
+
 const allMockedArrays = [allThatIs, files, directories]
+const allMockedMaps = [manifestFiles]
 
 export function fillAllMockedArrays () {
   allMockedArrays.forEach(x => x.fill())
@@ -144,6 +207,14 @@ export function fillAllMockedArrays () {
 
 export function emptyAllMockedArrays () {
   allMockedArrays.forEach(x => x.empty())
+}
+
+export function fillAllMockedMaps () {
+  allMockedMaps.forEach(x => x.fill())
+}
+
+export function emptyAllMockedMaps () {
+  allMockedMaps.forEach(x => x.empty())
 }
 
 export function filterFilesOrDirs (
@@ -156,6 +227,7 @@ export function filterFilesOrDirs (
 
 export function filterFiles (predicate: (name: string) => boolean) {
   filterFilesOrDirs(files, predicate)
+  manifestFiles.filterKeys(predicate)
 }
 
 export function filterDirs (predicate: (name: string) => boolean) {
@@ -176,6 +248,11 @@ export function appendFile (addend: readonly string[]) {
 
 export function appendDir (addend: readonly string[]) {
   appendFileOrDir(directories, addend)
+}
+
+export function appendManifest (entries: ReadonlyArray<readonly [string, ManifestContent]>) {
+  manifestFiles.append(entries)
+  appendFile(entries.map(entry => entry[0]))
 }
 
 export async function pathExists (path: string) {
@@ -220,19 +297,7 @@ export async function stat (path: string) {
 
 export async function readJSON (filename: string) {
   await assertExist(filename)
-
-  switch (filename) {
-    case EXTERNAL_MODULE_MANIFEST_MODULE:
-      return { module: ENTRY_MODULE } as const
-    case EXTERNAL_MODULE_MANIFEST_BROWSER:
-      return { browser: ENTRY_BROWSER } as const
-    case EXTERNAL_MODULE_MANIFEST_MAIN:
-      return { main: ENTRY_MAIN_JS } as const
-    case EXTERNAL_MODULE_MANIFEST_DEFAULT:
-      return {} as const
-    case EXTERNAL_MODULE_MANIFEST_NONMJS:
-      return { main: ENTRY_MAIN_JS } as const
-  }
-
-  throw new Error(`Unexpected read: ${JSON.stringify(filename)}`)
+  const manifest = manifestFiles.get().get(filename)
+  if (!manifest) throw new Error(`Unexpected read: ${JSON.stringify(filename)}`)
+  return manifest
 }
