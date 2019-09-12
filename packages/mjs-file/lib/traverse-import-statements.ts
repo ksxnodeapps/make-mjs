@@ -3,6 +3,8 @@ import traverse from '@babel/traverse'
 import {
   Node,
   ImportDeclaration,
+  ExportAllDeclaration,
+  ExportNamedDeclaration,
   CallExpression,
   Import,
   StringLiteral,
@@ -15,7 +17,14 @@ export type ImportStatement =
   ImportStatement.Expression
 
 export namespace ImportStatement {
-  export interface Declaration extends ImportDeclaration {}
+  interface NamedReexport extends ExportNamedDeclaration {
+    readonly source: StringLiteral
+  }
+
+  export type Declaration =
+    ImportDeclaration |
+    ExportAllDeclaration |
+    NamedReexport
 
   export interface Expression extends CallExpression {
     callee: Import
@@ -35,7 +44,11 @@ export function traverseImportStatements (node: Node, options: TraversalOptions)
     enter (path) {
       switch (path.node.type) {
         case 'ImportDeclaration':
-          declaration(path as NodePath<ImportStatement.Declaration>)
+        case 'ExportAllDeclaration':
+        case 'ExportNamedDeclaration':
+          if (path.node.source) {
+            declaration(path as NodePath<ImportStatement.Declaration>)
+          }
           break
         case 'CallExpression':
           if (path.node.callee.type === 'Import') {
