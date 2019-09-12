@@ -52,6 +52,56 @@ describe('when code contains a static import declaration', () => {
   })
 })
 
+describe('when code contains a star re-export', () => {
+  const code = `
+    export * from 'url'
+  `
+
+  it('calls options.declaration once', () => {
+    const { declaration } = setup(code)
+    expect(declaration).toBeCalledTimes(1)
+  })
+
+  it('calls options.declaration with a path to a star re-export', () => {
+    const { declaration } = setup(code)
+    expect(declaration).toBeCalledWith(expect.objectContaining({
+      node: expect.objectContaining({
+        type: 'ExportAllDeclaration'
+      })
+    }))
+  })
+
+  it('does not calls options.expression', () => {
+    const { expression } = setup(code)
+    expect(expression).not.toBeCalled()
+  })
+})
+
+describe('when code contains a named re-export', () => {
+  const code = `
+    export { a, b, c } from 'url'
+  `
+
+  it('calls options.declaration once', () => {
+    const { declaration } = setup(code)
+    expect(declaration).toBeCalledTimes(1)
+  })
+
+  it('calls options.declaration with a path to a named re-export', () => {
+    const { declaration } = setup(code)
+    expect(declaration).toBeCalledWith(expect.objectContaining({
+      node: expect.objectContaining({
+        type: 'ExportNamedDeclaration'
+      })
+    }))
+  })
+
+  it('does not calls options.expression', () => {
+    const { expression } = setup(code)
+    expect(expression).not.toBeCalled()
+  })
+})
+
 describe('when code contains a dynamic import expression', () => {
   const code = `
     const object = import('url')
