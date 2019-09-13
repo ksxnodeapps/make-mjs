@@ -1,5 +1,75 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`with isMjsPackage always return false matches snapshot 1`] = `
+"
+import './internal-file.mjs'
+import './internal-dir/index.mjs'
+import 'nonmjs-external'
+import 'nonmjs-external/dir-without-manifest'
+import 'nonmjs-external/dir-with-manifest'
+import 'nonmjs-external/file'
+import 'external-default/index.mjs'
+import 'external-default/dir-without-manifest'
+import 'external-default/dir-with-manifest'
+import 'external-default/file.mjs'
+import 'external-main/main-entry.mjs'
+import 'external-main/dir-without-manifest'
+import 'external-main/dir-with-manifest/dir-main-entry.mjs'
+import 'external-main/file.mjs'
+import 'external-browser/browser-entry'
+import 'external-browser/dir-without-manifest'
+import 'external-browser/dir-with-manifest/dir-browser-entry'
+import 'external-browser/file.mjs'
+import 'external-module/module-entry'
+import 'external-module/dir-without-manifest'
+import 'external-module/dir-with-manifest/dir-module-entry'
+import 'external-module/file.mjs'
+export * from './internal-file.mjs'
+export * from 'external-module/module-entry'
+export { default } from './internal-dir/index.mjs'
+export async function main() {
+  const a = await import('./internal-file.mjs')
+  const b = await import('external-module/module-entry')
+  return [a, b]
+}
+"
+`;
+
+exports[`with isMjsPackage always return true matches snapshot 1`] = `
+"
+import './internal-file.mjs'
+import './internal-dir/index.mjs'
+import 'nonmjs-external/index.mjs'
+import 'nonmjs-external/dir-without-manifest/index.mjs'
+import 'nonmjs-external/dir-with-manifest/index.mjs'
+import 'nonmjs-external/file.mjs'
+import 'external-default/index.mjs'
+import 'external-default/dir-without-manifest/index.mjs'
+import 'external-default/dir-with-manifest/index.mjs'
+import 'external-default/file.mjs'
+import 'external-main/main-entry.mjs'
+import 'external-main/dir-without-manifest/index.mjs'
+import 'external-main/dir-with-manifest/dir-main-entry.mjs'
+import 'external-main/file.mjs'
+import 'external-browser/browser-entry'
+import 'external-browser/dir-without-manifest/index.mjs'
+import 'external-browser/dir-with-manifest/dir-browser-entry'
+import 'external-browser/file.mjs'
+import 'external-module/module-entry'
+import 'external-module/dir-without-manifest/index.mjs'
+import 'external-module/dir-with-manifest/dir-module-entry'
+import 'external-module/file.mjs'
+export * from './internal-file.mjs'
+export * from 'external-module/module-entry'
+export { default } from './internal-dir/index.mjs'
+export async function main() {
+  const a = await import('./internal-file.mjs')
+  const b = await import('external-module/module-entry')
+  return [a, b]
+}
+"
+`;
+
 exports[`without isMjsPackage matches snapshot 1`] = `
 "
 import './internal-file.mjs'
