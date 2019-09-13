@@ -9,7 +9,7 @@ import {
   DEFAULT_INTERNAL_MODULE_TESTER,
   DEFAULT_MJS_PATH_TESTER,
   DEFAULT_MJS_PACKAGE_TESTER
-} from '@make-mjs/mjs-path'
+} from '@make-mjs/path'
 
 assert<ModulePathResolver>(
   DEFAULT_DIR_PATH_RESOLVER,

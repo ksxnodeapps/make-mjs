@@ -4,6 +4,6 @@
     "eslint": "^6.3.0",
     "@types/eslint": "^6.1.1",
     "@make-mjs/fs-extra": "file:../../packages/fs-extra",
-    "@make-mjs/mjs-file": "file:../../packages/mjs-file"
+    "@make-mjs/file": "file:../../packages/file"
   }
 }

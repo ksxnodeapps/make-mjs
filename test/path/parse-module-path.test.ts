@@ -1,4 +1,4 @@
-import { parseModulePath, ModulePathKind } from '@make-mjs/mjs-path'
+import { parseModulePath, ModulePathKind } from '@make-mjs/path'
 
 describe('with "./foo/bar/baz"', () => {
   const path = './foo/bar/baz'

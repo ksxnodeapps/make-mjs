@@ -1,6 +1,6 @@
 dependencies:
+  '@make-mjs/file': 'link:../../packages/file'
   '@make-mjs/fs-extra': 'link:../../packages/fs-extra'
-  '@make-mjs/mjs-file': 'link:../../packages/mjs-file'
   '@types/eslint': 6.1.1
   eslint: 6.3.0
 lockfileVersion: 5.1
@@ -840,7 +840,7 @@ packages:
     resolution:
       integrity: sha512-/lg70HAjtkUgWPVZhZcm+T4hkL8Zbtp1nFNOn3lRrxnlv50SRBv7cR7RqR+GMsd3hUXy9hWBo4CHTbFTcOYwig==
 specifiers:
+  '@make-mjs/file': 'file:../../packages/file'
   '@make-mjs/fs-extra': 'file:../../packages/fs-extra'
-  '@make-mjs/mjs-file': 'file:../../packages/mjs-file'
   '@types/eslint': ^6.1.1
   eslint: ^6.3.0

@@ -4,6 +4,6 @@
     "static-type-assert": "3.0.1",
     "@make-mjs/utils": "file:../../packages/utils",
     "@make-mjs/fs-extra": "file:../../packages/fs-extra",
-    "@make-mjs/mjs-path": "file:../../packages/mjs-path"
+    "@make-mjs/path": "file:../../packages/path"
   }
 }

@@ -1,5 +1,5 @@
 import { joinPath } from '@make-mjs/utils'
-import { getMjsPath } from '@make-mjs/mjs-path'
+import { getMjsPath } from '@make-mjs/path'
 
 import {
   MODULE_CONTAINER,

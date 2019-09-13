@@ -1,4 +1,4 @@
-import { formatCode } from '@make-mjs/mjs-file'
+import { formatCode } from '@make-mjs/file'
 
 it('simple use case', () => {
   const code = `

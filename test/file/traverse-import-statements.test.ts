@@ -1,4 +1,4 @@
-import { traverseImportStatements, parseCode } from '@make-mjs/mjs-file'
+import { traverseImportStatements, parseCode } from '@make-mjs/file'
 
 function setup (code: string) {
   const declaration = jest.fn()

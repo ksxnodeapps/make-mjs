@@ -1,4 +1,4 @@
-import { transformCode } from '@make-mjs/mjs-file'
+import { transformCode } from '@make-mjs/file'
 import { formatCode } from './eslint'
 
 import {

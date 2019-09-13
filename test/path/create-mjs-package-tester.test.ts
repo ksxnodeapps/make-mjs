@@ -3,7 +3,7 @@ import {
   mjsPackageTesterDef,
   nonMjsPackageTester,
   nonMjsPackageTesterDef
-} from '@make-mjs/mjs-path'
+} from '@make-mjs/path'
 
 describe('mjsPackageTester', () => {
   describe('when package is in the list', () => {
