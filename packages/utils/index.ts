@@ -56,6 +56,12 @@ export namespace parsePath {
   }
 }
 
+const EXT_REGEX = /(\.[^\.]*)?$/
+
+export function replacePathExtension (path: string, newExt: string) {
+  return path.replace(EXT_REGEX, newExt)
+}
+
 export function * iterateAncestorDirectories (path: string) {
   const segments = path.split('/').filter(Boolean)
 
