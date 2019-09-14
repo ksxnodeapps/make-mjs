@@ -7,7 +7,7 @@ import generate, { GeneratorOptions } from './generate-code'
 import traverse from './traverse-import-statements'
 
 export interface NodeTransformOptions {
-  readonly moduleContainer: string
+  readonly moduleContainer: readonly string[]
   readonly isMjsPackage?: MjsPackageTester
 }
 

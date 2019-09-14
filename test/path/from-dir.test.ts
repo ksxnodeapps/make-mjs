@@ -15,13 +15,13 @@ import {
 } from './fsx-mocks'
 
 const getPresentMjs = (modulePath: string) =>
-  fromDir({ moduleContainer: MODULE_CONTAINER, forceMjs: false, modulePath })
+  fromDir({ moduleContainer: [MODULE_CONTAINER], forceMjs: false, modulePath })
 
 const getAbsentMjs = (modulePath: string) =>
-  fromDir({ moduleContainer: MODULE_CONTAINER, forceMjs: true, modulePath })
+  fromDir({ moduleContainer: [MODULE_CONTAINER], forceMjs: true, modulePath })
 
 const getNonMjs = (modulePath: string) =>
-  fromDir({ moduleContainer: MODULE_CONTAINER, forceMjs: false, modulePath })
+  fromDir({ moduleContainer: [MODULE_CONTAINER], forceMjs: false, modulePath })
 
 it('when manifest does not exist', async () => {
   expect(await getPresentMjs(EXTERNAL_MODULE_NAME))

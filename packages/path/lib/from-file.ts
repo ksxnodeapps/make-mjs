@@ -17,7 +17,7 @@ export function fromFileWithoutChecking (options: OptionsWithoutForceMjs): strin
 
 interface Options {
   readonly modulePath: string
-  readonly moduleContainer: string
+  readonly moduleContainer: readonly string[]
   readonly forceMjs: boolean
   readonly newExt?: string
   readonly preferredCjsPath?: string
@@ -38,9 +38,11 @@ export async function fromFile (options: Options): Promise<string> {
 
   if (forceMjs) return mjsModulePath()
 
-  if (await pathExists(
-    joinPath(moduleContainer, mjsModulePath())
-  )) return mjsModulePath()
+  for (const item of moduleContainer) {
+    if (await pathExists(
+      joinPath(item, mjsModulePath())
+    )) return mjsModulePath()
+  }
 
   return preferredCjsPath
 }

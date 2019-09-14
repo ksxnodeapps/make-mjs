@@ -1,4 +1,4 @@
-import { addProperty, objectExtends } from '@tsfun/object'
+import { addProperty } from '@tsfun/object'
 import { silenceRejection, joinPath } from '@make-mjs/utils'
 import { pathExists, stat } from '@make-mjs/fs-extra'
 import DEFAULT_FILE_PATH_RESOLVER from './from-file'
@@ -57,34 +57,43 @@ export async function getMjsPath (options: MjsPathOptions): Promise<string> {
     return fromFile(resolverOptions)
   }
 
-  async function handleRoute (route: string, forceMjs: boolean) {
+  async function handleRoute (route: string, resolverOptions: ModulePathResolverOptions) {
     const pathExistsPromise = silenceRejection(pathExists(route))
     const modulePathStatsPromise = silenceRejection(stat(route))
-    const resolverOptions = objectExtends(fullOptions, {
-      modulePathParsingResult: parsingResult,
-      forceMjs
-    })
 
     if (await pathExistsPromise) {
       const stats = await modulePathStatsPromise
       if (stats.isFile()) return handleFile(resolverOptions)
       if (stats.isDirectory()) return fromDir(resolverOptions)
       throw new Error(`Module is neither file nor directory: ${route}`)
-    } else {
-      return handleFile(resolverOptions)
     }
+
+    return null
+  }
+
+  async function handleModuleContainer (forceMjs: boolean) {
+    const resolverOptions = addProperty(fullOptions, 'forceMjs', forceMjs)
+
+    for (const directory of moduleContainer) {
+      const route = joinPath(directory, modulePath)
+      const result = await handleRoute(route, resolverOptions)
+      if (result) return result
+    }
+
+    return handleFile(resolverOptions)
   }
 
   if (parsingResult.kind === ModulePathKind.Internal) {
-    return handleRoute(modulePath, true)
+    const resolverOptions = addProperty(fullOptions, 'forceMjs', true)
+    return (await handleRoute(modulePath, resolverOptions)) || handleFile(resolverOptions)
   }
 
   const testerOptions = addProperty(fullOptions, 'packageName', parsingResult.name)
   if (await isMjsPackage(testerOptions)) {
-    return handleRoute(joinPath(moduleContainer, modulePath), true)
+    return handleModuleContainer(true)
   }
 
-  return handleRoute(joinPath(moduleContainer, modulePath), false)
+  return handleModuleContainer(false)
 }
 
 export default getMjsPath

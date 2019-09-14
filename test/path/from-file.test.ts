@@ -26,7 +26,7 @@ describe('fromFile', () => {
 
   describe('when forceMjs is false and .mjs files exist', () => {
     const get = (modulePath: string) =>
-      fromFile({ modulePath, forceMjs: false, moduleContainer: '' })
+      fromFile({ modulePath, forceMjs: false, moduleContainer: [''] })
 
     it('without extension', async () => {
       appendFile(['./foo/bar.mjs'])
@@ -45,7 +45,7 @@ describe('fromFile', () => {
 
   describe('when forceMjs is false and .mjs files do not exist', () => {
     const get = (modulePath: string) =>
-      fromFile({ modulePath, forceMjs: false, moduleContainer: '' })
+      fromFile({ modulePath, forceMjs: false, moduleContainer: [''] })
 
     it('without extension', async () => {
       appendFile(['./foo/bar.mjs'])
@@ -64,7 +64,7 @@ describe('fromFile', () => {
 
   describe('when forceMjs is true', () => {
     const get = (modulePath: string) =>
-      fromFile({ modulePath, forceMjs: true, moduleContainer: '' })
+      fromFile({ modulePath, forceMjs: true, moduleContainer: [''] })
 
     it('without extension', async () => {
       expect(await get('./foo/bar')).toBe('./foo/bar.mjs')

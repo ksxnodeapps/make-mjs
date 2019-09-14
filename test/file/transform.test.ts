@@ -127,7 +127,7 @@ describe('without isMjsPackage', () => {
 
   it('matches snapshot', async () => {
     const result = await transformCode(code, {
-      moduleContainer: 'node_modules'
+      moduleContainer: ['node_modules']
     })
 
     expect(formatCode(result.code)).toMatchSnapshot()
@@ -175,7 +175,7 @@ describe('without isMjsPackage', () => {
     `)
 
     const result = await transformCode(code, {
-      moduleContainer: 'node_modules'
+      moduleContainer: ['node_modules']
     })
 
     expect(formatCode(result.code)).toBe(expectedCode)
@@ -225,7 +225,7 @@ describe('with isMjsPackage always return false', () => {
 
   function get () {
     return transformCode(code, {
-      moduleContainer: 'node_modules',
+      moduleContainer: ['node_modules'],
       isMjsPackage: () => false
     })
   }
@@ -324,7 +324,7 @@ describe('with isMjsPackage always return true', () => {
 
   function get () {
     return transformCode(code, {
-      moduleContainer: 'node_modules',
+      moduleContainer: ['node_modules'],
       isMjsPackage: () => true
     })
   }
