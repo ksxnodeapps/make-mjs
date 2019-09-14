@@ -305,6 +305,8 @@ export async function stat (path: string) {
   return new Stats(getStatType(path))
 }
 
+export const lstat = stat
+
 export async function readJSON (filename: string) {
   await assertExist(filename)
   const manifest = manifestFiles.get().get(filename)
