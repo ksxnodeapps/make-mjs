@@ -56,6 +56,15 @@ export namespace parsePath {
   }
 }
 
+export function * iterateAncestorDirectories (path: string) {
+  const segments = path.split('/').filter(Boolean)
+
+  while (segments.length) {
+    segments.pop()
+    yield joinPath(...segments)
+  }
+}
+
 /**
  * Returns a function that
  * takes an `x`,
