@@ -68,7 +68,11 @@ function mockArray<
     alter(current.concat(addend))
   }
 
-  return { main, get, fill, empty, alter, toggle, filter, append }
+  function dedup () {
+    alter(current.filter((x, i, a) => a.indexOf(x) === i))
+  }
+
+  return { main, get, fill, empty, alter, toggle, filter, append, dedup }
 }
 
 const EMPTY_MAP = new Map<never, never>()
