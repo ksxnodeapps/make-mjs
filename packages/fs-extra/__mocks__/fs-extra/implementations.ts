@@ -202,6 +202,8 @@ export const manifestFiles = mockMap<string, ManifestContent>(new Map([
   [EXTERNAL_MODULE_MANIFEST_NONMJS, { main: ENTRY_MAIN_JS }]
 ]))
 
+export const textFiles = mockMap<string, string>(new Map())
+
 const allMockedArrays = [allThatIs, files, directories]
 const allMockedMaps = [manifestFiles]
 
@@ -269,6 +271,13 @@ export function appendManifest (entries: ReadonlyArray<readonly [string, Manifes
   appendFile(entries.map(entry => entry[0]))
 }
 
+export function appendTextFile (entries: { readonly [_ in string]: string }) {
+  textFiles.append(Object.entries(entries))
+  appendFile(Object.keys(entries))
+  files.dedup()
+  allThatIs.dedup()
+}
+
 export async function pathExists (path: string) {
   return allThatIs.get().includes(path)
 }
@@ -316,4 +325,16 @@ export async function readJSON (filename: string) {
   const manifest = manifestFiles.get().get(filename)
   if (!manifest) throw new Error(`Unexpected read: ${JSON.stringify(filename)}`)
   return manifest
+}
+
+export async function readFile (filename: string) {
+  await assertExist(filename)
+  const content = textFiles.get().get(filename)
+  if (content !== undefined) return content
+  const manifest = readJSON(filename)
+  return JSON.stringify(manifest, undefined, 2)
+}
+
+export async function writeFile (filename: string, content: string) {
+  appendTextFile({ [filename]: content })
 }
