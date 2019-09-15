@@ -1,6 +1,6 @@
 import { addProperty, objectExtends } from '@tsfun/object'
 import { replacePathExtension } from '@make-mjs/utils'
-import { CodeTransformOptions, transformCode } from '@make-mjs/file'
+import { CodeTransformOptions, DEFAULT_PARSER_OPTIONS, transformCode } from '@make-mjs/file'
 import { getModuleContainer } from '../utils/get-module-container'
 
 import {
@@ -21,7 +21,7 @@ export async function * transform (options: TransformOptions): AsyncGenerator<Fi
   for await (const { path, content } of files) {
     const newPath = getNewPath(path)
     const parserOptions = addProperty(
-      codeTransformOptions.parserOptions || {},
+      codeTransformOptions.parserOptions || DEFAULT_PARSER_OPTIONS,
       'sourceFilename',
       path
     )
