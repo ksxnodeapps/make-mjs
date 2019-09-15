@@ -1,5 +1,9 @@
 export {
   pathExists,
   stat,
-  readJSON
+  readJSON,
+  readdirSync,
+  readdir,
+  ensureDirSync,
+  writeFile
 } from './implementations'
