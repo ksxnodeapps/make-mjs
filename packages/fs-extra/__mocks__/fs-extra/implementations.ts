@@ -290,6 +290,34 @@ export namespace appendTextFile {
   }
 }
 
+type FileSystemItem = string | ManifestContent | null
+
+function getParentDirectory (path: string) {
+  return path.split('/').slice(0, -1).join('/')
+}
+
+export function appendFileSystem (entries: ReadonlyArray<readonly [string, FileSystemItem]>) {
+  for (const [path, content] of entries) {
+    ensureDirSync(getParentDirectory(path))
+
+    if (content === null) {
+      appendDir([path])
+    } else if (typeof content === 'object') {
+      appendManifest([[path, content]])
+    } else if (path.endsWith('.json')) {
+      appendManifest([[path, JSON.parse(content)]])
+    } else {
+      appendTextFile([[path, content]])
+    }
+  }
+}
+
+export namespace appendFileSystem {
+  export function fromObject (object: { readonly [_: string]: FileSystemItem }) {
+    appendFileSystem(Object.entries(object))
+  }
+}
+
 export async function pathExists (path: string) {
   return allThatIs.get().includes(path)
 }
