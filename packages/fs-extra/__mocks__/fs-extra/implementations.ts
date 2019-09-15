@@ -319,6 +319,7 @@ export namespace appendFileSystem {
 }
 
 export async function pathExists (path: string) {
+  if (path === '.') return true
   return allThatIs.get().includes(path)
 }
 
