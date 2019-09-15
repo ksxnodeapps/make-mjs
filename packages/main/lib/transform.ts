@@ -1,4 +1,4 @@
-import { addProperty, objectExtends } from '@tsfun/object'
+import { objectExtends } from '@tsfun/object'
 import { replacePathExtension } from '@make-mjs/utils'
 import { CodeTransformOptions, DEFAULT_PARSER_OPTIONS, transformCode } from '@make-mjs/file'
 import { getModuleContainer } from '../utils/get-module-container'
@@ -20,11 +20,10 @@ export async function * transform (options: TransformOptions): AsyncGenerator<Fi
 
   for await (const { path, content } of files) {
     const newPath = getNewPath(path)
-    const parserOptions = addProperty(
-      codeTransformOptions.parserOptions || DEFAULT_PARSER_OPTIONS,
-      'sourceFilename',
-      path
-    )
+    const parserOptions = { // object spread because of how @babel/parser read this options object
+      ...codeTransformOptions.parserOptions || DEFAULT_PARSER_OPTIONS,
+      sourceFilename: path
+    }
     const newCodeTransOpts: CodeTransformOptions = objectExtends(codeTransformOptions, {
       moduleContainer: Array.from(getModuleContainer(path)),
       parserOptions
