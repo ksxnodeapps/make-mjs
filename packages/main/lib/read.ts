@@ -1,5 +1,5 @@
-import { traverse } from 'fs-tree-utils'
 import { readFile, lstat } from '@make-mjs/fs-extra'
+import { traverse } from '@make-mjs/fs-tree-utils'
 
 import {
   TraversalDeepFunc,

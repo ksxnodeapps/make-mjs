@@ -1,10 +1,10 @@
 dependencies:
   '@make-mjs/file': 'link:../file'
   '@make-mjs/fs-extra': 'link:../fs-extra'
+  '@make-mjs/fs-tree-utils': 'link:../fs-tree-utils'
   '@make-mjs/utils': 'link:../utils'
   '@tsfun/object': 0.0.1
   '@types/node': 12.7.5
-  fs-tree-utils: 0.1.6
   tslib: 1.10.0
 lockfileVersion: 5.1
 packages:
@@ -16,90 +16,14 @@ packages:
     dev: false
     resolution:
       integrity: sha512-1Znc/BmghtFnxgVrhkpvhSf5HpZbnEcKmXqsXSCXJP0+BW2C00d5st5qkBErSTTEvcGAMgPZ9E95ydlMO8lcrg==
-  /@types/fs-extra/5.1.0:
-    dependencies:
-      '@types/node': 12.7.5
-    dev: false
-    resolution:
-      integrity: sha512-AInn5+UBFIK9FK5xc9yP5e3TQSPNNgjHByqYcj9g5elVBnDQcQL7PlO1CIRy2gWlbwK7UPYqi7vRvFA44dCmYQ==
-  /@types/node/10.14.18:
-    dev: false
-    resolution:
-      integrity: sha512-ryO3Q3++yZC/+b8j8BdKd/dn9JlzlHBPdm80656xwYUdmPkpTGTjkAdt6BByiNupGPE8w0FhBgvYy/fX9hRNGQ==
   /@types/node/12.7.5:
     dev: false
     resolution:
       integrity: sha512-9fq4jZVhPNW8r+UYKnxF1e2HkDWOWKM5bC2/7c9wPV835I0aOrVbS/Hw/pWPk2uKrNXQqg9Z959Kz+IYDd5p3w==
-  /@types/ramda/0.25.51:
-    dev: false
-    resolution:
-      integrity: sha512-xcmtfHIgF9SYjhGdsZR1nQslxG4hu0cIpFfLQ4CWdw3KzHvl7ki1AzFLQUkbDTG42ZN3ZsQfdRzXRlkAvbIy5Q==
-  /fs-extra/7.0.1:
-    dependencies:
-      graceful-fs: 4.2.2
-      jsonfile: 4.0.0
-      universalify: 0.1.2
-    dev: false
-    engines:
-      node: '>=6 <7 || >=8'
-    resolution:
-      integrity: sha512-YJDaCJZEnBmcbw13fvdAM9AwNOJwOzrE4pqMqBq5nFiEqXUqHwlK4B+3pUw6JNvfSPtX05xFHtYy/1ni01eGCw==
-  /fs-tree-utils/0.1.6:
-    dependencies:
-      '@types/fs-extra': 5.1.0
-      '@types/node': 10.14.18
-      '@types/ramda': 0.25.51
-      fs-extra: 7.0.1
-      monorepo-shared-assets: 0.0.17
-      ramda: 0.25.0
-      tslib: 1.10.0
-    dev: false
-    engines:
-      node: '>= 8.9.0'
-    resolution:
-      integrity: sha512-qsOeiFlr2zfQXkLziZh5FLxRPHmUm3Cfwj4cTjVVVij1gtHGkS11/6nxGA1l7ndvb2d+iKiQartR0cewodT5zg==
-  /graceful-fs/4.2.2:
-    dev: false
-    resolution:
-      integrity: sha512-IItsdsea19BoLC7ELy13q1iJFNmd7ofZH5+X/pJr90/nRoPEX0DJo1dHDbgtYWOhJhcCgMDTOw84RZ72q6lB+Q==
-  /immutable/3.8.2:
-    dev: false
-    engines:
-      node: '>=0.10.0'
-    resolution:
-      integrity: sha1-wkOZUUVbs5kT2vKBN28VMOEErfM=
-  /jsonfile/4.0.0:
-    dev: false
-    optionalDependencies:
-      graceful-fs: 4.2.2
-    resolution:
-      integrity: sha1-h3Gq4HmbZAdrdmQPygWPnBDjPss=
-  /monorepo-shared-assets/0.0.17:
-    dependencies:
-      '@types/node': 10.14.18
-      '@types/ramda': 0.25.51
-      immutable: 3.8.2
-      ramda: 0.25.0
-      tslib: 1.10.0
-    dev: false
-    engines:
-      node: '>= 8.9.0'
-    resolution:
-      integrity: sha512-A0Y2mZ06vwBR0fyZdZZPn5MJcaIcxfs7BGGv9SU82c6e6k6UwnEQWmVx4LkiVvlnwgKI7+MVIFwMwTZhRGM+eQ==
-  /ramda/0.25.0:
-    dev: false
-    resolution:
-      integrity: sha512-GXpfrYVPwx3K7RQ6aYT8KPS8XViSXUVJT1ONhoKPE9VAleW42YE+U+8VEyGWt41EnEQW7gwecYJriTI0pKoecQ==
   /tslib/1.10.0:
     dev: false
     resolution:
       integrity: sha512-qOebF53frne81cf0S9B41ByenJ3/IuH8yJKngAX35CmiZySA0khhkovshKK+jGCaMnVomla7gVlIcc3EvKPbTQ==
-  /universalify/0.1.2:
-    dev: false
-    engines:
-      node: '>= 4.0.0'
-    resolution:
-      integrity: sha512-rBJeI5CXAlmy1pV+617WB9J63U6XcazHHF2f2dbJix4XzpUF0RS3Zbj0FGIOCAva5P/d/GBOYaACQ1w+0azUkg==
   /utility-types/3.7.0:
     dev: false
     engines:
@@ -109,8 +33,8 @@ packages:
 specifiers:
   '@make-mjs/file': ^0.0.0
   '@make-mjs/fs-extra': ^0.0.0
+  '@make-mjs/fs-tree-utils': ^0.0.0
   '@make-mjs/utils': ^0.0.0
   '@tsfun/object': ^0.0.1
   '@types/node': ^12.7.5
-  fs-tree-utils: 0.1.6
   tslib: ^1.10.0

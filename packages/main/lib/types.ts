@@ -1,4 +1,4 @@
-import * as fsTreeUtils from 'fs-tree-utils'
+import * as fsTreeUtils from '@make-mjs/fs-tree-utils'
 import { MaybePromise } from '@make-mjs/utils'
 import { CodeTransformOptions } from '@make-mjs/file'
 export type TraversalOptions = fsTreeUtils.Traverse.Options
