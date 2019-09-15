@@ -1,8 +1,7 @@
 {
   "private": true,
   "dependencies": {
-    "eslint": "^6.3.0",
-    "@types/eslint": "^6.1.1",
+    "@tools/test-utils": "file:../../tools/test-utils",
     "@make-mjs/fs-extra": "file:../../packages/fs-extra",
     "@make-mjs/file": "file:../../packages/file"
   }

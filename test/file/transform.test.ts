@@ -1,5 +1,5 @@
 import { transformCode } from '@make-mjs/file'
-import { formatCode } from './eslint'
+import { formatCode } from '@tools/test-utils'
 
 import {
   fillAll,
