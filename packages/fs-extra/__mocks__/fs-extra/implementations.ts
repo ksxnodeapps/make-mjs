@@ -350,3 +350,11 @@ export async function readFile (filename: string) {
 export async function writeFile (filename: string, content: string) {
   appendTextFile([[filename, content]])
 }
+
+export function ensureDirSync (dirname: string) {
+  const directories = dirname
+    .split('/')
+    .map((_, i, a) => a.slice(0, i).join('/'))
+
+  appendDir(directories)
+}
