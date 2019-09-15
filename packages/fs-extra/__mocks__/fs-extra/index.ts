@@ -6,5 +6,6 @@ export {
   readdirSync,
   readdir,
   ensureDirSync,
+  readFile,
   writeFile
 } from './implementations'
