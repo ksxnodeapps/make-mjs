@@ -1,22 +1,31 @@
-import * as fsTreeUtils from '@make-mjs/fs-tree-utils'
 import { MaybePromise } from '@make-mjs/utils'
+import { Stats } from '@make-mjs/fs-extra'
 import { CodeTransformOptions } from '@make-mjs/file'
-export type TraversalOptions = fsTreeUtils.Traverse.Options
-export type TraversalDeepFunc = fsTreeUtils.Traverse.Options.DeepFunc
-export type TraversalStatFunc = fsTreeUtils.Traverse.Options.StatFunc
 
 export interface FilterFunc {
   (param: FilterFunc.Param): boolean
 }
 
 export namespace FilterFunc {
-  export interface Param extends fsTreeUtils.Traverse.Options.DeepFunc.Param {}
+  export interface Param extends TraverseReturn {}
 }
 
-interface ReadSharedOptions {
+export interface StatFunc {
+  (path: string): MaybePromise<Stats>
+}
+
+export interface TraverseOptions {
+  readonly deep?: FilterFunc
+  readonly stat?: StatFunc
+}
+
+export interface TraverseReturn {
+  base: string
+  path: string
+}
+
+interface ReadSharedOptions extends TraverseOptions {
   readonly filter?: FilterFunc
-  readonly deep?: TraversalDeepFunc
-  readonly stat?: TraversalStatFunc
 }
 
 export interface ReadOptions extends ReadSharedOptions {
@@ -33,7 +42,7 @@ interface TransformSharedOptions {
 }
 
 export interface TransformOptions extends TransformSharedOptions {
-  readonly files: InputFileList
+  readonly files: AsyncIterable<File>
 }
 
 export interface MainOptions extends ReadOptions, TransformSharedOptions {}
@@ -42,6 +51,3 @@ export interface File {
   path: string
   content: string
 }
-
-export type InputFileList = MaybePromise<readonly MaybePromise<File>[]>
-export type OutputFileList = Promise<Promise<File>[]>

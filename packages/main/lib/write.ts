@@ -1,5 +1,5 @@
 import { writeFile } from '@make-mjs/fs-extra'
-import { File, InputFileList } from './types'
+import { File } from './types'
 
 export const enum EventType {
   BeforeWrite = 'BeforeWrite',
@@ -19,9 +19,8 @@ export class AfterWriteEvent extends Event {
   public readonly type = EventType.AfterWrite
 }
 
-export async function * write (files: InputFileList) {
-  for (const promise of await files) {
-    const file = await promise
+export async function * write (files: AsyncIterable<File>) {
+  for await (const file of files) {
     yield new BeforeWriteEvent(file)
     await writeFile(file.path, file.content)
     yield new AfterWriteEvent(file)

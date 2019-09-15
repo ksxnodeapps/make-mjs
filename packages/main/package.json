@@ -17,7 +17,6 @@
     "tslib": "^1.10.0",
     "@make-mjs/utils": "^0.0.0",
     "@make-mjs/fs-extra": "^0.0.0",
-    "@make-mjs/fs-tree-utils": "^0.0.0",
     "@make-mjs/file": "^0.0.0",
     "@types/node": "^12.7.5"
   }

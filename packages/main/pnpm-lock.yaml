@@ -1,7 +1,6 @@
 dependencies:
   '@make-mjs/file': 'link:../file'
   '@make-mjs/fs-extra': 'link:../fs-extra'
-  '@make-mjs/fs-tree-utils': 'link:../fs-tree-utils'
   '@make-mjs/utils': 'link:../utils'
   '@tsfun/object': 0.0.1
   '@types/node': 12.7.5
@@ -33,7 +32,6 @@ packages:
 specifiers:
   '@make-mjs/file': ^0.0.0
   '@make-mjs/fs-extra': ^0.0.0
-  '@make-mjs/fs-tree-utils': ^0.0.0
   '@make-mjs/utils': ^0.0.0
   '@tsfun/object': ^0.0.1
   '@types/node': ^12.7.5

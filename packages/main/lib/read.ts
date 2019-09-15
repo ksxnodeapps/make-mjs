@@ -1,21 +1,20 @@
 import { readFile, lstat } from '@make-mjs/fs-extra'
-import { traverse } from '@make-mjs/fs-tree-utils'
+import traverse from './traverse'
 
 import {
-  TraversalDeepFunc,
-  TraversalStatFunc,
+  StatFunc,
   ReadOptions,
   FilterFunc,
-  OutputFileList
+  File
 } from './types'
 
 const FILTER_EXT = ['.js', '.jsx']
-export const DEFAULT_FILTER_FUNC: FilterFunc = x => FILTER_EXT.some(ext => x.item.endsWith(ext))
+export const DEFAULT_FILTER_FUNC: FilterFunc = x => FILTER_EXT.some(ext => x.base.endsWith(ext))
 const DEEP_FUNC_IGNORED = ['.git', 'node_modules']
-export const DEFAULT_DEEP_FUNC: TraversalDeepFunc = x => !DEEP_FUNC_IGNORED.includes(x.item)
-export const DEFAULT_STAT_FUNC: TraversalStatFunc = lstat
+export const DEFAULT_DEEP_FUNC: FilterFunc = x => !DEEP_FUNC_IGNORED.includes(x.base)
+export const DEFAULT_STAT_FUNC: StatFunc = lstat
 
-export async function read (options: ReadOptions): OutputFileList {
+export async function * read (options: ReadOptions): AsyncGenerator<File, void> {
   const {
     dirname,
     filter = DEFAULT_FILTER_FUNC,
@@ -23,14 +22,12 @@ export async function read (options: ReadOptions): OutputFileList {
     stat = DEFAULT_STAT_FUNC
   } = options
 
-  const promises = (await traverse(dirname, { deep, stat }))
-    .filter(filter)
-    .map(async ({ path }) => ({
-      path,
-      content: await readFile(path, 'utf8')
-    }))
-
-  return promises
+  for await (const item of traverse(dirname, { deep, stat })) {
+    if (!filter(item)) continue
+    const { path } = item
+    const content = await readFile(path, 'utf8')
+    yield { path, content }
+  }
 }
 
 export default read

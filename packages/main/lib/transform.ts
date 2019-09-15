@@ -6,20 +6,19 @@ import { getModuleContainer } from '../utils/get-module-container'
 import {
   TransformOptions,
   PathTransformFunc,
-  OutputFileList
+  File
 } from './types'
 
 export const DEFAULT_PATH_TRANSFORM_FUNC: PathTransformFunc = path => replacePathExtension(path, '.mjs')
 
-export async function transform (options: TransformOptions): OutputFileList {
+export async function * transform (options: TransformOptions): AsyncGenerator<File, void> {
   const {
     files,
     getNewPath = DEFAULT_PATH_TRANSFORM_FUNC,
     codeTransformOptions = {}
   } = options
 
-  const promises = (await files).map(async promise => {
-    const { path, content } = await promise
+  for await (const { path, content } of files) {
     const newPath = getNewPath(path)
     const parserOptions = addProperty(
       codeTransformOptions.parserOptions || {},
@@ -31,13 +30,11 @@ export async function transform (options: TransformOptions): OutputFileList {
       parserOptions
     })
     const transformResult = await transformCode(content, newCodeTransOpts)
-    return {
+    yield {
       path: newPath,
       content: transformResult.code
     }
-  })
-
-  return promises
+  }
 }
 
 export default transform
