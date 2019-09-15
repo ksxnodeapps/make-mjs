@@ -271,11 +271,51 @@ export function appendManifest (entries: ReadonlyArray<readonly [string, Manifes
   appendFile(entries.map(entry => entry[0]))
 }
 
-export function appendTextFile (entries: { readonly [_ in string]: string }) {
-  textFiles.append(Object.entries(entries))
-  appendFile(Object.keys(entries))
+export namespace appendManifest {
+  export function fromObject (object: { readonly [_: string]: ManifestContent }) {
+    appendManifest(Object.entries(object))
+  }
+}
+
+export function appendTextFile (entries: ReadonlyArray<readonly [string, string]>) {
+  textFiles.append(entries)
+  appendFile(entries.map(entry => entry[0]))
   files.dedup()
   allThatIs.dedup()
+}
+
+export namespace appendTextFile {
+  export function fromObject (object: { readonly [_: string]: string }) {
+    appendTextFile(Object.entries(object))
+  }
+}
+
+type FileSystemItem = string | ManifestContent | null
+
+function getParentDirectory (path: string) {
+  return path.split('/').slice(0, -1).join('/')
+}
+
+export function appendFileSystem (entries: ReadonlyArray<readonly [string, FileSystemItem]>) {
+  for (const [path, content] of entries) {
+    ensureDirSync(getParentDirectory(path))
+
+    if (content === null) {
+      appendDir([path])
+    } else if (typeof content === 'object') {
+      appendManifest([[path, content]])
+    } else if (path.endsWith('.json')) {
+      appendManifest([[path, JSON.parse(content)]])
+    } else {
+      appendTextFile([[path, content]])
+    }
+  }
+}
+
+export namespace appendFileSystem {
+  export function fromObject (object: { readonly [_: string]: FileSystemItem }) {
+    appendFileSystem(Object.entries(object))
+  }
 }
 
 export async function pathExists (path: string) {
@@ -336,5 +376,13 @@ export async function readFile (filename: string) {
 }
 
 export async function writeFile (filename: string, content: string) {
-  appendTextFile({ [filename]: content })
+  appendTextFile([[filename, content]])
+}
+
+export function ensureDirSync (dirname: string) {
+  const directories = dirname
+    .split('/')
+    .map((_, i, a) => a.slice(0, i).join('/'))
+
+  appendDir(directories)
 }
