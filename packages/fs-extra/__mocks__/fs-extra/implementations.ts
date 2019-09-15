@@ -380,9 +380,10 @@ export async function writeFile (filename: string, content: string) {
 }
 
 export function ensureDirSync (dirname: string) {
-  const directories = dirname
+  const paths = dirname
     .split('/')
-    .map((_, i, a) => a.slice(0, i).join('/'))
+    .map((_, i, a) => a.slice(0, i + 1).join('/'))
 
-  appendDir(directories)
+  appendDir(paths)
+  directories.dedup()
 }
