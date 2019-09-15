@@ -271,9 +271,9 @@ export function appendManifest (entries: ReadonlyArray<readonly [string, Manifes
   appendFile(entries.map(entry => entry[0]))
 }
 
-export function appendTextFile (entries: { readonly [_ in string]: string }) {
-  textFiles.append(Object.entries(entries))
-  appendFile(Object.keys(entries))
+export function appendTextFile (entries: ReadonlyArray<readonly [string, string]>) {
+  textFiles.append(entries)
+  appendFile(entries.map(entry => entry[0]))
   files.dedup()
   allThatIs.dedup()
 }
@@ -336,5 +336,5 @@ export async function readFile (filename: string) {
 }
 
 export async function writeFile (filename: string, content: string) {
-  appendTextFile({ [filename]: content })
+  appendTextFile([[filename, content]])
 }
