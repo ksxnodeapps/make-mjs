@@ -271,11 +271,23 @@ export function appendManifest (entries: ReadonlyArray<readonly [string, Manifes
   appendFile(entries.map(entry => entry[0]))
 }
 
+export namespace appendManifest {
+  export function fromObject (object: { readonly [_: string]: ManifestContent }) {
+    appendManifest(Object.entries(object))
+  }
+}
+
 export function appendTextFile (entries: ReadonlyArray<readonly [string, string]>) {
   textFiles.append(entries)
   appendFile(entries.map(entry => entry[0]))
   files.dedup()
   allThatIs.dedup()
+}
+
+export namespace appendTextFile {
+  export function fromObject (object: { readonly [_: string]: string }) {
+    appendTextFile(Object.entries(object))
+  }
 }
 
 export async function pathExists (path: string) {
