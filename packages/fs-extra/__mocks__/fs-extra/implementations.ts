@@ -390,7 +390,7 @@ export function readdirSync (dirname: string) {
       .filter((x, i, a) => a.indexOf(x) === i)
   }
 
-  if (dirname === '') {
+  if (dirname === '' || dirname === '.') {
     return getItemList(allThatIs.get())
   }
 
