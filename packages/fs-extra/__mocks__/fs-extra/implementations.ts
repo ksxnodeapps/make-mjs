@@ -205,7 +205,7 @@ export const manifestFiles = mockMap<string, ManifestContent>(new Map([
 export const textFiles = mockMap<string, string>(new Map())
 
 const allMockedArrays = [allThatIs, files, directories]
-const allMockedMaps = [manifestFiles]
+const allMockedMaps = [manifestFiles, textFiles]
 
 export function fillAllMockedArrays () {
   allMockedArrays.forEach(x => x.fill())
