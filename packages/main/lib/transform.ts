@@ -1,4 +1,4 @@
-import { addProperty } from '@tsfun/object'
+import { addProperty, objectExtends } from '@tsfun/object'
 import { replacePathExtension } from '@make-mjs/utils'
 import { CodeTransformOptions, transformCode } from '@make-mjs/file'
 import { getModuleContainer } from '../utils/get-module-container'
@@ -21,11 +21,15 @@ export async function transform (options: TransformOptions): OutputFileList {
   const promises = (await files).map(async promise => {
     const { path, content } = await promise
     const newPath = getNewPath(path)
-    const newCodeTransOpts: CodeTransformOptions = addProperty(
-      codeTransformOptions,
-      'moduleContainer',
-      [...getModuleContainer(path)]
+    const parserOptions = addProperty(
+      codeTransformOptions.parserOptions || {},
+      'sourceFilename',
+      path
     )
+    const newCodeTransOpts: CodeTransformOptions = objectExtends(codeTransformOptions, {
+      moduleContainer: Array.from(getModuleContainer(path)),
+      parserOptions
+    })
     const transformResult = await transformCode(content, newCodeTransOpts)
     return {
       path: newPath,
