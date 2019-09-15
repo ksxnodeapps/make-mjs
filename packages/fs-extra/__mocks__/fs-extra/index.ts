@@ -1,6 +1,7 @@
 export {
   pathExists,
   stat,
+  lstat,
   readJSON,
   readdirSync,
   readdir,
