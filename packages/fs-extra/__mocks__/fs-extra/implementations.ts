@@ -379,6 +379,34 @@ export async function writeFile (filename: string, content: string) {
   appendTextFile([[filename, content]])
 }
 
+export function readdirSync (dirname: string) {
+  function firstSegment (path: string) {
+    return path.split('/')[0]
+  }
+
+  function getItemList (paths: readonly string[]) {
+    return paths
+      .map(firstSegment)
+      .filter((x, i, a) => a.indexOf(x) === i)
+  }
+
+  if (dirname === '') {
+    return getItemList(allThatIs.get())
+  }
+
+  if (!dirname.endsWith('/')) dirname += '/'
+
+  return getItemList(
+    allThatIs
+      .get()
+      .filter(path => path.startsWith(dirname))
+  )
+}
+
+export async function readdir (dirname: string) {
+  return readdirSync(dirname)
+}
+
 export function ensureDirSync (dirname: string) {
   const paths = dirname
     .split('/')
