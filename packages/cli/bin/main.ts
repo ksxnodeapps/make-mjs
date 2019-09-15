@@ -8,7 +8,8 @@ const {
 } = yargs
   .usage('make-mjs [options] <directories>')
   .option('knownMjsPackages', {
-    type: 'array'
+    type: 'array',
+    describe: 'Names of packages that should support mjs'
   })
   .env('MAKE_MJS')
   .help()
