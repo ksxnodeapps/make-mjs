@@ -1,0 +1,25 @@
+{
+  "name": "@make-mjs/cli",
+  "version": "0.0.0",
+  "description": "Command-line function and executable",
+  "author": "Hoàng Văn Khải <hvksmr1996@gmail.com>",
+  "license": "MIT",
+  "homepage": "https://github.com/ksxnodeapps/make-mjs#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ksxnodeapps/make-mjs.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ksxnodeapps/make-mjs/issues"
+  },
+  "bin": {
+    "make-mjs": "bin/index"
+  },
+  "dependencies": {
+    "yargs": "^14.0.0",
+    "tslib": "^1.10.0",
+    "@make-mjs/main": "^0.0.0",
+    "@types/yargs": "^13.0.2",
+    "@types/node": "^12.7.5"
+  }
+}
