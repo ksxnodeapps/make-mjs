@@ -4,6 +4,7 @@ import { formatCode } from '@tools/test-utils'
 import { main } from '@make-mjs/main'
 
 import {
+  allThatIs,
   files,
   directories,
   manifestFiles,
@@ -12,7 +13,6 @@ import {
   fillAll,
   appendFileSystem
 } from './fsx-mocks'
-import { allThatIs } from '../file/fsx-mocks'
 
 const DUMMY_JS_CONTENT = 'not to be read'
 
