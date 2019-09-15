@@ -1,0 +1,1129 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`with isMjsPackage that classifies "external-nonmjs-mjs" as an mjs package dirname = "" events matches snapshot 1`] = `
+Array [
+  BeforeWriteEvent {
+    "file": Object {
+      "content": "import 'external-nonmjs-nonmjs';
+import \\"external-nonmjs-mjs/nonmjs-mjs-entry.mjs\\";
+import \\"external-mjs-main/mjs-entry.mjs\\";
+import \\"@scope/foo/scope-module-entry.mjs\\";",
+      "path": "top-level-file-0.mjs",
+    },
+    "type": "BeforeWrite",
+  },
+  AfterWriteEvent {
+    "file": Object {
+      "content": "import 'external-nonmjs-nonmjs';
+import \\"external-nonmjs-mjs/nonmjs-mjs-entry.mjs\\";
+import \\"external-mjs-main/mjs-entry.mjs\\";
+import \\"@scope/foo/scope-module-entry.mjs\\";",
+      "path": "top-level-file-0.mjs",
+    },
+    "type": "AfterWrite",
+  },
+  BeforeWriteEvent {
+    "file": Object {
+      "content": "import \\"./top-level-file-0.mjs\\";",
+      "path": "top-level-file-1.mjs",
+    },
+    "type": "BeforeWrite",
+  },
+  AfterWriteEvent {
+    "file": Object {
+      "content": "import \\"./top-level-file-0.mjs\\";",
+      "path": "top-level-file-1.mjs",
+    },
+    "type": "AfterWrite",
+  },
+  BeforeWriteEvent {
+    "file": Object {
+      "content": "export * from \\"../top-level-file-1.mjs\\";",
+      "path": "lib/foo.mjs",
+    },
+    "type": "BeforeWrite",
+  },
+  AfterWriteEvent {
+    "file": Object {
+      "content": "export * from \\"../top-level-file-1.mjs\\";",
+      "path": "lib/foo.mjs",
+    },
+    "type": "AfterWrite",
+  },
+  BeforeWriteEvent {
+    "file": Object {
+      "content": "export * from \\"../lib/foo.mjs\\";",
+      "path": "src/bar.mjs",
+    },
+    "type": "BeforeWrite",
+  },
+  AfterWriteEvent {
+    "file": Object {
+      "content": "export * from \\"../lib/foo.mjs\\";",
+      "path": "src/bar.mjs",
+    },
+    "type": "AfterWrite",
+  },
+  BeforeWriteEvent {
+    "file": Object {
+      "content": "export async function main() {
+  await import(\\"deep-external/deep-module-entry.mjs\\");
+  await import('external-nonmjs-nonmjs');
+  await import(\\"external-nonmjs-mjs/nonmjs-mjs-entry.mjs\\");
+  await import(\\"external-mjs-main/mjs-entry.mjs\\");
+  await import(\\"@scope/foo/scope-module-entry.mjs\\");
+}",
+      "path": "abc/def/ghi/jkl/deep-file-0.mjs",
+    },
+    "type": "BeforeWrite",
+  },
+  AfterWriteEvent {
+    "file": Object {
+      "content": "export async function main() {
+  await import(\\"deep-external/deep-module-entry.mjs\\");
+  await import('external-nonmjs-nonmjs');
+  await import(\\"external-nonmjs-mjs/nonmjs-mjs-entry.mjs\\");
+  await import(\\"external-mjs-main/mjs-entry.mjs\\");
+  await import(\\"@scope/foo/scope-module-entry.mjs\\");
+}",
+      "path": "abc/def/ghi/jkl/deep-file-0.mjs",
+    },
+    "type": "AfterWrite",
+  },
+  BeforeWriteEvent {
+    "file": Object {
+      "content": "export * from \\"deep-external/deep-browser-entry.mjs\\";
+export * from \\"@scope/foo/deep-scope-foo-main-entry.mjs\\";",
+      "path": "ghi/deep-file-1.mjs",
+    },
+    "type": "BeforeWrite",
+  },
+  AfterWriteEvent {
+    "file": Object {
+      "content": "export * from \\"deep-external/deep-browser-entry.mjs\\";
+export * from \\"@scope/foo/deep-scope-foo-main-entry.mjs\\";",
+      "path": "ghi/deep-file-1.mjs",
+    },
+    "type": "AfterWrite",
+  },
+]
+`;
+
+exports[`with isMjsPackage that classifies "external-nonmjs-mjs" as an mjs package dirname = "" resulting filesystem matches snapshot 1`] = `
+"
+filenames:
+  - node_modules/external-nonmjs-nonmjs/package.json
+  - node_modules/external-nonmjs-nonmjs/nonmjs-nonmjs-entry.js
+  - node_modules/external-nonmjs-mjs/package.json
+  - node_modules/external-nonmjs-mjs/nonmjs-mjs-entry.js
+  - node_modules/external-mjs-main/package.json
+  - node_modules/external-mjs-main/mjs-entry.js
+  - node_modules/external-mjs-main/mjs-entry.mjs
+  - node_modules/@scope/foo/package.json
+  - node_modules/@scope/foo/scope-module-entry.js
+  - node_modules/@scope/foo/scope-module-entry.mjs
+  - top-level-file-0.js
+  - top-level-file-1.js
+  - lib/foo.js
+  - src/bar.js
+  - abc/def/node_modules/deep-external/package.json
+  - abc/def/node_modules/deep-external/deep-module-entry.mjs
+  - abc/def/ghi/jkl/deep-file-0.js
+  - ghi/node_modules/deep-external/package.json
+  - ghi/node_modules/deep-external/deep-browser-entry.mjs
+  - ghi/node_modules/@scope/foo/package.json
+  - ghi/node_modules/@scope/foo/deep-scope-foo-main-entry.js
+  - ghi/node_modules/@scope/foo/deep-scope-foo-main-entry.mjs
+  - ghi/deep-file-1.js
+  - top-level-file-0.mjs
+  - top-level-file-1.mjs
+  - lib/foo.mjs
+  - src/bar.mjs
+  - abc/def/ghi/jkl/deep-file-0.mjs
+  - ghi/deep-file-1.mjs
+dirnames:
+  - node_modules
+  - node_modules/external-nonmjs-nonmjs
+  - node_modules/external-nonmjs-mjs
+  - node_modules/external-mjs-main
+  - node_modules/@scope
+  - node_modules/@scope/foo
+  - ''
+  - lib
+  - src
+  - abc
+  - abc/def
+  - abc/def/node_modules
+  - abc/def/node_modules/deep-external
+  - abc/def/ghi
+  - abc/def/ghi/jkl
+  - ghi
+  - ghi/node_modules
+  - ghi/node_modules/deep-external
+  - ghi/node_modules/@scope
+  - ghi/node_modules/@scope/foo
+manifestFiles:
+  - path: node_modules/external-nonmjs-nonmjs/package.json
+    content:
+      main: nonmjs-nonmjs-entry.js
+  - path: node_modules/external-nonmjs-mjs/package.json
+    content:
+      main: nonmjs-mjs-entry.js
+  - path: node_modules/external-mjs-main/package.json
+    content:
+      main: mjs-entry.js
+  - path: node_modules/@scope/foo/package.json
+    content:
+      module: scope-module-entry.mjs
+  - path: abc/def/node_modules/deep-external/package.json
+    content:
+      module: deep-module-entry.mjs
+  - path: ghi/node_modules/deep-external/package.json
+    content:
+      browser: deep-browser-entry.mjs
+  - path: ghi/node_modules/@scope/foo/package.json
+    content:
+      main: deep-scope-foo-main-entry.js
+textFiles:
+  - path: node_modules/external-nonmjs-nonmjs/nonmjs-nonmjs-entry.js
+    content: not to be read
+  - path: node_modules/external-nonmjs-mjs/nonmjs-mjs-entry.js
+    content: not to be read
+  - path: node_modules/external-mjs-main/mjs-entry.js
+    content: not to be read
+  - path: node_modules/external-mjs-main/mjs-entry.mjs
+    content: not to be read
+  - path: node_modules/@scope/foo/scope-module-entry.js
+    content: not to be read
+  - path: node_modules/@scope/foo/scope-module-entry.mjs
+    content: not to be read
+  - path: top-level-file-0.js
+    content: |-
+      import 'external-nonmjs-nonmjs'
+      import 'external-nonmjs-mjs'
+      import 'external-mjs-main'
+      import '@scope/foo'
+  - path: top-level-file-1.js
+    content: import './top-level-file-0'
+  - path: lib/foo.js
+    content: export * from '../top-level-file-1'
+  - path: src/bar.js
+    content: export * from '../lib/foo'
+  - path: abc/def/node_modules/deep-external/deep-module-entry.mjs
+    content: not to be read
+  - path: abc/def/ghi/jkl/deep-file-0.js
+    content: |-
+      export async function main() {
+        await import('deep-external')
+        await import('external-nonmjs-nonmjs')
+        await import('external-nonmjs-mjs')
+        await import('external-mjs-main')
+        await import('@scope/foo')
+      }
+  - path: ghi/node_modules/deep-external/deep-browser-entry.mjs
+    content: not to be read
+  - path: ghi/node_modules/@scope/foo/deep-scope-foo-main-entry.js
+    content: not to be read
+  - path: ghi/node_modules/@scope/foo/deep-scope-foo-main-entry.mjs
+    content: not to be read
+  - path: ghi/deep-file-1.js
+    content: |-
+      export * from 'deep-external'
+      export * from '@scope/foo'
+  - path: top-level-file-0.mjs
+    content: |-
+      import 'external-nonmjs-nonmjs'
+      import 'external-nonmjs-mjs/nonmjs-mjs-entry.mjs'
+      import 'external-mjs-main/mjs-entry.mjs'
+      import '@scope/foo/scope-module-entry.mjs'
+  - path: top-level-file-1.mjs
+    content: import './top-level-file-0.mjs'
+  - path: lib/foo.mjs
+    content: export * from '../top-level-file-1.mjs'
+  - path: src/bar.mjs
+    content: export * from '../lib/foo.mjs'
+  - path: abc/def/ghi/jkl/deep-file-0.mjs
+    content: |-
+      export async function main() {
+        await import('deep-external/deep-module-entry.mjs')
+        await import('external-nonmjs-nonmjs')
+        await import('external-nonmjs-mjs/nonmjs-mjs-entry.mjs')
+        await import('external-mjs-main/mjs-entry.mjs')
+        await import('@scope/foo/scope-module-entry.mjs')
+      }
+  - path: ghi/deep-file-1.mjs
+    content: |-
+      export * from 'deep-external/deep-browser-entry.mjs'
+      export * from '@scope/foo/deep-scope-foo-main-entry.mjs'
+
+"
+`;
+
+exports[`with isMjsPackage that classifies "external-nonmjs-mjs" as an mjs package dirname = "abc/def" events matches snapshot 1`] = `
+Array [
+  BeforeWriteEvent {
+    "file": Object {
+      "content": "export async function main() {
+  await import(\\"deep-external/deep-module-entry.mjs\\");
+  await import('external-nonmjs-nonmjs');
+  await import(\\"external-nonmjs-mjs/nonmjs-mjs-entry.mjs\\");
+  await import(\\"external-mjs-main/mjs-entry.mjs\\");
+  await import(\\"@scope/foo/scope-module-entry.mjs\\");
+}",
+      "path": "abc/def/ghi/jkl/deep-file-0.mjs",
+    },
+    "type": "BeforeWrite",
+  },
+  AfterWriteEvent {
+    "file": Object {
+      "content": "export async function main() {
+  await import(\\"deep-external/deep-module-entry.mjs\\");
+  await import('external-nonmjs-nonmjs');
+  await import(\\"external-nonmjs-mjs/nonmjs-mjs-entry.mjs\\");
+  await import(\\"external-mjs-main/mjs-entry.mjs\\");
+  await import(\\"@scope/foo/scope-module-entry.mjs\\");
+}",
+      "path": "abc/def/ghi/jkl/deep-file-0.mjs",
+    },
+    "type": "AfterWrite",
+  },
+]
+`;
+
+exports[`with isMjsPackage that classifies "external-nonmjs-mjs" as an mjs package dirname = "abc/def" resulting filesystem matches snapshot 1`] = `
+"
+filenames:
+  - node_modules/external-nonmjs-nonmjs/package.json
+  - node_modules/external-nonmjs-nonmjs/nonmjs-nonmjs-entry.js
+  - node_modules/external-nonmjs-mjs/package.json
+  - node_modules/external-nonmjs-mjs/nonmjs-mjs-entry.js
+  - node_modules/external-mjs-main/package.json
+  - node_modules/external-mjs-main/mjs-entry.js
+  - node_modules/external-mjs-main/mjs-entry.mjs
+  - node_modules/@scope/foo/package.json
+  - node_modules/@scope/foo/scope-module-entry.js
+  - node_modules/@scope/foo/scope-module-entry.mjs
+  - top-level-file-0.js
+  - top-level-file-1.js
+  - lib/foo.js
+  - src/bar.js
+  - abc/def/node_modules/deep-external/package.json
+  - abc/def/node_modules/deep-external/deep-module-entry.mjs
+  - abc/def/ghi/jkl/deep-file-0.js
+  - ghi/node_modules/deep-external/package.json
+  - ghi/node_modules/deep-external/deep-browser-entry.mjs
+  - ghi/node_modules/@scope/foo/package.json
+  - ghi/node_modules/@scope/foo/deep-scope-foo-main-entry.js
+  - ghi/node_modules/@scope/foo/deep-scope-foo-main-entry.mjs
+  - ghi/deep-file-1.js
+  - abc/def/ghi/jkl/deep-file-0.mjs
+dirnames:
+  - node_modules
+  - node_modules/external-nonmjs-nonmjs
+  - node_modules/external-nonmjs-mjs
+  - node_modules/external-mjs-main
+  - node_modules/@scope
+  - node_modules/@scope/foo
+  - ''
+  - lib
+  - src
+  - abc
+  - abc/def
+  - abc/def/node_modules
+  - abc/def/node_modules/deep-external
+  - abc/def/ghi
+  - abc/def/ghi/jkl
+  - ghi
+  - ghi/node_modules
+  - ghi/node_modules/deep-external
+  - ghi/node_modules/@scope
+  - ghi/node_modules/@scope/foo
+manifestFiles:
+  - path: node_modules/external-nonmjs-nonmjs/package.json
+    content:
+      main: nonmjs-nonmjs-entry.js
+  - path: node_modules/external-nonmjs-mjs/package.json
+    content:
+      main: nonmjs-mjs-entry.js
+  - path: node_modules/external-mjs-main/package.json
+    content:
+      main: mjs-entry.js
+  - path: node_modules/@scope/foo/package.json
+    content:
+      module: scope-module-entry.mjs
+  - path: abc/def/node_modules/deep-external/package.json
+    content:
+      module: deep-module-entry.mjs
+  - path: ghi/node_modules/deep-external/package.json
+    content:
+      browser: deep-browser-entry.mjs
+  - path: ghi/node_modules/@scope/foo/package.json
+    content:
+      main: deep-scope-foo-main-entry.js
+textFiles:
+  - path: node_modules/external-nonmjs-nonmjs/nonmjs-nonmjs-entry.js
+    content: not to be read
+  - path: node_modules/external-nonmjs-mjs/nonmjs-mjs-entry.js
+    content: not to be read
+  - path: node_modules/external-mjs-main/mjs-entry.js
+    content: not to be read
+  - path: node_modules/external-mjs-main/mjs-entry.mjs
+    content: not to be read
+  - path: node_modules/@scope/foo/scope-module-entry.js
+    content: not to be read
+  - path: node_modules/@scope/foo/scope-module-entry.mjs
+    content: not to be read
+  - path: top-level-file-0.js
+    content: |-
+      import 'external-nonmjs-nonmjs'
+      import 'external-nonmjs-mjs'
+      import 'external-mjs-main'
+      import '@scope/foo'
+  - path: top-level-file-1.js
+    content: import './top-level-file-0'
+  - path: lib/foo.js
+    content: export * from '../top-level-file-1'
+  - path: src/bar.js
+    content: export * from '../lib/foo'
+  - path: abc/def/node_modules/deep-external/deep-module-entry.mjs
+    content: not to be read
+  - path: abc/def/ghi/jkl/deep-file-0.js
+    content: |-
+      export async function main() {
+        await import('deep-external')
+        await import('external-nonmjs-nonmjs')
+        await import('external-nonmjs-mjs')
+        await import('external-mjs-main')
+        await import('@scope/foo')
+      }
+  - path: ghi/node_modules/deep-external/deep-browser-entry.mjs
+    content: not to be read
+  - path: ghi/node_modules/@scope/foo/deep-scope-foo-main-entry.js
+    content: not to be read
+  - path: ghi/node_modules/@scope/foo/deep-scope-foo-main-entry.mjs
+    content: not to be read
+  - path: ghi/deep-file-1.js
+    content: |-
+      export * from 'deep-external'
+      export * from '@scope/foo'
+  - path: abc/def/ghi/jkl/deep-file-0.mjs
+    content: |-
+      export async function main() {
+        await import('deep-external/deep-module-entry.mjs')
+        await import('external-nonmjs-nonmjs')
+        await import('external-nonmjs-mjs/nonmjs-mjs-entry.mjs')
+        await import('external-mjs-main/mjs-entry.mjs')
+        await import('@scope/foo/scope-module-entry.mjs')
+      }
+
+"
+`;
+
+exports[`with isMjsPackage that classifies "external-nonmjs-mjs" as an mjs package dirname = "ghi" events matches snapshot 1`] = `
+Array [
+  BeforeWriteEvent {
+    "file": Object {
+      "content": "export * from \\"deep-external/deep-browser-entry.mjs\\";
+export * from \\"@scope/foo/deep-scope-foo-main-entry.mjs\\";",
+      "path": "ghi/deep-file-1.mjs",
+    },
+    "type": "BeforeWrite",
+  },
+  AfterWriteEvent {
+    "file": Object {
+      "content": "export * from \\"deep-external/deep-browser-entry.mjs\\";
+export * from \\"@scope/foo/deep-scope-foo-main-entry.mjs\\";",
+      "path": "ghi/deep-file-1.mjs",
+    },
+    "type": "AfterWrite",
+  },
+]
+`;
+
+exports[`with isMjsPackage that classifies "external-nonmjs-mjs" as an mjs package dirname = "ghi" resulting filesystem matches snapshot 1`] = `
+"
+filenames:
+  - node_modules/external-nonmjs-nonmjs/package.json
+  - node_modules/external-nonmjs-nonmjs/nonmjs-nonmjs-entry.js
+  - node_modules/external-nonmjs-mjs/package.json
+  - node_modules/external-nonmjs-mjs/nonmjs-mjs-entry.js
+  - node_modules/external-mjs-main/package.json
+  - node_modules/external-mjs-main/mjs-entry.js
+  - node_modules/external-mjs-main/mjs-entry.mjs
+  - node_modules/@scope/foo/package.json
+  - node_modules/@scope/foo/scope-module-entry.js
+  - node_modules/@scope/foo/scope-module-entry.mjs
+  - top-level-file-0.js
+  - top-level-file-1.js
+  - lib/foo.js
+  - src/bar.js
+  - abc/def/node_modules/deep-external/package.json
+  - abc/def/node_modules/deep-external/deep-module-entry.mjs
+  - abc/def/ghi/jkl/deep-file-0.js
+  - ghi/node_modules/deep-external/package.json
+  - ghi/node_modules/deep-external/deep-browser-entry.mjs
+  - ghi/node_modules/@scope/foo/package.json
+  - ghi/node_modules/@scope/foo/deep-scope-foo-main-entry.js
+  - ghi/node_modules/@scope/foo/deep-scope-foo-main-entry.mjs
+  - ghi/deep-file-1.js
+  - ghi/deep-file-1.mjs
+dirnames:
+  - node_modules
+  - node_modules/external-nonmjs-nonmjs
+  - node_modules/external-nonmjs-mjs
+  - node_modules/external-mjs-main
+  - node_modules/@scope
+  - node_modules/@scope/foo
+  - ''
+  - lib
+  - src
+  - abc
+  - abc/def
+  - abc/def/node_modules
+  - abc/def/node_modules/deep-external
+  - abc/def/ghi
+  - abc/def/ghi/jkl
+  - ghi
+  - ghi/node_modules
+  - ghi/node_modules/deep-external
+  - ghi/node_modules/@scope
+  - ghi/node_modules/@scope/foo
+manifestFiles:
+  - path: node_modules/external-nonmjs-nonmjs/package.json
+    content:
+      main: nonmjs-nonmjs-entry.js
+  - path: node_modules/external-nonmjs-mjs/package.json
+    content:
+      main: nonmjs-mjs-entry.js
+  - path: node_modules/external-mjs-main/package.json
+    content:
+      main: mjs-entry.js
+  - path: node_modules/@scope/foo/package.json
+    content:
+      module: scope-module-entry.mjs
+  - path: abc/def/node_modules/deep-external/package.json
+    content:
+      module: deep-module-entry.mjs
+  - path: ghi/node_modules/deep-external/package.json
+    content:
+      browser: deep-browser-entry.mjs
+  - path: ghi/node_modules/@scope/foo/package.json
+    content:
+      main: deep-scope-foo-main-entry.js
+textFiles:
+  - path: node_modules/external-nonmjs-nonmjs/nonmjs-nonmjs-entry.js
+    content: not to be read
+  - path: node_modules/external-nonmjs-mjs/nonmjs-mjs-entry.js
+    content: not to be read
+  - path: node_modules/external-mjs-main/mjs-entry.js
+    content: not to be read
+  - path: node_modules/external-mjs-main/mjs-entry.mjs
+    content: not to be read
+  - path: node_modules/@scope/foo/scope-module-entry.js
+    content: not to be read
+  - path: node_modules/@scope/foo/scope-module-entry.mjs
+    content: not to be read
+  - path: top-level-file-0.js
+    content: |-
+      import 'external-nonmjs-nonmjs'
+      import 'external-nonmjs-mjs'
+      import 'external-mjs-main'
+      import '@scope/foo'
+  - path: top-level-file-1.js
+    content: import './top-level-file-0'
+  - path: lib/foo.js
+    content: export * from '../top-level-file-1'
+  - path: src/bar.js
+    content: export * from '../lib/foo'
+  - path: abc/def/node_modules/deep-external/deep-module-entry.mjs
+    content: not to be read
+  - path: abc/def/ghi/jkl/deep-file-0.js
+    content: |-
+      export async function main() {
+        await import('deep-external')
+        await import('external-nonmjs-nonmjs')
+        await import('external-nonmjs-mjs')
+        await import('external-mjs-main')
+        await import('@scope/foo')
+      }
+  - path: ghi/node_modules/deep-external/deep-browser-entry.mjs
+    content: not to be read
+  - path: ghi/node_modules/@scope/foo/deep-scope-foo-main-entry.js
+    content: not to be read
+  - path: ghi/node_modules/@scope/foo/deep-scope-foo-main-entry.mjs
+    content: not to be read
+  - path: ghi/deep-file-1.js
+    content: |-
+      export * from 'deep-external'
+      export * from '@scope/foo'
+  - path: ghi/deep-file-1.mjs
+    content: |-
+      export * from 'deep-external/deep-browser-entry.mjs'
+      export * from '@scope/foo/deep-scope-foo-main-entry.mjs'
+
+"
+`;
+
+exports[`without isMjsPackage dirname = "" events matches snapshot 1`] = `
+Array [
+  BeforeWriteEvent {
+    "file": Object {
+      "content": "import 'external-nonmjs-nonmjs';
+import 'external-nonmjs-mjs';
+import \\"external-mjs-main/mjs-entry.mjs\\";
+import \\"@scope/foo/scope-module-entry.mjs\\";",
+      "path": "top-level-file-0.mjs",
+    },
+    "type": "BeforeWrite",
+  },
+  AfterWriteEvent {
+    "file": Object {
+      "content": "import 'external-nonmjs-nonmjs';
+import 'external-nonmjs-mjs';
+import \\"external-mjs-main/mjs-entry.mjs\\";
+import \\"@scope/foo/scope-module-entry.mjs\\";",
+      "path": "top-level-file-0.mjs",
+    },
+    "type": "AfterWrite",
+  },
+  BeforeWriteEvent {
+    "file": Object {
+      "content": "import \\"./top-level-file-0.mjs\\";",
+      "path": "top-level-file-1.mjs",
+    },
+    "type": "BeforeWrite",
+  },
+  AfterWriteEvent {
+    "file": Object {
+      "content": "import \\"./top-level-file-0.mjs\\";",
+      "path": "top-level-file-1.mjs",
+    },
+    "type": "AfterWrite",
+  },
+  BeforeWriteEvent {
+    "file": Object {
+      "content": "export * from \\"../top-level-file-1.mjs\\";",
+      "path": "lib/foo.mjs",
+    },
+    "type": "BeforeWrite",
+  },
+  AfterWriteEvent {
+    "file": Object {
+      "content": "export * from \\"../top-level-file-1.mjs\\";",
+      "path": "lib/foo.mjs",
+    },
+    "type": "AfterWrite",
+  },
+  BeforeWriteEvent {
+    "file": Object {
+      "content": "export * from \\"../lib/foo.mjs\\";",
+      "path": "src/bar.mjs",
+    },
+    "type": "BeforeWrite",
+  },
+  AfterWriteEvent {
+    "file": Object {
+      "content": "export * from \\"../lib/foo.mjs\\";",
+      "path": "src/bar.mjs",
+    },
+    "type": "AfterWrite",
+  },
+  BeforeWriteEvent {
+    "file": Object {
+      "content": "export async function main() {
+  await import(\\"deep-external/deep-module-entry.mjs\\");
+  await import('external-nonmjs-nonmjs');
+  await import('external-nonmjs-mjs');
+  await import(\\"external-mjs-main/mjs-entry.mjs\\");
+  await import(\\"@scope/foo/scope-module-entry.mjs\\");
+}",
+      "path": "abc/def/ghi/jkl/deep-file-0.mjs",
+    },
+    "type": "BeforeWrite",
+  },
+  AfterWriteEvent {
+    "file": Object {
+      "content": "export async function main() {
+  await import(\\"deep-external/deep-module-entry.mjs\\");
+  await import('external-nonmjs-nonmjs');
+  await import('external-nonmjs-mjs');
+  await import(\\"external-mjs-main/mjs-entry.mjs\\");
+  await import(\\"@scope/foo/scope-module-entry.mjs\\");
+}",
+      "path": "abc/def/ghi/jkl/deep-file-0.mjs",
+    },
+    "type": "AfterWrite",
+  },
+  BeforeWriteEvent {
+    "file": Object {
+      "content": "export * from \\"deep-external/deep-browser-entry.mjs\\";
+export * from \\"@scope/foo/deep-scope-foo-main-entry.mjs\\";",
+      "path": "ghi/deep-file-1.mjs",
+    },
+    "type": "BeforeWrite",
+  },
+  AfterWriteEvent {
+    "file": Object {
+      "content": "export * from \\"deep-external/deep-browser-entry.mjs\\";
+export * from \\"@scope/foo/deep-scope-foo-main-entry.mjs\\";",
+      "path": "ghi/deep-file-1.mjs",
+    },
+    "type": "AfterWrite",
+  },
+]
+`;
+
+exports[`without isMjsPackage dirname = "" resulting filesystem matches snapshot 1`] = `
+"
+filenames:
+  - node_modules/external-nonmjs-nonmjs/package.json
+  - node_modules/external-nonmjs-nonmjs/nonmjs-nonmjs-entry.js
+  - node_modules/external-nonmjs-mjs/package.json
+  - node_modules/external-nonmjs-mjs/nonmjs-mjs-entry.js
+  - node_modules/external-mjs-main/package.json
+  - node_modules/external-mjs-main/mjs-entry.js
+  - node_modules/external-mjs-main/mjs-entry.mjs
+  - node_modules/@scope/foo/package.json
+  - node_modules/@scope/foo/scope-module-entry.js
+  - node_modules/@scope/foo/scope-module-entry.mjs
+  - top-level-file-0.js
+  - top-level-file-1.js
+  - lib/foo.js
+  - src/bar.js
+  - abc/def/node_modules/deep-external/package.json
+  - abc/def/node_modules/deep-external/deep-module-entry.mjs
+  - abc/def/ghi/jkl/deep-file-0.js
+  - ghi/node_modules/deep-external/package.json
+  - ghi/node_modules/deep-external/deep-browser-entry.mjs
+  - ghi/node_modules/@scope/foo/package.json
+  - ghi/node_modules/@scope/foo/deep-scope-foo-main-entry.js
+  - ghi/node_modules/@scope/foo/deep-scope-foo-main-entry.mjs
+  - ghi/deep-file-1.js
+  - top-level-file-0.mjs
+  - top-level-file-1.mjs
+  - lib/foo.mjs
+  - src/bar.mjs
+  - abc/def/ghi/jkl/deep-file-0.mjs
+  - ghi/deep-file-1.mjs
+dirnames:
+  - node_modules
+  - node_modules/external-nonmjs-nonmjs
+  - node_modules/external-nonmjs-mjs
+  - node_modules/external-mjs-main
+  - node_modules/@scope
+  - node_modules/@scope/foo
+  - ''
+  - lib
+  - src
+  - abc
+  - abc/def
+  - abc/def/node_modules
+  - abc/def/node_modules/deep-external
+  - abc/def/ghi
+  - abc/def/ghi/jkl
+  - ghi
+  - ghi/node_modules
+  - ghi/node_modules/deep-external
+  - ghi/node_modules/@scope
+  - ghi/node_modules/@scope/foo
+manifestFiles:
+  - path: node_modules/external-nonmjs-nonmjs/package.json
+    content:
+      main: nonmjs-nonmjs-entry.js
+  - path: node_modules/external-nonmjs-mjs/package.json
+    content:
+      main: nonmjs-mjs-entry.js
+  - path: node_modules/external-mjs-main/package.json
+    content:
+      main: mjs-entry.js
+  - path: node_modules/@scope/foo/package.json
+    content:
+      module: scope-module-entry.mjs
+  - path: abc/def/node_modules/deep-external/package.json
+    content:
+      module: deep-module-entry.mjs
+  - path: ghi/node_modules/deep-external/package.json
+    content:
+      browser: deep-browser-entry.mjs
+  - path: ghi/node_modules/@scope/foo/package.json
+    content:
+      main: deep-scope-foo-main-entry.js
+textFiles:
+  - path: node_modules/external-nonmjs-nonmjs/nonmjs-nonmjs-entry.js
+    content: not to be read
+  - path: node_modules/external-nonmjs-mjs/nonmjs-mjs-entry.js
+    content: not to be read
+  - path: node_modules/external-mjs-main/mjs-entry.js
+    content: not to be read
+  - path: node_modules/external-mjs-main/mjs-entry.mjs
+    content: not to be read
+  - path: node_modules/@scope/foo/scope-module-entry.js
+    content: not to be read
+  - path: node_modules/@scope/foo/scope-module-entry.mjs
+    content: not to be read
+  - path: top-level-file-0.js
+    content: |-
+      import 'external-nonmjs-nonmjs'
+      import 'external-nonmjs-mjs'
+      import 'external-mjs-main'
+      import '@scope/foo'
+  - path: top-level-file-1.js
+    content: import './top-level-file-0'
+  - path: lib/foo.js
+    content: export * from '../top-level-file-1'
+  - path: src/bar.js
+    content: export * from '../lib/foo'
+  - path: abc/def/node_modules/deep-external/deep-module-entry.mjs
+    content: not to be read
+  - path: abc/def/ghi/jkl/deep-file-0.js
+    content: |-
+      export async function main() {
+        await import('deep-external')
+        await import('external-nonmjs-nonmjs')
+        await import('external-nonmjs-mjs')
+        await import('external-mjs-main')
+        await import('@scope/foo')
+      }
+  - path: ghi/node_modules/deep-external/deep-browser-entry.mjs
+    content: not to be read
+  - path: ghi/node_modules/@scope/foo/deep-scope-foo-main-entry.js
+    content: not to be read
+  - path: ghi/node_modules/@scope/foo/deep-scope-foo-main-entry.mjs
+    content: not to be read
+  - path: ghi/deep-file-1.js
+    content: |-
+      export * from 'deep-external'
+      export * from '@scope/foo'
+  - path: top-level-file-0.mjs
+    content: |-
+      import 'external-nonmjs-nonmjs'
+      import 'external-nonmjs-mjs'
+      import 'external-mjs-main/mjs-entry.mjs'
+      import '@scope/foo/scope-module-entry.mjs'
+  - path: top-level-file-1.mjs
+    content: import './top-level-file-0.mjs'
+  - path: lib/foo.mjs
+    content: export * from '../top-level-file-1.mjs'
+  - path: src/bar.mjs
+    content: export * from '../lib/foo.mjs'
+  - path: abc/def/ghi/jkl/deep-file-0.mjs
+    content: |-
+      export async function main() {
+        await import('deep-external/deep-module-entry.mjs')
+        await import('external-nonmjs-nonmjs')
+        await import('external-nonmjs-mjs')
+        await import('external-mjs-main/mjs-entry.mjs')
+        await import('@scope/foo/scope-module-entry.mjs')
+      }
+  - path: ghi/deep-file-1.mjs
+    content: |-
+      export * from 'deep-external/deep-browser-entry.mjs'
+      export * from '@scope/foo/deep-scope-foo-main-entry.mjs'
+
+"
+`;
+
+exports[`without isMjsPackage dirname = "abc/def" events matches snapshot 1`] = `
+Array [
+  BeforeWriteEvent {
+    "file": Object {
+      "content": "export async function main() {
+  await import(\\"deep-external/deep-module-entry.mjs\\");
+  await import('external-nonmjs-nonmjs');
+  await import('external-nonmjs-mjs');
+  await import(\\"external-mjs-main/mjs-entry.mjs\\");
+  await import(\\"@scope/foo/scope-module-entry.mjs\\");
+}",
+      "path": "abc/def/ghi/jkl/deep-file-0.mjs",
+    },
+    "type": "BeforeWrite",
+  },
+  AfterWriteEvent {
+    "file": Object {
+      "content": "export async function main() {
+  await import(\\"deep-external/deep-module-entry.mjs\\");
+  await import('external-nonmjs-nonmjs');
+  await import('external-nonmjs-mjs');
+  await import(\\"external-mjs-main/mjs-entry.mjs\\");
+  await import(\\"@scope/foo/scope-module-entry.mjs\\");
+}",
+      "path": "abc/def/ghi/jkl/deep-file-0.mjs",
+    },
+    "type": "AfterWrite",
+  },
+]
+`;
+
+exports[`without isMjsPackage dirname = "abc/def" resulting filesystem matches snapshot 1`] = `
+"
+filenames:
+  - node_modules/external-nonmjs-nonmjs/package.json
+  - node_modules/external-nonmjs-nonmjs/nonmjs-nonmjs-entry.js
+  - node_modules/external-nonmjs-mjs/package.json
+  - node_modules/external-nonmjs-mjs/nonmjs-mjs-entry.js
+  - node_modules/external-mjs-main/package.json
+  - node_modules/external-mjs-main/mjs-entry.js
+  - node_modules/external-mjs-main/mjs-entry.mjs
+  - node_modules/@scope/foo/package.json
+  - node_modules/@scope/foo/scope-module-entry.js
+  - node_modules/@scope/foo/scope-module-entry.mjs
+  - top-level-file-0.js
+  - top-level-file-1.js
+  - lib/foo.js
+  - src/bar.js
+  - abc/def/node_modules/deep-external/package.json
+  - abc/def/node_modules/deep-external/deep-module-entry.mjs
+  - abc/def/ghi/jkl/deep-file-0.js
+  - ghi/node_modules/deep-external/package.json
+  - ghi/node_modules/deep-external/deep-browser-entry.mjs
+  - ghi/node_modules/@scope/foo/package.json
+  - ghi/node_modules/@scope/foo/deep-scope-foo-main-entry.js
+  - ghi/node_modules/@scope/foo/deep-scope-foo-main-entry.mjs
+  - ghi/deep-file-1.js
+  - abc/def/ghi/jkl/deep-file-0.mjs
+dirnames:
+  - node_modules
+  - node_modules/external-nonmjs-nonmjs
+  - node_modules/external-nonmjs-mjs
+  - node_modules/external-mjs-main
+  - node_modules/@scope
+  - node_modules/@scope/foo
+  - ''
+  - lib
+  - src
+  - abc
+  - abc/def
+  - abc/def/node_modules
+  - abc/def/node_modules/deep-external
+  - abc/def/ghi
+  - abc/def/ghi/jkl
+  - ghi
+  - ghi/node_modules
+  - ghi/node_modules/deep-external
+  - ghi/node_modules/@scope
+  - ghi/node_modules/@scope/foo
+manifestFiles:
+  - path: node_modules/external-nonmjs-nonmjs/package.json
+    content:
+      main: nonmjs-nonmjs-entry.js
+  - path: node_modules/external-nonmjs-mjs/package.json
+    content:
+      main: nonmjs-mjs-entry.js
+  - path: node_modules/external-mjs-main/package.json
+    content:
+      main: mjs-entry.js
+  - path: node_modules/@scope/foo/package.json
+    content:
+      module: scope-module-entry.mjs
+  - path: abc/def/node_modules/deep-external/package.json
+    content:
+      module: deep-module-entry.mjs
+  - path: ghi/node_modules/deep-external/package.json
+    content:
+      browser: deep-browser-entry.mjs
+  - path: ghi/node_modules/@scope/foo/package.json
+    content:
+      main: deep-scope-foo-main-entry.js
+textFiles:
+  - path: node_modules/external-nonmjs-nonmjs/nonmjs-nonmjs-entry.js
+    content: not to be read
+  - path: node_modules/external-nonmjs-mjs/nonmjs-mjs-entry.js
+    content: not to be read
+  - path: node_modules/external-mjs-main/mjs-entry.js
+    content: not to be read
+  - path: node_modules/external-mjs-main/mjs-entry.mjs
+    content: not to be read
+  - path: node_modules/@scope/foo/scope-module-entry.js
+    content: not to be read
+  - path: node_modules/@scope/foo/scope-module-entry.mjs
+    content: not to be read
+  - path: top-level-file-0.js
+    content: |-
+      import 'external-nonmjs-nonmjs'
+      import 'external-nonmjs-mjs'
+      import 'external-mjs-main'
+      import '@scope/foo'
+  - path: top-level-file-1.js
+    content: import './top-level-file-0'
+  - path: lib/foo.js
+    content: export * from '../top-level-file-1'
+  - path: src/bar.js
+    content: export * from '../lib/foo'
+  - path: abc/def/node_modules/deep-external/deep-module-entry.mjs
+    content: not to be read
+  - path: abc/def/ghi/jkl/deep-file-0.js
+    content: |-
+      export async function main() {
+        await import('deep-external')
+        await import('external-nonmjs-nonmjs')
+        await import('external-nonmjs-mjs')
+        await import('external-mjs-main')
+        await import('@scope/foo')
+      }
+  - path: ghi/node_modules/deep-external/deep-browser-entry.mjs
+    content: not to be read
+  - path: ghi/node_modules/@scope/foo/deep-scope-foo-main-entry.js
+    content: not to be read
+  - path: ghi/node_modules/@scope/foo/deep-scope-foo-main-entry.mjs
+    content: not to be read
+  - path: ghi/deep-file-1.js
+    content: |-
+      export * from 'deep-external'
+      export * from '@scope/foo'
+  - path: abc/def/ghi/jkl/deep-file-0.mjs
+    content: |-
+      export async function main() {
+        await import('deep-external/deep-module-entry.mjs')
+        await import('external-nonmjs-nonmjs')
+        await import('external-nonmjs-mjs')
+        await import('external-mjs-main/mjs-entry.mjs')
+        await import('@scope/foo/scope-module-entry.mjs')
+      }
+
+"
+`;
+
+exports[`without isMjsPackage dirname = "ghi" events matches snapshot 1`] = `
+Array [
+  BeforeWriteEvent {
+    "file": Object {
+      "content": "export * from \\"deep-external/deep-browser-entry.mjs\\";
+export * from \\"@scope/foo/deep-scope-foo-main-entry.mjs\\";",
+      "path": "ghi/deep-file-1.mjs",
+    },
+    "type": "BeforeWrite",
+  },
+  AfterWriteEvent {
+    "file": Object {
+      "content": "export * from \\"deep-external/deep-browser-entry.mjs\\";
+export * from \\"@scope/foo/deep-scope-foo-main-entry.mjs\\";",
+      "path": "ghi/deep-file-1.mjs",
+    },
+    "type": "AfterWrite",
+  },
+]
+`;
+
+exports[`without isMjsPackage dirname = "ghi" resulting filesystem matches snapshot 1`] = `
+"
+filenames:
+  - node_modules/external-nonmjs-nonmjs/package.json
+  - node_modules/external-nonmjs-nonmjs/nonmjs-nonmjs-entry.js
+  - node_modules/external-nonmjs-mjs/package.json
+  - node_modules/external-nonmjs-mjs/nonmjs-mjs-entry.js
+  - node_modules/external-mjs-main/package.json
+  - node_modules/external-mjs-main/mjs-entry.js
+  - node_modules/external-mjs-main/mjs-entry.mjs
+  - node_modules/@scope/foo/package.json
+  - node_modules/@scope/foo/scope-module-entry.js
+  - node_modules/@scope/foo/scope-module-entry.mjs
+  - top-level-file-0.js
+  - top-level-file-1.js
+  - lib/foo.js
+  - src/bar.js
+  - abc/def/node_modules/deep-external/package.json
+  - abc/def/node_modules/deep-external/deep-module-entry.mjs
+  - abc/def/ghi/jkl/deep-file-0.js
+  - ghi/node_modules/deep-external/package.json
+  - ghi/node_modules/deep-external/deep-browser-entry.mjs
+  - ghi/node_modules/@scope/foo/package.json
+  - ghi/node_modules/@scope/foo/deep-scope-foo-main-entry.js
+  - ghi/node_modules/@scope/foo/deep-scope-foo-main-entry.mjs
+  - ghi/deep-file-1.js
+  - ghi/deep-file-1.mjs
+dirnames:
+  - node_modules
+  - node_modules/external-nonmjs-nonmjs
+  - node_modules/external-nonmjs-mjs
+  - node_modules/external-mjs-main
+  - node_modules/@scope
+  - node_modules/@scope/foo
+  - ''
+  - lib
+  - src
+  - abc
+  - abc/def
+  - abc/def/node_modules
+  - abc/def/node_modules/deep-external
+  - abc/def/ghi
+  - abc/def/ghi/jkl
+  - ghi
+  - ghi/node_modules
+  - ghi/node_modules/deep-external
+  - ghi/node_modules/@scope
+  - ghi/node_modules/@scope/foo
+manifestFiles:
+  - path: node_modules/external-nonmjs-nonmjs/package.json
+    content:
+      main: nonmjs-nonmjs-entry.js
+  - path: node_modules/external-nonmjs-mjs/package.json
+    content:
+      main: nonmjs-mjs-entry.js
+  - path: node_modules/external-mjs-main/package.json
+    content:
+      main: mjs-entry.js
+  - path: node_modules/@scope/foo/package.json
+    content:
+      module: scope-module-entry.mjs
+  - path: abc/def/node_modules/deep-external/package.json
+    content:
+      module: deep-module-entry.mjs
+  - path: ghi/node_modules/deep-external/package.json
+    content:
+      browser: deep-browser-entry.mjs
+  - path: ghi/node_modules/@scope/foo/package.json
+    content:
+      main: deep-scope-foo-main-entry.js
+textFiles:
+  - path: node_modules/external-nonmjs-nonmjs/nonmjs-nonmjs-entry.js
+    content: not to be read
+  - path: node_modules/external-nonmjs-mjs/nonmjs-mjs-entry.js
+    content: not to be read
+  - path: node_modules/external-mjs-main/mjs-entry.js
+    content: not to be read
+  - path: node_modules/external-mjs-main/mjs-entry.mjs
+    content: not to be read
+  - path: node_modules/@scope/foo/scope-module-entry.js
+    content: not to be read
+  - path: node_modules/@scope/foo/scope-module-entry.mjs
+    content: not to be read
+  - path: top-level-file-0.js
+    content: |-
+      import 'external-nonmjs-nonmjs'
+      import 'external-nonmjs-mjs'
+      import 'external-mjs-main'
+      import '@scope/foo'
+  - path: top-level-file-1.js
+    content: import './top-level-file-0'
+  - path: lib/foo.js
+    content: export * from '../top-level-file-1'
+  - path: src/bar.js
+    content: export * from '../lib/foo'
+  - path: abc/def/node_modules/deep-external/deep-module-entry.mjs
+    content: not to be read
+  - path: abc/def/ghi/jkl/deep-file-0.js
+    content: |-
+      export async function main() {
+        await import('deep-external')
+        await import('external-nonmjs-nonmjs')
+        await import('external-nonmjs-mjs')
+        await import('external-mjs-main')
+        await import('@scope/foo')
+      }
+  - path: ghi/node_modules/deep-external/deep-browser-entry.mjs
+    content: not to be read
+  - path: ghi/node_modules/@scope/foo/deep-scope-foo-main-entry.js
+    content: not to be read
+  - path: ghi/node_modules/@scope/foo/deep-scope-foo-main-entry.mjs
+    content: not to be read
+  - path: ghi/deep-file-1.js
+    content: |-
+      export * from 'deep-external'
+      export * from '@scope/foo'
+  - path: ghi/deep-file-1.mjs
+    content: |-
+      export * from 'deep-external/deep-browser-entry.mjs'
+      export * from '@scope/foo/deep-scope-foo-main-entry.mjs'
+
+"
+`;
