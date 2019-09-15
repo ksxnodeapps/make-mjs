@@ -1,22 +1,16 @@
 import * as fsTreeUtils from 'fs-tree-utils'
 import { MaybePromise } from '@make-mjs/utils'
 import { CodeTransformOptions } from '@make-mjs/file'
-import TraversalOptions = fsTreeUtils.Traverse.Options
-import TraversalDeepFunc = TraversalOptions.DeepFunc
-import TraversalStatFunc = TraversalOptions.StatFunc
-
-export {
-  TraversalOptions,
-  TraversalDeepFunc,
-  TraversalStatFunc
-}
+export type TraversalOptions = fsTreeUtils.Traverse.Options
+export type TraversalDeepFunc = fsTreeUtils.Traverse.Options.DeepFunc
+export type TraversalStatFunc = fsTreeUtils.Traverse.Options.StatFunc
 
 export interface FilterFunc {
   (param: FilterFunc.Param): boolean
 }
 
 export namespace FilterFunc {
-  export interface Param extends TraversalDeepFunc.Param {}
+  export interface Param extends fsTreeUtils.Traverse.Options.DeepFunc.Param {}
 }
 
 interface ReadSharedOptions {
