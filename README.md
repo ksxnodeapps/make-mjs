@@ -1,5 +1,9 @@
 # Collection of `@make-mjs` packages
 
+## Purpose
+
+This is a collection of packages that help turn a normal Babel JavaScript file that uses ES module `import` syntax into a `.mjs` file that `import`s exact URL.
+
 ## Development
 
 ### System Requirements
