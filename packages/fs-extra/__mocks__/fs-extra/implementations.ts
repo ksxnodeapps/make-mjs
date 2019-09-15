@@ -401,6 +401,7 @@ export function readdirSync (dirname: string) {
     allThatIs
       .get()
       .filter(path => path.startsWith(dirname))
+      .map(path => path.slice(dirname.length))
   )
 }
 
