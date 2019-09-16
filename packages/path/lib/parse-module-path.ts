@@ -36,11 +36,13 @@ implements ExternalModulePathParsingResult {
   public readonly kind = ModulePathKind.External
 }
 
+const INTERNAL_PREFIXES = ['.', '..', '~', '/']
+
 export function parseModulePath (path: string): ModulePathParsingResult {
-  const [name] = path.split('/')
-  return ['.', '..', '~', '/'].includes(name)
-    ? new Internal(null, path)
-    : new External(name, path)
+  const [first, second] = path.split('/')
+  if (INTERNAL_PREFIXES.includes(first)) return new Internal(null, path)
+  if (first.startsWith('@')) return new External(first + '/' + second, path)
+  return new External(first, path)
 }
 
 export default parseModulePath
