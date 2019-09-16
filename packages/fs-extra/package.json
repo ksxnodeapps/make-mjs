@@ -1,6 +1,6 @@
 {
   "name": "@make-mjs/fs-extra",
-  "version": "0.0.1",
+  "version": "0.0.0",
   "description": "Literally fs-extra",
   "author": "Hoàng Văn Khải <hvksmr1996@gmail.com>",
   "license": "MIT",

@@ -37,7 +37,7 @@ packages:
     resolution:
       integrity: sha512-mqRJXN7dEArK/NZNJUubjr9kbFFVZcmF/JHDc9jt5O/aYXUVmopHYujDMhLmLil1Bxo2+khe6KAIVvDH9Yc4VA==
 specifiers:
-  '@make-mjs/fs-extra': ^0.0.1
+  '@make-mjs/fs-extra': ^0.0.0
   '@make-mjs/utils': ^0.0.1
   '@tsfun/object': ^0.0.2
   '@types/node': ^12.7.5
