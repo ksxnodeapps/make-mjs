@@ -1,6 +1,6 @@
 {
   "name": "@make-mjs/fs-extra",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Literally fs-extra",
   "author": "Hoàng Văn Khải <hvksmr1996@gmail.com>",
   "license": "MIT",
@@ -15,7 +15,7 @@
   "dependencies": {
     "fs-extra": "8.1.0",
     "tslib": "^1.10.0",
-    "@make-mjs/utils": "^0.0.0",
+    "@make-mjs/utils": "^0.0.1",
     "@types/fs-extra": "^8.0.0",
     "@types/node": "^12.7.5"
   }
