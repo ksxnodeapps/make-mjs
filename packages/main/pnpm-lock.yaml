@@ -2,19 +2,19 @@ dependencies:
   '@make-mjs/file': 'link:../file'
   '@make-mjs/fs-extra': 'link:../fs-extra'
   '@make-mjs/utils': 'link:../utils'
-  '@tsfun/object': 0.0.1
+  '@tsfun/object': 0.0.2
   '@types/node': 12.7.5
   tslib: 1.10.0
 lockfileVersion: 5.1
 packages:
-  /@tsfun/object/0.0.1:
+  /@tsfun/object/0.0.2:
     dependencies:
       '@types/node': 12.7.5
       tslib: 1.10.0
       utility-types: 3.7.0
     dev: false
     resolution:
-      integrity: sha512-1Znc/BmghtFnxgVrhkpvhSf5HpZbnEcKmXqsXSCXJP0+BW2C00d5st5qkBErSTTEvcGAMgPZ9E95ydlMO8lcrg==
+      integrity: sha512-OsSXSrD0BI0ae52CRr1AcV8xsDnARtv0oQkyBphvxcdCIoFzGWKThXLqysNUhBz+0Zu4IfuDCTbdvnwv6FKwmw==
   /@types/node/12.7.5:
     dev: false
     resolution:
@@ -33,6 +33,6 @@ specifiers:
   '@make-mjs/file': ^0.0.0
   '@make-mjs/fs-extra': ^0.0.0
   '@make-mjs/utils': ^0.0.0
-  '@tsfun/object': ^0.0.1
+  '@tsfun/object': ^0.0.2
   '@types/node': ^12.7.5
   tslib: ^1.10.0
