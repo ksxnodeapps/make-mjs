@@ -7,6 +7,7 @@
     "fs-extra": "^8.1.0",
     "@types/fs-extra": "^8.0.0",
     "@make-mjs/main": "file:../../packages/main",
+    "@tools/preloaded-node": "file:../preloaded-node",
     "@tools/places": "file:../places"
   }
 }

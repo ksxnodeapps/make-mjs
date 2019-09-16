@@ -1,4 +1,5 @@
 #! /usr/bin/env node
+require('@tools/preloaded-node/register/typescript')
 const path = require('path')
 const process = require('process')
 const fsx = require('fs-extra')
