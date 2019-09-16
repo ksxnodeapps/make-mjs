@@ -23,7 +23,7 @@ async function main () {
   const events = proceed({
     dirname: places.packages,
     deep: param => !IGNORED_DIRECTORIES.includes(param.base),
-    filter: param => param.base.endsWith('.js'),
+    filter: param => param.base.endsWith('.tmpjs'), // workaround: preloaded-node always tries to load .js file before .ts
     codeTransformOptions: {
       parserOptions: DEFAULT_PARSER_OPTIONS,
       isMjsPackage: param => knownMjsPackages.includes(param.packageName)

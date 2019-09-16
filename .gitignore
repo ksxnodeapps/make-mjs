@@ -17,6 +17,7 @@ temp.*
 *.tern-project
 *.tern-project.json
 *.map
+*.tmpjs
 !jest.config.js
 /*/*/.npmignore
 *.tsbuildinfo

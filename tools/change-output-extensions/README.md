@@ -1,0 +1,1 @@
+This is a workaround of `@tools/make-mjs`: When it is executed after `execute buildTypescript --target esnext`, Node.js does not look for `*.ts` files to load, instead, it tries to load `*.js` files, which causes syntax error. In order to avoid this problem, this tool were created to rename `*.js` files to `*.tmpjs` so that Node.js won't try to load them.

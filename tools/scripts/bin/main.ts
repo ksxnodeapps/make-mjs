@@ -82,7 +82,10 @@ abstract class Dict {
 
   public readonly clean = new Command(
     'Clean build products',
-    () => this.callCmd('cleanTypescriptBuild')
+    () => {
+      this.callCmd('cleanTypescriptBuild')
+      this.callCmd('changeOutputExtensions', 'cleanup')
+    }
   )
 
   public readonly prepublish = new Command(
@@ -137,7 +140,9 @@ abstract class Dict {
     'Compile TypeScript files into ESM JavaScript',
     () => {
       this.callCmd('buildTypescript', '--module', 'esnext')
+      this.callCmd('changeOutputExtensions', 'rename')
       this.callCmd('makeMJS')
+      this.callCmd('changeOutputExtensions', 'cleanup')
     }
   )
 
@@ -155,8 +160,13 @@ abstract class Dict {
     this.mkspawn(commands.cleanTypescriptBuild)
   )
 
+  public readonly changeOutputExtensions = new Command(
+    'Change extension of all output *.js files to *.babel',
+    this.mkspawn(commands.changeOutputExtensions)
+  )
+
   public readonly makeMJS = new Command(
-    'Change extension of all output *.js files to *.mjs',
+    'Convert *.babel files into *.mjs',
     this.mkspawn(commands.makeMJS)
   )
 

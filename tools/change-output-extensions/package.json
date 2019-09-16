@@ -1,0 +1,11 @@
+{
+  "name": "@tools/change-output-extensions",
+  "version": "0.0.0",
+  "private": true,
+  "dependencies": {
+    "fs-extra": "^8.1.0",
+    "@types/fs-extra": "^8.0.0",
+    "fs-tree-utils": "^0.1.6",
+    "@tools/places": "file:../places"
+  }
+}

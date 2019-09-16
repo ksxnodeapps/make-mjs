@@ -1,5 +1,6 @@
 dependencies:
   '@tools/add-dependency': 'link:../add-dependency'
+  '@tools/change-output-extensions': 'link:../change-output-extensions'
   '@tools/clean-typescript-build': 'link:../clean-typescript-build'
   '@tools/create-new-folder': 'link:../create-new-folder'
   '@tools/git-tag-versions': 'link:../git-tag-versions'
@@ -177,6 +178,7 @@ packages:
       integrity: sha512-GyH068kJf7c4vhfqj4aCM5X+TeV8jG2iPFLimpGpnQ7dvKfogZOHfiYxMww/nGEfMm/bEmnVbeZGO1see1OVKg==
 specifiers:
   '@tools/add-dependency': 'file:../add-dependency'
+  '@tools/change-output-extensions': 'file:../change-output-extensions'
   '@tools/clean-typescript-build': 'file:../clean-typescript-build'
   '@tools/create-new-folder': 'file:../create-new-folder'
   '@tools/git-tag-versions': 'file:../git-tag-versions'
