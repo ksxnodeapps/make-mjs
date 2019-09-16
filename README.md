@@ -4,6 +4,14 @@
 
 This is a collection of packages that help turn a normal Babel JavaScript file that uses ES module `import` syntax into a `.mjs` file that `import`s exact URL.
 
+## Packages
+
+* [@make-mjs/cli](https://www.npmjs.com/package/@make-mjs/cli): Command-line interfaces
+* [@make-mjs/main](https://www.npmjs.com/package/@make-mjs/main): APIs to compile a directory
+* [@make-mjs/file](https://www.npmjs.com/package/@make-mjs/file): APIs to compile a file
+* [@make-mjs/path](https://www.npmjs.com/package/@make-mjs/path): APIs to transform an import/export URL
+* [and more...](https://www.npmjs.com/org/make-mjs)
+
 ## Development
 
 ### System Requirements
