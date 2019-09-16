@@ -4,6 +4,7 @@ dependencies:
   '@make-mjs/utils': 'link:../utils'
   '@tsfun/object': 0.0.2
   '@types/node': 12.7.5
+  ancestor-directories: 1.0.1
   tslib: 1.10.0
 lockfileVersion: 5.1
 packages:
@@ -15,10 +16,51 @@ packages:
     dev: false
     resolution:
       integrity: sha512-OsSXSrD0BI0ae52CRr1AcV8xsDnARtv0oQkyBphvxcdCIoFzGWKThXLqysNUhBz+0Zu4IfuDCTbdvnwv6FKwmw==
+  /@types/node/10.14.18:
+    dev: false
+    resolution:
+      integrity: sha512-ryO3Q3++yZC/+b8j8BdKd/dn9JlzlHBPdm80656xwYUdmPkpTGTjkAdt6BByiNupGPE8w0FhBgvYy/fX9hRNGQ==
   /@types/node/12.7.5:
     dev: false
     resolution:
       integrity: sha512-9fq4jZVhPNW8r+UYKnxF1e2HkDWOWKM5bC2/7c9wPV835I0aOrVbS/Hw/pWPk2uKrNXQqg9Z959Kz+IYDd5p3w==
+  /@types/ramda/0.25.51:
+    dev: false
+    resolution:
+      integrity: sha512-xcmtfHIgF9SYjhGdsZR1nQslxG4hu0cIpFfLQ4CWdw3KzHvl7ki1AzFLQUkbDTG42ZN3ZsQfdRzXRlkAvbIy5Q==
+  /ancestor-directories/1.0.1:
+    dependencies:
+      '@types/node': 10.14.18
+      monorepo-shared-assets: 0.0.16
+      tslib: 1.10.0
+    dev: false
+    engines:
+      node: '>= 8.9.0'
+    resolution:
+      integrity: sha512-UpKIlCLCyheiSDDIkpf5Dk6yII1um/+NBBu8GkyCvHWlJ7wn0cxAj+PqDCx99ow5HaaHNhoRfo2QoHPE1fb5fg==
+  /immutable/3.8.2:
+    dev: false
+    engines:
+      node: '>=0.10.0'
+    resolution:
+      integrity: sha1-wkOZUUVbs5kT2vKBN28VMOEErfM=
+  /monorepo-shared-assets/0.0.16:
+    dependencies:
+      '@types/node': 10.14.18
+      '@types/ramda': 0.25.51
+      immutable: 3.8.2
+      ramda: 0.25.0
+      tslib: 1.10.0
+    deprecated: Some TypeScript errors were tolerated by the compiler
+    dev: false
+    engines:
+      node: '>= 8.9.0'
+    resolution:
+      integrity: sha512-TsF/r4j3iC3siZv27+m57ydDrw6meuXSQ+Rc8CWcvYRXlYQfrOEK+6No3pAhXlyqR6k7OVC+L+pJyW+OU+hPOg==
+  /ramda/0.25.0:
+    dev: false
+    resolution:
+      integrity: sha512-GXpfrYVPwx3K7RQ6aYT8KPS8XViSXUVJT1ONhoKPE9VAleW42YE+U+8VEyGWt41EnEQW7gwecYJriTI0pKoecQ==
   /tslib/1.10.0:
     dev: false
     resolution:
@@ -35,4 +77,5 @@ specifiers:
   '@make-mjs/utils': ^0.0.0
   '@tsfun/object': ^0.0.2
   '@types/node': ^12.7.5
+  ancestor-directories: 1.0.1
   tslib: ^1.10.0
