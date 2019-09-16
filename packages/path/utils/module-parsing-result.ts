@@ -1,4 +1,4 @@
-export const enum ModulePathKind {
+export enum ModulePathKind {
   Internal = 'Internal',
   External = 'External'
 }
