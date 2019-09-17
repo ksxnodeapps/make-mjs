@@ -103,6 +103,8 @@ function getFilesystemSnapshot () {
   return '\n' + yamlString + '\n'
 }
 
+afterEach(fillAll)
+
 describe('without isMjsPackage', () => {
   async function setup (dirname: string) {
     makeValidFiles()

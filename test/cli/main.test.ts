@@ -102,6 +102,8 @@ function getFilesystemSnapshot () {
   return '\n' + yamlString + '\n'
 }
 
+afterEach(fillAll)
+
 describe('knownMjsPackages = ["external-nonmjs-mjs"]', () => {
   const knownMjsPackages = ['external-nonmjs-mjs']
 
