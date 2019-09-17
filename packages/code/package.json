@@ -1,7 +1,7 @@
 {
   "name": "@make-mjs/code",
   "version": "0.1.0",
-  "description": "Turn a Babel JavaScript file into a MJS file",
+  "description": "Turn a Babel JavaScript file into a MJS code",
   "author": "Hoàng Văn Khải <hvksmr1996@gmail.com>",
   "license": "MIT",
   "homepage": "https://github.com/ksxnodeapps/make-mjs#readme",

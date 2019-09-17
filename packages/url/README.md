@@ -1,13 +1,13 @@
-# @make-mjs/path
+# @make-mjs/url
 
-Manipulate MJS module path
+Manipulate MJS module URL
 
 ## Examples
 
 ### Internal Modules
 
 ```typescript
-import getMjsPath from '@make-mjs/path'
+import getMjsPath from '@make-mjs/url'
 
 const mjsPath: string = await getMjsPath({
   modulePath: './foo/bar/baz', // leading '.' or '..' is required to be recognized as internal
@@ -24,7 +24,7 @@ const mjsPath: string = await getMjsPath({
 ### External Modules
 
 ```typescript
-import getMjsPath from '@make-mjs/path'
+import getMjsPath from '@make-mjs/url'
 
 const mjsPath: string = await getMjsPath({
   modulePath: 'foo/bar/baz',

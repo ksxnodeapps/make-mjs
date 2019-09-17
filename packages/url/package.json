@@ -1,7 +1,7 @@
 {
   "name": "@make-mjs/url",
   "version": "0.1.0",
-  "description": "Manipulate MJS module path",
+  "description": "Manipulate MJS module url",
   "author": "Hoàng Văn Khải <hvksmr1996@gmail.com>",
   "license": "MIT",
   "homepage": "https://github.com/ksxnodeapps/make-mjs#readme",

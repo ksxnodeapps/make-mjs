@@ -1,6 +1,6 @@
-# @make-mjs/file
+# @make-mjs/code
 
-Turn a Babel JavaScript file into a MJS file
+Turn a Babel JavaScript code into a MJS code
 
 ## Example
 
@@ -15,7 +15,7 @@ You run this command:
 
 ```typescript
 import fs from 'fs'
-import transformCode from '@make-mjs/file'
+import transformCode from '@make-mjs/code'
 const input = fs.readFileSync('index.js', 'utf8')
 const output = transformCode(code, { moduleContainer: ['node_modules'] }).code
 fs.writeFileSync('index.mjs', output)
