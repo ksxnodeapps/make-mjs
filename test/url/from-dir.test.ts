@@ -1,4 +1,4 @@
-import { fromDir } from '@make-mjs/path'
+import { fromDir } from '@make-mjs/url'
 
 import {
   MODULE_CONTAINER,

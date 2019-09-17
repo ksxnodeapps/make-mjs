@@ -1,6 +1,6 @@
 import { MaybePromise } from '@make-mjs/utils'
 import { Stats } from '@make-mjs/fs-extra'
-import { CodeTransformOptions } from '@make-mjs/file'
+import { CodeTransformOptions } from '@make-mjs/code'
 
 export interface FilterFunc {
   (param: FilterFunc.Param): boolean

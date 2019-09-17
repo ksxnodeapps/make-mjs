@@ -1,5 +1,5 @@
 dependencies:
-  '@make-mjs/file': 'link:../../packages/file'
+  '@make-mjs/code': 'link:../../packages/code'
   '@make-mjs/main': 'link:../../packages/main'
   '@tools/places': 'link:../places'
   '@tools/preloaded-node': 'link:../preloaded-node'
@@ -44,7 +44,7 @@ packages:
     resolution:
       integrity: sha512-rBJeI5CXAlmy1pV+617WB9J63U6XcazHHF2f2dbJix4XzpUF0RS3Zbj0FGIOCAva5P/d/GBOYaACQ1w+0azUkg==
 specifiers:
-  '@make-mjs/file': 'file:../../packages/file'
+  '@make-mjs/code': 'file:../../packages/code'
   '@make-mjs/main': 'file:../../packages/main'
   '@tools/places': 'file:../places'
   '@tools/preloaded-node': 'file:../preloaded-node'

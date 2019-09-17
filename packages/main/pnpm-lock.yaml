@@ -1,5 +1,5 @@
 dependencies:
-  '@make-mjs/file': 'link:../file'
+  '@make-mjs/code': 'link:../code'
   '@make-mjs/fs-extra': 'link:../fs-extra'
   '@make-mjs/utils': 'link:../utils'
   '@tsfun/object': 0.0.3
@@ -72,7 +72,7 @@ packages:
     resolution:
       integrity: sha512-mqRJXN7dEArK/NZNJUubjr9kbFFVZcmF/JHDc9jt5O/aYXUVmopHYujDMhLmLil1Bxo2+khe6KAIVvDH9Yc4VA==
 specifiers:
-  '@make-mjs/file': ^0.1.0
+  '@make-mjs/code': ^0.1.0
   '@make-mjs/fs-extra': ^0.0.0
   '@make-mjs/utils': ^0.0.1
   '@tsfun/object': ^0.0.3

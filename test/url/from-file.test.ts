@@ -1,4 +1,4 @@
-import { fromFileWithoutChecking, fromFile } from '@make-mjs/path'
+import { fromFileWithoutChecking, fromFile } from '@make-mjs/url'
 
 import {
   appendFile,

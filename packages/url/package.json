@@ -1,5 +1,5 @@
 {
-  "name": "@make-mjs/path",
+  "name": "@make-mjs/url",
   "version": "0.1.0",
   "description": "Manipulate MJS module path",
   "author": "Hoàng Văn Khải <hvksmr1996@gmail.com>",

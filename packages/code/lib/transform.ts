@@ -1,6 +1,6 @@
 import createLock from 'remote-controlled-promise'
 import { addProperty } from '@tsfun/object'
-import transformPath, { MjsPackageTester } from '@make-mjs/path'
+import transformPath, { MjsPackageTester } from '@make-mjs/url'
 import { Node } from './types'
 import parse, { ParserOptions } from './parse-code'
 import generate, { GeneratorOptions } from './generate-code'

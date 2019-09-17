@@ -8,8 +8,8 @@ This is a collection of packages that help turn a normal Babel JavaScript file t
 
 * [@make-mjs/cli](https://www.npmjs.com/package/@make-mjs/cli): Command-line executable
 * [@make-mjs/main](https://www.npmjs.com/package/@make-mjs/main): APIs to compile a directory
-* [@make-mjs/file](https://www.npmjs.com/package/@make-mjs/file): APIs to compile a file
-* [@make-mjs/path](https://www.npmjs.com/package/@make-mjs/path): APIs to transform an import/export URL
+* [@make-mjs/code](https://www.npmjs.com/package/@make-mjs/code): APIs to compile a file
+* [@make-mjs/url](https://www.npmjs.com/package/@make-mjs/url): APIs to transform an import/export URL
 * [and more...](https://www.npmjs.com/org/make-mjs)
 
 ## Development

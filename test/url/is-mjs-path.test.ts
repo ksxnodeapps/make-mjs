@@ -1,4 +1,4 @@
-import { isMjsPath } from '@make-mjs/path'
+import { isMjsPath } from '@make-mjs/url'
 
 const get = (modulePath: string) => isMjsPath({ modulePath })
 

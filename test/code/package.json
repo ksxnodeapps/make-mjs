@@ -3,6 +3,6 @@
   "dependencies": {
     "@tools/test-utils": "file:../../tools/test-utils",
     "@make-mjs/fs-extra": "file:../../packages/fs-extra",
-    "@make-mjs/file": "file:../../packages/file"
+    "@make-mjs/code": "file:../../packages/code"
   }
 }

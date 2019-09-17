@@ -1,6 +1,6 @@
 import { objectExtends } from '@tsfun/object'
 import { replacePathExtension } from '@make-mjs/utils'
-import { CodeTransformOptions, DEFAULT_PARSER_OPTIONS, transformCode } from '@make-mjs/file'
+import { CodeTransformOptions, DEFAULT_PARSER_OPTIONS, transformCode } from '@make-mjs/code'
 import { getModuleContainer } from '../utils/get-module-container'
 
 import {

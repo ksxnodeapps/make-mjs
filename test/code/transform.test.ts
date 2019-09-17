@@ -1,4 +1,4 @@
-import { transformCode } from '@make-mjs/file'
+import { transformCode } from '@make-mjs/code'
 import { formatCode } from '@tools/test-utils'
 
 import {

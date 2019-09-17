@@ -1,4 +1,4 @@
-import { isInternalModule } from '@make-mjs/path'
+import { isInternalModule } from '@make-mjs/url'
 
 const get = (modulePath: string) => isInternalModule({ modulePath })
 

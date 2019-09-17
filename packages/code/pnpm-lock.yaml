@@ -3,7 +3,7 @@ dependencies:
   '@babel/parser': 7.6.0
   '@babel/traverse': 7.6.0
   '@babel/types': 7.6.1
-  '@make-mjs/path': 'link:../path'
+  '@make-mjs/url': 'link:../url'
   '@tsfun/object': 0.0.3
   '@types/babel__generator': 7.0.2
   '@types/babel__traverse': 7.0.7
@@ -282,7 +282,7 @@ specifiers:
   '@babel/parser': ^7.6.0
   '@babel/traverse': ^7.6.0
   '@babel/types': ^7.6.1
-  '@make-mjs/path': ^0.1.0
+  '@make-mjs/url': ^0.1.0
   '@tsfun/object': ^0.0.3
   '@types/babel__generator': ^7.0.2
   '@types/babel__traverse': ^7.0.7
