@@ -1,3 +1,5 @@
+import path from 'path'
+
 export type MaybePromise<X> = X | Promise<X>
 
 export const REJECTION_SILENCER = (): void => undefined
@@ -54,6 +56,13 @@ export namespace parseUrl {
     name: string
     ext: string
   }
+}
+
+export function convertUrlToPath (url: string) {
+  const [first, ...rest] = url.split('/')
+  return first === ''
+    ? path.sep + path.join(...rest)
+    : path.join(first, ...rest)
 }
 
 const EXT_REGEX = /(\.[^\.]*)?$/
