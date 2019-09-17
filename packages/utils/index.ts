@@ -23,10 +23,10 @@ export function removeTrailingSeparator (path: string) {
 
 /**
  * Like `path.join` but does not eliminate `'.'`
- * @param paths Paths to join together
+ * @param urlSegments Paths to join together
  */
-export function joinUrl (...paths: string[]) {
-  return paths
+export function joinUrl (...urlSegments: string[]) {
+  return urlSegments
     .map(removeTrailingSeparator)
     .filter(Boolean)
     .join('/')
@@ -34,11 +34,11 @@ export function joinUrl (...paths: string[]) {
 
 /**
  * Like `path.parse` but accept only `'/'` as separator
- * @param path Path to parse
+ * @param url Path to parse
  */
-export function parseUrl (path: string): parseUrl.Result {
-  if (path.endsWith('/')) return parseUrl(path.slice(0, -1))
-  const segments = path.split('/')
+export function parseUrl (url: string): parseUrl.Result {
+  if (url.endsWith('/')) return parseUrl(url.slice(0, -1))
+  const segments = url.split('/')
   const base = segments.pop()
   if (!base) return { base: '', dir: '', name: '', ext: '' }
   const dir = segments.join('/')
