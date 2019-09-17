@@ -59,6 +59,7 @@ export namespace parseUrl {
 }
 
 export function convertUrlToPath (url: string) {
+  if (url === '') return ''
   const [first, ...rest] = url.split('/')
   return first === ''
     ? path.sep + path.join(...rest)
