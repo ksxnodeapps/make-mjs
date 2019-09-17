@@ -7,9 +7,9 @@ Manipulate MJS module URL
 ### Internal Modules
 
 ```typescript
-import getMjsPath from '@make-mjs/url'
+import getMjsUrl from '@make-mjs/url'
 
-const mjsPath: string = await getMjsPath({
+const mjsPath: string = await getMjsUrl({
   modulePath: './foo/bar/baz', // leading '.' or '..' is required to be recognized as internal
   /* ...and more options... */
 })
@@ -24,9 +24,9 @@ const mjsPath: string = await getMjsPath({
 ### External Modules
 
 ```typescript
-import getMjsPath from '@make-mjs/url'
+import getMjsUrl from '@make-mjs/url'
 
-const mjsPath: string = await getMjsPath({
+const mjsPath: string = await getMjsUrl({
   modulePath: 'foo/bar/baz',
   moduleContainer: [
     'node_modules'
