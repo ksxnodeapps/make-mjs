@@ -1,6 +1,6 @@
 import { objectExtends } from '@tsfun/object'
 import { silenceRejection, joinUrl } from '@make-mjs/utils'
-import { pathExists, readJSON } from '@make-mjs/fs-extra'
+import { pathExists, readJSON } from 'fs-extra'
 import fromFile from './from-file'
 
 export interface Options {

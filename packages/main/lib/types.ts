@@ -1,5 +1,5 @@
 import { MaybePromise } from '@make-mjs/utils'
-import { Stats } from '@make-mjs/fs-extra'
+import { Stats } from 'fs-extra'
 import { CodeTransformOptions } from '@make-mjs/code'
 
 export interface FilterFunc {

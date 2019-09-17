@@ -1,4 +1,4 @@
-import { readFile, lstat } from '@make-mjs/fs-extra'
+import { readFile, lstat } from 'fs-extra'
 import traverse from './traverse'
 
 import {

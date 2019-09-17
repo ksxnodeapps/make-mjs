@@ -1,5 +1,5 @@
 import { join } from 'path' // not @make-mjs/utils#joinUrl since we're not dealing with import urls
-import { readdir } from '@make-mjs/fs-extra'
+import { readdir } from 'fs-extra'
 import { TraverseOptions, TraverseReturn } from './types'
 
 export async function * traverse (

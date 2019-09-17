@@ -1,4 +1,4 @@
-import { writeFile } from '@make-mjs/fs-extra'
+import { writeFile } from 'fs-extra'
 import { File } from './types'
 
 export const enum EventType {

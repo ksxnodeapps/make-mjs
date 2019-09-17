@@ -1,5 +1,4 @@
 dependencies:
-  '@make-mjs/fs-extra': 'link:../../packages/fs-extra'
   '@make-mjs/url': 'link:../../packages/url'
   '@make-mjs/utils': 'link:../../packages/utils'
   __mocks__: 'link:../__mocks__'
@@ -25,7 +24,6 @@ packages:
     resolution:
       integrity: sha512-zXFars5LUkI3zP492ls0VskH3TtdeHCqu0i7/duGt60i5IGPIpAHE/DWo5FqJ6EjQ15YKXrt+AETjv60Dat34Q==
 specifiers:
-  '@make-mjs/fs-extra': 'file:../../packages/fs-extra'
   '@make-mjs/url': 'file:../../packages/url'
   '@make-mjs/utils': 'file:../../packages/utils'
   __mocks__: 'file:../__mocks__'

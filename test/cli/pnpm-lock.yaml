@@ -1,6 +1,5 @@
 dependencies:
   '@make-mjs/cli': 'link:../../packages/cli'
-  '@make-mjs/fs-extra': 'link:../../packages/fs-extra'
   '@tools/test-utils': 'link:../../tools/test-utils'
   '@types/js-yaml': 3.12.1
   __mocks__: 'link:../__mocks__'
@@ -38,7 +37,6 @@ packages:
       integrity: sha1-BOaSb2YolTVPPdAVIDYzuFcpfiw=
 specifiers:
   '@make-mjs/cli': 'file:../../packages/cli'
-  '@make-mjs/fs-extra': 'file:../../packages/fs-extra'
   '@tools/test-utils': 'file:../../tools/test-utils'
   '@types/js-yaml': ^3.12.1
   __mocks__: 'file:../__mocks__'

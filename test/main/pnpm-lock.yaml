@@ -1,5 +1,4 @@
 dependencies:
-  '@make-mjs/fs-extra': 'link:../../packages/fs-extra'
   '@make-mjs/main': 'link:../../packages/main'
   '@tools/test-utils': 'link:../../tools/test-utils'
   '@types/js-yaml': 3.12.1
@@ -37,7 +36,6 @@ packages:
     resolution:
       integrity: sha1-BOaSb2YolTVPPdAVIDYzuFcpfiw=
 specifiers:
-  '@make-mjs/fs-extra': 'file:../../packages/fs-extra'
   '@make-mjs/main': 'file:../../packages/main'
   '@tools/test-utils': 'file:../../tools/test-utils'
   '@types/js-yaml': ^3.12.1

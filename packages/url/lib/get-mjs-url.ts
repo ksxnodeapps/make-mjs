@@ -1,6 +1,6 @@
 import { addProperty } from '@tsfun/object'
 import { silenceRejection, joinUrl } from '@make-mjs/utils'
-import { pathExists, stat } from '@make-mjs/fs-extra'
+import { pathExists, stat } from 'fs-extra'
 import DEFAULT_FILE_URL_RESOLVER from './from-file'
 import DEFAULT_DIR_URL_RESOLVER from './from-dir'
 import DEFAULT_MJS_URL_TESTER from './is-mjs-url'

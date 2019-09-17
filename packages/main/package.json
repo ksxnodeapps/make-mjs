@@ -13,12 +13,13 @@
     "url": "https://github.com/ksxnodeapps/make-mjs/issues"
   },
   "dependencies": {
+    "fs-extra": "8.1.0",
     "ancestor-directories": "1.0.1",
     "@tsfun/object": "^0.0.3",
     "tslib": "^1.10.0",
     "@make-mjs/utils": "^0.0.2",
-    "@make-mjs/fs-extra": "^0.0.0",
     "@make-mjs/code": "^0.1.0",
+    "@types/fs-extra": "^8.0.0",
     "@types/node": "^12.7.5"
   }
 }
