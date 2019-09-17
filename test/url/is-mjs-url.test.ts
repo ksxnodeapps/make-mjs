@@ -1,6 +1,6 @@
-import { isMjsPath } from '@make-mjs/url'
+import { isMjsUrl } from '@make-mjs/url'
 
-const get = (modulePath: string) => isMjsPath({ modulePath })
+const get = (modulePath: string) => isMjsUrl({ modulePath })
 
 it('returns false when module path has no extension', () => {
   expect(get('module-path')).toBe(false)

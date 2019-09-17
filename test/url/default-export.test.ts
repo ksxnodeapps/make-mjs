@@ -1,5 +1,5 @@
-import main, { getMjsPath } from '@make-mjs/url'
+import main, { getMjsUrl } from '@make-mjs/url'
 
-it('exports getMjsPath as default', () => {
-  expect(main).toBe(getMjsPath)
+it('exports getMjsUrl as default', () => {
+  expect(main).toBe(getMjsUrl)
 })

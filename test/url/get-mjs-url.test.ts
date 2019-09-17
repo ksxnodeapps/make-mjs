@@ -1,5 +1,5 @@
 import { joinUrl } from '@make-mjs/utils'
-import { getMjsPath } from '@make-mjs/url'
+import { getMjsUrl } from '@make-mjs/url'
 
 import {
   MODULE_CONTAINER,
@@ -34,7 +34,7 @@ const excludeMjs = (name: string) => !name.endsWith('.mjs')
 const removeMjsFromFiles = () => filterFiles(excludeMjs)
 
 const get = (modulePath: string) =>
-  getMjsPath({ modulePath, moduleContainer: [MODULE_CONTAINER] })
+  getMjsUrl({ modulePath, moduleContainer: [MODULE_CONTAINER] })
 
 describe('internal module', () => {
   describe('directory: append "/index.mjs"', () => {
@@ -530,7 +530,7 @@ describe('external module', () => {
 
   describe('when no .mjs file exist but isMjsPackage always returns true', () => {
     const get = (modulePath: string) =>
-      getMjsPath({ modulePath, moduleContainer: [MODULE_CONTAINER], isMjsPackage: () => true })
+      getMjsUrl({ modulePath, moduleContainer: [MODULE_CONTAINER], isMjsPackage: () => true })
 
     beforeEach(removeMjsFromFiles)
     afterEach(fillAllMockedArrays)

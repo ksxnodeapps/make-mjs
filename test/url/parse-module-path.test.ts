@@ -1,11 +1,11 @@
-import { parseModulePath, ModulePathKind } from '@make-mjs/url'
+import { parseModuleUrl, ModuleUrlKind } from '@make-mjs/url'
 
 describe('with "./foo/bar/baz"', () => {
   const path = './foo/bar/baz'
-  const get = () => parseModulePath(path)
+  const get = () => parseModuleUrl(path)
 
   it('has "kind" property that is "Internal"', () => {
-    expect(get()).toHaveProperty('kind', ModulePathKind.Internal)
+    expect(get()).toHaveProperty('kind', ModuleUrlKind.Internal)
   })
 
   it('has "name" property that is null', () => {
@@ -19,10 +19,10 @@ describe('with "./foo/bar/baz"', () => {
 
 describe('with "../foo/bar/baz"', () => {
   const path = '../foo/bar/baz'
-  const get = () => parseModulePath(path)
+  const get = () => parseModuleUrl(path)
 
   it('has "kind" property that is "Internal"', () => {
-    expect(get()).toHaveProperty('kind', ModulePathKind.Internal)
+    expect(get()).toHaveProperty('kind', ModuleUrlKind.Internal)
   })
 
   it('has "name" property that is null', () => {
@@ -36,10 +36,10 @@ describe('with "../foo/bar/baz"', () => {
 
 describe('with "foo/bar/baz"', () => {
   const path = 'foo/bar/baz'
-  const get = () => parseModulePath(path)
+  const get = () => parseModuleUrl(path)
 
   it('has "kind" property that is "External"', () => {
-    expect(get()).toHaveProperty('kind', ModulePathKind.External)
+    expect(get()).toHaveProperty('kind', ModuleUrlKind.External)
   })
 
   it('has "name" property that is "foo"', () => {
@@ -53,10 +53,10 @@ describe('with "foo/bar/baz"', () => {
 
 describe('with "@foo/bar/baz"', () => {
   const path = '@foo/bar/baz'
-  const get = () => parseModulePath(path)
+  const get = () => parseModuleUrl(path)
 
   it('has "kind" property that is "External"', () => {
-    expect(get()).toHaveProperty('kind', ModulePathKind.External)
+    expect(get()).toHaveProperty('kind', ModuleUrlKind.External)
   })
 
   it('has "name" property that is "foo"', () => {

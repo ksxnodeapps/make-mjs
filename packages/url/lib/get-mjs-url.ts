@@ -1,59 +1,59 @@
 import { addProperty } from '@tsfun/object'
 import { silenceRejection, joinUrl } from '@make-mjs/utils'
 import { pathExists, stat } from '@make-mjs/fs-extra'
-import DEFAULT_FILE_PATH_RESOLVER from './from-file'
-import DEFAULT_DIR_PATH_RESOLVER from './from-dir'
-import DEFAULT_MJS_PATH_TESTER from './is-mjs-path'
+import DEFAULT_FILE_URL_RESOLVER from './from-file'
+import DEFAULT_DIR_URL_RESOLVER from './from-dir'
+import DEFAULT_MJS_URL_TESTER from './is-mjs-url'
 import DEFAULT_INTERNAL_MODULE_TESTER from './is-internal-module'
 import DEFAULT_MJS_PACKAGE_TESTER from './is-mjs-package'
-import parseModulePath, { ModulePathKind } from './parse-module-path'
+import parseModuleUrl, { ModuleUrlKind } from './parse-module-url'
 
 import {
   MjsPathOptions,
   FullMjsPathOptions,
-  ModulePathResolver,
+  ModuleUrlResolver,
   ModulePathResolverOptions,
-  ModulePathTester,
+  ModuleUrlTester,
   MjsPackageTester
 } from '../utils/options'
 
 export {
-  DEFAULT_FILE_PATH_RESOLVER,
-  DEFAULT_DIR_PATH_RESOLVER,
+  DEFAULT_FILE_URL_RESOLVER,
+  DEFAULT_DIR_URL_RESOLVER,
   DEFAULT_INTERNAL_MODULE_TESTER,
-  DEFAULT_MJS_PATH_TESTER,
+  DEFAULT_MJS_URL_TESTER,
   DEFAULT_MJS_PACKAGE_TESTER,
   MjsPathOptions,
-  ModulePathResolver,
-  ModulePathTester,
+  ModuleUrlResolver,
+  ModuleUrlTester,
   MjsPackageTester
 }
 
-export async function getMjsPath (options: MjsPathOptions): Promise<string> {
+export async function getMjsUrl (options: MjsPathOptions): Promise<string> {
   const {
     modulePath,
     moduleContainer,
-    fromFile = DEFAULT_FILE_PATH_RESOLVER,
-    fromDir = DEFAULT_DIR_PATH_RESOLVER,
-    isMjsPath = DEFAULT_MJS_PATH_TESTER,
+    fromFile = DEFAULT_FILE_URL_RESOLVER,
+    fromDir = DEFAULT_DIR_URL_RESOLVER,
+    isMjsUrl = DEFAULT_MJS_URL_TESTER,
     isInternalModule = DEFAULT_INTERNAL_MODULE_TESTER,
     isMjsPackage = DEFAULT_MJS_PACKAGE_TESTER
   } = options
 
-  const parsingResult = parseModulePath(modulePath)
+  const parsingResult = parseModuleUrl(modulePath)
 
   const fullOptions: FullMjsPathOptions = {
     modulePath,
     moduleContainer,
     fromFile,
     fromDir,
-    isMjsPath,
+    isMjsUrl,
     isInternalModule,
     isMjsPackage
   }
 
   async function handleFile (resolverOptions: ModulePathResolverOptions) {
-    if (await isMjsPath(fullOptions)) return modulePath
+    if (await isMjsUrl(fullOptions)) return modulePath
     return fromFile(resolverOptions)
   }
 
@@ -83,7 +83,7 @@ export async function getMjsPath (options: MjsPathOptions): Promise<string> {
     return handleFile(resolverOptions)
   }
 
-  if (parsingResult.kind === ModulePathKind.Internal) {
+  if (parsingResult.kind === ModuleUrlKind.Internal) {
     const resolverOptions = addProperty(fullOptions, 'forceMjs', true)
     return (await handleRoute(modulePath, resolverOptions)) || handleFile(resolverOptions)
   }
@@ -96,4 +96,4 @@ export async function getMjsPath (options: MjsPathOptions): Promise<string> {
   return handleModuleContainer(false)
 }
 
-export default getMjsPath
+export default getMjsUrl
