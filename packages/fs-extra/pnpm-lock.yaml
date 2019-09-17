@@ -1,21 +1,24 @@
 dependencies:
-  '@make-mjs/utils': 'link:../utils'
+  '@make-mjs/utils': 0.0.1
   '@types/fs-extra': 8.0.0
   '@types/node': 12.7.5
   fs-extra: 8.1.0
   tslib: 1.10.0
 lockfileVersion: 5.1
 packages:
+  /@make-mjs/utils/0.0.1:
+    dependencies:
+      '@types/node': 12.7.5
+      tslib: 1.10.0
+    dev: false
+    resolution:
+      integrity: sha512-gwaC+qnmNa7haAoMfknH8+UMvwVb0OiMnHkG1VUyqtXnX7D6eg5FhYlzMHu/iDDxRM8dp/zQlYIzmket+F9kmQ==
   /@types/fs-extra/8.0.0:
     dependencies:
-      '@types/node': 12.7.4
+      '@types/node': 12.7.5
     dev: false
     resolution:
       integrity: sha512-bCtL5v9zdbQW86yexOlXWTEGvLNqWxMFyi7gQA7Gcthbezr2cPSOb8SkESVKA937QD5cIwOFLDFt0MQoXOEr9Q==
-  /@types/node/12.7.4:
-    dev: false
-    resolution:
-      integrity: sha512-W0+n1Y+gK/8G2P/piTkBBN38Qc5Q1ZSO6B5H3QmPCUewaiXOo2GCAWZ4ElZCcNhjJuBSUSLGFUJnmlCn5+nxOQ==
   /@types/node/12.7.5:
     dev: false
     resolution:
@@ -51,7 +54,7 @@ packages:
     resolution:
       integrity: sha512-rBJeI5CXAlmy1pV+617WB9J63U6XcazHHF2f2dbJix4XzpUF0RS3Zbj0FGIOCAva5P/d/GBOYaACQ1w+0azUkg==
 specifiers:
-  '@make-mjs/utils': ^0.0.2
+  '@make-mjs/utils': ^0.0.1
   '@types/fs-extra': ^8.0.0
   '@types/node': ^12.7.5
   fs-extra: 8.1.0
