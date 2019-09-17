@@ -10,7 +10,7 @@ const [cmd, ...argv] = process.argv.slice(2)
 class Command {
   constructor (
     public readonly describe: string,
-    public readonly act: () => void
+    public readonly act: (args: readonly string[]) => void
   ) {}
 }
 
@@ -27,7 +27,7 @@ abstract class Dict {
       const member = (key: string, value: string) => console.info(`  ${key}: ${chalk.dim(value)}`)
 
       title('Usage:')
-      console.info('  $ monorepo <command> [args]')
+      console.info('  $ execute <command> [args]')
 
       title('Commands:')
       for (const [key, value] of Object.entries(this)) {
@@ -60,15 +60,9 @@ abstract class Dict {
 
   public readonly test = new Command(
     'Run tests',
-    () => {
+    args => {
       this.callCmd('clean')
-
-      spawnSync(
-        'node',
-        commands.jest,
-        '--coverage',
-        ...argv
-      ).exit.onerror()
+      this.callCmd('jest', '--coverage', ...args)
     }
   )
 
@@ -100,7 +94,7 @@ abstract class Dict {
 
   public readonly publish = new Command(
     'Publish packages versions that have yet to publish',
-    () => {
+    args => {
       this.callCmd('prepublish')
 
       console.info('Publishing packages...')
@@ -108,7 +102,7 @@ abstract class Dict {
         commands.workspace,
         'publish',
         places.packages,
-        ...argv
+        ...args
       ).exit.onerror()
 
       this.callCmd('postpublish')
@@ -122,11 +116,11 @@ abstract class Dict {
 
   public readonly createIgnoreFiles = new Command(
     'Create .npmignore files in every packages',
-    () => {
+    args => {
       spawnSync(
         'node',
         require.resolve('@tools/ignore-file/bin/write'),
-        ...argv
+        ...args
       ).exit.onerror()
     }
   )
@@ -136,12 +130,20 @@ abstract class Dict {
     () => this.callCmd('test', '--ci')
   )
 
+  public readonly testWithoutCoverage = new Command(
+    'Run tests',
+    args => {
+      this.callCmd('clean')
+      this.callCmd('jest', ...args)
+    }
+  )
+
   public readonly buildMJS = new Command(
     'Compile TypeScript files into ESM JavaScript',
-    () => {
+    args => {
       this.callCmd('buildTypescript', '--module', 'esnext')
       this.callCmd('changeOutputExtensions', 'rename')
-      this.callCmd('makeMJS')
+      this.callCmd('makeMJS', ...args)
       this.callCmd('changeOutputExtensions', 'cleanup')
     }
   )
@@ -195,6 +197,11 @@ abstract class Dict {
     this.mkspawn(commands.tslint)
   )
 
+  public readonly jest = new Command(
+    'Run tests',
+    this.mkspawn(commands.jest)
+  )
+
   public readonly new = new Command(
     'Create new folder',
     async () => {
@@ -216,7 +223,7 @@ function printError (message: string) {
   console.error(chalk.red('[ERROR]'), message, '\n')
 }
 
-function main (cmd?: string, argv?: readonly string[]) {
+function main (cmd?: string, argv: readonly string[] = []) {
   class PrvDict extends Dict {
     mkspawn (...args: [string, ...string[]]) {
       // @ts-ignore
@@ -232,7 +239,7 @@ function main (cmd?: string, argv?: readonly string[]) {
   const dict = new PrvDict()
 
   if (!cmd) {
-    dict.help.act()
+    dict.help.act(argv)
     printError('Insufficient Arguments')
     return process.exit(ExitStatusCode.InsufficientArguments)
   }
@@ -240,7 +247,7 @@ function main (cmd?: string, argv?: readonly string[]) {
   if (cmd in dict) {
     const command = dict[cmd as keyof PrvDict]
     if (command instanceof Command) {
-      return command.act()
+      return command.act(argv)
     }
   }
 
