@@ -36,8 +36,8 @@ export function joinUrl (...paths: string[]) {
  * Like `path.parse` but accept only `'/'` as separator
  * @param path Path to parse
  */
-export function parsePath (path: string): parsePath.Result {
-  if (path.endsWith('/')) return parsePath(path.slice(0, -1))
+export function parseUrl (path: string): parsePath.Result {
+  if (path.endsWith('/')) return parseUrl(path.slice(0, -1))
   const segments = path.split('/')
   const base = segments.pop()
   if (!base) return { base: '', dir: '', name: '', ext: '' }

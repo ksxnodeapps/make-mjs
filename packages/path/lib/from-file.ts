@@ -1,5 +1,5 @@
 import once from 'exec-once'
-import { joinUrl, parsePath } from '@make-mjs/utils'
+import { joinUrl, parseUrl } from '@make-mjs/utils'
 import { pathExists } from '@make-mjs/fs-extra'
 
 interface OptionsWithoutForceMjs {
@@ -10,7 +10,7 @@ interface OptionsWithoutForceMjs {
 
 export function fromFileWithoutChecking (options: OptionsWithoutForceMjs): string {
   const { modulePath, newExt = '.mjs', preferredCjsPath = modulePath } = options
-  const { dir, name, ext } = parsePath(modulePath)
+  const { dir, name, ext } = parseUrl(modulePath)
   if (ext === '.js' || ext === '') return joinUrl(dir, name + newExt)
   return preferredCjsPath
 }

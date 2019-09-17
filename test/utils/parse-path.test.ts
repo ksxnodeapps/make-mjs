@@ -1,8 +1,8 @@
-import { parsePath } from '@make-mjs/utils'
+import { parseUrl } from '@make-mjs/utils'
 
 describe('"abc/def/ghi/jkl.mno"', () => {
   const path = 'abc/def/ghi/jkl.mno'
-  const get = () => parsePath(path)
+  const get = () => parseUrl(path)
 
   it('matches snapshot', () => {
     expect(get()).toMatchSnapshot()
@@ -27,7 +27,7 @@ describe('"abc/def/ghi/jkl.mno"', () => {
 
 describe('"abc/def/ghi/jkl.mno/"', () => {
   const path = 'abc/def/ghi/jkl.mno/'
-  const get = () => parsePath(path)
+  const get = () => parseUrl(path)
 
   it('matches snapshot', () => {
     expect(get()).toMatchSnapshot()
@@ -52,7 +52,7 @@ describe('"abc/def/ghi/jkl.mno/"', () => {
 
 describe('"abc/def/ghi/jkl"', () => {
   const path = 'abc/def/ghi/jkl'
-  const get = () => parsePath(path)
+  const get = () => parseUrl(path)
 
   it('matches snapshot', () => {
     expect(get()).toMatchSnapshot()
@@ -77,7 +77,7 @@ describe('"abc/def/ghi/jkl"', () => {
 
 describe('"abc/def/ghi/jkl."', () => {
   const path = 'abc/def/ghi/jkl.'
-  const get = () => parsePath(path)
+  const get = () => parseUrl(path)
 
   it('matches snapshot', () => {
     expect(get()).toMatchSnapshot()
@@ -102,7 +102,7 @@ describe('"abc/def/ghi/jkl."', () => {
 
 describe('"/abc.def"', () => {
   const path = '/abc.def'
-  const get = () => parsePath(path)
+  const get = () => parseUrl(path)
 
   it('matches snapshot', () => {
     expect(get()).toMatchSnapshot()
@@ -127,7 +127,7 @@ describe('"/abc.def"', () => {
 
 describe('"abc.def"', () => {
   const path = 'abc.def'
-  const get = () => parsePath(path)
+  const get = () => parseUrl(path)
 
   it('matches snapshot', () => {
     expect(get()).toMatchSnapshot()
@@ -152,7 +152,7 @@ describe('"abc.def"', () => {
 
 describe('"/abc.def"', () => {
   const path = '/abc.def'
-  const get = () => parsePath(path)
+  const get = () => parseUrl(path)
 
   it('matches snapshot', () => {
     expect(get()).toMatchSnapshot()
@@ -177,7 +177,7 @@ describe('"/abc.def"', () => {
 
 describe('""', () => {
   const path = ''
-  const get = () => parsePath(path)
+  const get = () => parseUrl(path)
 
   it('matches snapshot', () => {
     expect(get()).toMatchSnapshot()
