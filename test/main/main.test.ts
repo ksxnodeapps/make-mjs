@@ -1,4 +1,3 @@
-import path from 'path'
 import yaml from 'js-yaml'
 import { formatCode } from '@tools/test-utils'
 import { main } from '@make-mjs/main'
@@ -83,19 +82,6 @@ function makeValidFiles () {
     `)
   })
 }
-
-const oldSep = path.sep
-
-beforeEach(() => {
-  // @ts-ignore
-  path.sep = '/'
-})
-
-afterEach(() => {
-  fillAll()
-  // @ts-ignore
-  path.sep = oldSep
-})
 
 function getFilesystemSnapshot () {
   function map2arr<Key, Value> (map: ReadonlyMap<Key, Value>) {
