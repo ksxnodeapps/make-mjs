@@ -1,6 +1,6 @@
 {
   "name": "@make-mjs/utils",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Utilities used by other packages",
   "author": "Hoàng Văn Khải <hvksmr1996@gmail.com>",
   "license": "MIT",

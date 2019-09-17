@@ -74,7 +74,7 @@ packages:
 specifiers:
   '@make-mjs/code': ^0.1.0
   '@make-mjs/fs-extra': ^0.0.0
-  '@make-mjs/utils': ^0.0.1
+  '@make-mjs/utils': ^0.0.2
   '@tsfun/object': ^0.0.3
   '@types/node': ^12.7.5
   ancestor-directories: 1.0.1
