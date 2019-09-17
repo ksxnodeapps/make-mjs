@@ -203,7 +203,7 @@ packages:
     resolution:
       integrity: sha512-ssa5JuRjMeZEUjg7bEL99AwpitxU/zWGAGpdj0di41pOEmJti8NR6kyUIJBkR78DTYNPZOU08luUo0GTHuB+ow==
 specifiers:
-  '@make-mjs/main': ^0.1.2
+  '@make-mjs/main': ^0.2.0
   '@types/node': ^12.7.5
   '@types/yargs': ^13.0.2
   tslib: ^1.10.0
