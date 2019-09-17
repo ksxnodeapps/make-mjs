@@ -1,4 +1,4 @@
-import { join } from 'path' // not @make-mjs/utils#joinPath since we're not dealing with import urls
+import { join } from 'path' // not @make-mjs/utils#joinUrl since we're not dealing with import urls
 import { readdir } from '@make-mjs/fs-extra'
 import { TraverseOptions, TraverseReturn } from './types'
 

@@ -25,7 +25,7 @@ export function removeTrailingSeparator (path: string) {
  * Like `path.join` but does not eliminate `'.'`
  * @param paths Paths to join together
  */
-export function joinPath (...paths: string[]) {
+export function joinUrl (...paths: string[]) {
   return paths
     .map(removeTrailingSeparator)
     .filter(Boolean)
@@ -67,7 +67,7 @@ export function * iterateAncestorDirectories (path: string) {
 
   while (segments.length) {
     segments.pop()
-    yield joinPath(...segments)
+    yield joinUrl(...segments)
   }
 }
 

@@ -1,4 +1,4 @@
-import { joinPath } from '@make-mjs/utils'
+import { joinUrl } from '@make-mjs/utils'
 import { getMjsPath } from '@make-mjs/path'
 
 import {
@@ -128,12 +128,12 @@ describe('external module', () => {
 
     describe('without "package.json"', () => {
       beforeEach(() => appendFile([
-        joinPath(MODULE_CONTAINER, EXTERNAL_MODULE_NAME, 'target/file.mjs')
+        joinUrl(MODULE_CONTAINER, EXTERNAL_MODULE_NAME, 'target/file.mjs')
       ]))
 
       it('assertion: "package.json" does not exist', async () => {
         expect(await pathExists(
-          joinPath(MODULE_CONTAINER, EXTERNAL_MODULE_NAME, 'package.json')
+          joinUrl(MODULE_CONTAINER, EXTERNAL_MODULE_NAME, 'package.json')
         )).toBe(false)
       })
 
@@ -160,7 +160,7 @@ describe('external module', () => {
 
     describe('"package.json" has a "module" field', () => {
       const manifestContent = readJSON(
-        joinPath(MODULE_CONTAINER, EXTERNAL_MODULE_NAME_MODULE, 'package.json')
+        joinUrl(MODULE_CONTAINER, EXTERNAL_MODULE_NAME_MODULE, 'package.json')
       )
 
       it('assertion: "package.json" has a "module" field', async () => {
@@ -182,7 +182,7 @@ describe('external module', () => {
 
       it('import by file without extension: append ".mjs"', async () => {
         appendFile([
-          joinPath(MODULE_CONTAINER, EXTERNAL_MODULE_NAME_MODULE, 'target/file.mjs')
+          joinUrl(MODULE_CONTAINER, EXTERNAL_MODULE_NAME_MODULE, 'target/file.mjs')
         ])
 
         expect(await get(EXTERNAL_MODULE_NAME_MODULE + '/target/file'))
@@ -191,7 +191,7 @@ describe('external module', () => {
 
       it('import by ".js" file: change extension to ".mjs"', async () => {
         appendFile([
-          joinPath(MODULE_CONTAINER, EXTERNAL_MODULE_NAME_MODULE, 'target/file.mjs')
+          joinUrl(MODULE_CONTAINER, EXTERNAL_MODULE_NAME_MODULE, 'target/file.mjs')
         ])
 
         expect(await get(EXTERNAL_MODULE_NAME_MODULE + '/target/file.js'))
@@ -206,7 +206,7 @@ describe('external module', () => {
 
     describe('"package.json" has a "browser" field', () => {
       const manifestContent = readJSON(
-        joinPath(MODULE_CONTAINER, EXTERNAL_MODULE_NAME_BROWSER, 'package.json')
+        joinUrl(MODULE_CONTAINER, EXTERNAL_MODULE_NAME_BROWSER, 'package.json')
       )
 
       it('assertion: "package.json" does not have "module" field', async () => {
@@ -228,7 +228,7 @@ describe('external module', () => {
 
       it('import by file without extension: append ".mjs"', async () => {
         appendFile([
-          joinPath(MODULE_CONTAINER, EXTERNAL_MODULE_NAME_BROWSER, 'target/file.mjs')
+          joinUrl(MODULE_CONTAINER, EXTERNAL_MODULE_NAME_BROWSER, 'target/file.mjs')
         ])
 
         expect(await get(EXTERNAL_MODULE_NAME_BROWSER + '/target/file'))
@@ -237,7 +237,7 @@ describe('external module', () => {
 
       it('import by ".js" file: change extension to ".mjs"', async () => {
         appendFile([
-          joinPath(MODULE_CONTAINER, EXTERNAL_MODULE_NAME_BROWSER, 'target/file.mjs')
+          joinUrl(MODULE_CONTAINER, EXTERNAL_MODULE_NAME_BROWSER, 'target/file.mjs')
         ])
 
         expect(await get(EXTERNAL_MODULE_NAME_BROWSER + '/target/file.js'))
@@ -252,7 +252,7 @@ describe('external module', () => {
 
     describe('"package.json" has a "main" field', () => {
       const manifestContent = readJSON(
-        joinPath(MODULE_CONTAINER, EXTERNAL_MODULE_NAME_MAIN, 'package.json')
+        joinUrl(MODULE_CONTAINER, EXTERNAL_MODULE_NAME_MAIN, 'package.json')
       )
 
       it('assertion: "package.json" does not have "module" field', async () => {
@@ -274,7 +274,7 @@ describe('external module', () => {
 
       it('import by file without extension: append ".mjs"', async () => {
         appendFile([
-          joinPath(MODULE_CONTAINER, EXTERNAL_MODULE_NAME_MAIN, 'target/file.mjs')
+          joinUrl(MODULE_CONTAINER, EXTERNAL_MODULE_NAME_MAIN, 'target/file.mjs')
         ])
 
         expect(await get(EXTERNAL_MODULE_NAME_MAIN + '/target/file'))
@@ -283,7 +283,7 @@ describe('external module', () => {
 
       it('import by ".js" file: change extension to ".mjs"', async () => {
         appendFile([
-          joinPath(MODULE_CONTAINER, EXTERNAL_MODULE_NAME_MAIN, 'target/file.mjs')
+          joinUrl(MODULE_CONTAINER, EXTERNAL_MODULE_NAME_MAIN, 'target/file.mjs')
         ])
 
         expect(await get(EXTERNAL_MODULE_NAME_MAIN + '/target/file.js'))
@@ -298,7 +298,7 @@ describe('external module', () => {
 
     describe('"package.json" has neither "module" nor "browser" nor "main"', () => {
       const manifestContent = readJSON(
-        joinPath(MODULE_CONTAINER, EXTERNAL_MODULE_NAME_DEFAULT, 'package.json')
+        joinUrl(MODULE_CONTAINER, EXTERNAL_MODULE_NAME_DEFAULT, 'package.json')
       )
 
       it('assertion: "package.json" does not have "module" field', async () => {
@@ -320,7 +320,7 @@ describe('external module', () => {
 
       it('import by file without extension: append ".mjs"', async () => {
         appendFile([
-          joinPath(MODULE_CONTAINER, EXTERNAL_MODULE_NAME_DEFAULT, 'target/file.mjs')
+          joinUrl(MODULE_CONTAINER, EXTERNAL_MODULE_NAME_DEFAULT, 'target/file.mjs')
         ])
 
         expect(await get(EXTERNAL_MODULE_NAME_DEFAULT + '/target/file'))
@@ -329,7 +329,7 @@ describe('external module', () => {
 
       it('import by ".js" file: change extension to ".mjs"', async () => {
         appendFile([
-          joinPath(MODULE_CONTAINER, EXTERNAL_MODULE_NAME_DEFAULT, 'target/file.mjs')
+          joinUrl(MODULE_CONTAINER, EXTERNAL_MODULE_NAME_DEFAULT, 'target/file.mjs')
         ])
 
         expect(await get(EXTERNAL_MODULE_NAME_DEFAULT + '/target/file.js'))
@@ -350,7 +350,7 @@ describe('external module', () => {
     describe('without "package.json"', () => {
       it('assertion: "package.json" does not exist', async () => {
         expect(await pathExists(
-          joinPath(MODULE_CONTAINER, EXTERNAL_MODULE_NAME, 'package.json')
+          joinUrl(MODULE_CONTAINER, EXTERNAL_MODULE_NAME, 'package.json')
         )).toBe(false)
       })
 
@@ -377,7 +377,7 @@ describe('external module', () => {
 
     describe('"package.json" has a "module" field', () => {
       const manifestContent = readJSON(
-        joinPath(MODULE_CONTAINER, EXTERNAL_MODULE_NAME_MODULE, 'package.json')
+        joinUrl(MODULE_CONTAINER, EXTERNAL_MODULE_NAME_MODULE, 'package.json')
       )
 
       it('assertion: "package.json" has a "module" field', async () => {
@@ -415,7 +415,7 @@ describe('external module', () => {
 
     describe('"package.json" has a "browser" field', () => {
       const manifestContent = readJSON(
-        joinPath(MODULE_CONTAINER, EXTERNAL_MODULE_NAME_BROWSER, 'package.json')
+        joinUrl(MODULE_CONTAINER, EXTERNAL_MODULE_NAME_BROWSER, 'package.json')
       )
 
       it('assertion: "package.json" does not have "module" field', async () => {
@@ -453,7 +453,7 @@ describe('external module', () => {
 
     describe('"package.json" has a "main" field', () => {
       const manifestContent = readJSON(
-        joinPath(MODULE_CONTAINER, EXTERNAL_MODULE_NAME_MAIN, 'package.json')
+        joinUrl(MODULE_CONTAINER, EXTERNAL_MODULE_NAME_MAIN, 'package.json')
       )
 
       it('assertion: "package.json" does not have "module" field', async () => {
@@ -491,7 +491,7 @@ describe('external module', () => {
 
     describe('"package.json" has neither "module" nor "browser" nor "main"', () => {
       const manifestContent = readJSON(
-        joinPath(MODULE_CONTAINER, EXTERNAL_MODULE_NAME_DEFAULT, 'package.json')
+        joinUrl(MODULE_CONTAINER, EXTERNAL_MODULE_NAME_DEFAULT, 'package.json')
       )
 
       it('assertion: "package.json" does not have "module" field', async () => {
@@ -537,12 +537,12 @@ describe('external module', () => {
 
     describe('without "package.json"', () => {
       beforeEach(() => appendFile([
-        joinPath(MODULE_CONTAINER, EXTERNAL_MODULE_NAME, 'target/file.mjs')
+        joinUrl(MODULE_CONTAINER, EXTERNAL_MODULE_NAME, 'target/file.mjs')
       ]))
 
       it('assertion: "package.json" does not exist', async () => {
         expect(await pathExists(
-          joinPath(MODULE_CONTAINER, EXTERNAL_MODULE_NAME, 'package.json')
+          joinUrl(MODULE_CONTAINER, EXTERNAL_MODULE_NAME, 'package.json')
         )).toBe(false)
       })
 
@@ -569,7 +569,7 @@ describe('external module', () => {
 
     describe('"package.json" has a "module" field', () => {
       const manifestContent = readJSON(
-        joinPath(MODULE_CONTAINER, EXTERNAL_MODULE_NAME_MODULE, 'package.json')
+        joinUrl(MODULE_CONTAINER, EXTERNAL_MODULE_NAME_MODULE, 'package.json')
       )
 
       it('assertion: "package.json" has a "module" field', async () => {
@@ -607,7 +607,7 @@ describe('external module', () => {
 
     describe('"package.json" has a "browser" field', () => {
       const manifestContent = readJSON(
-        joinPath(MODULE_CONTAINER, EXTERNAL_MODULE_NAME_BROWSER, 'package.json')
+        joinUrl(MODULE_CONTAINER, EXTERNAL_MODULE_NAME_BROWSER, 'package.json')
       )
 
       it('assertion: "package.json" does not have "module" field', async () => {
@@ -645,7 +645,7 @@ describe('external module', () => {
 
     describe('"package.json" has a "main" field', () => {
       const manifestContent = readJSON(
-        joinPath(MODULE_CONTAINER, EXTERNAL_MODULE_NAME_MAIN, 'package.json')
+        joinUrl(MODULE_CONTAINER, EXTERNAL_MODULE_NAME_MAIN, 'package.json')
       )
 
       it('assertion: "package.json" does not have "module" field', async () => {
@@ -683,7 +683,7 @@ describe('external module', () => {
 
     describe('"package.json" has neither "module" nor "browser" nor "main"', () => {
       const manifestContent = readJSON(
-        joinPath(MODULE_CONTAINER, EXTERNAL_MODULE_NAME_DEFAULT, 'package.json')
+        joinUrl(MODULE_CONTAINER, EXTERNAL_MODULE_NAME_DEFAULT, 'package.json')
       )
 
       it('assertion: "package.json" does not have "module" field', async () => {

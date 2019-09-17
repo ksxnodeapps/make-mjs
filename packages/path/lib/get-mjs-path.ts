@@ -1,5 +1,5 @@
 import { addProperty } from '@tsfun/object'
-import { silenceRejection, joinPath } from '@make-mjs/utils'
+import { silenceRejection, joinUrl } from '@make-mjs/utils'
 import { pathExists, stat } from '@make-mjs/fs-extra'
 import DEFAULT_FILE_PATH_RESOLVER from './from-file'
 import DEFAULT_DIR_PATH_RESOLVER from './from-dir'
@@ -75,7 +75,7 @@ export async function getMjsPath (options: MjsPathOptions): Promise<string> {
     const resolverOptions = addProperty(fullOptions, 'forceMjs', forceMjs)
 
     for (const directory of moduleContainer) {
-      const route = joinPath(directory, modulePath)
+      const route = joinUrl(directory, modulePath)
       const result = await handleRoute(route, resolverOptions)
       if (result) return result
     }

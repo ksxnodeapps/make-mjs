@@ -1,5 +1,5 @@
-import { joinPath } from '@make-mjs/utils'
+import { joinUrl } from '@make-mjs/utils'
 
 it('works', () => {
-  expect(joinPath('abc', 'def/', 'ghi', '', 'jkl')).toBe('abc/def/ghi/jkl')
+  expect(joinUrl('abc', 'def/', 'ghi', '', 'jkl')).toBe('abc/def/ghi/jkl')
 })
