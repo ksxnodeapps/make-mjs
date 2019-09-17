@@ -2,6 +2,7 @@
   "private": true,
   "dependencies": {
     "static-type-assert": "3.0.1",
+    "__mocks__": "file:../__mocks__",
     "@make-mjs/utils": "file:../../packages/utils",
     "@make-mjs/fs-extra": "file:../../packages/fs-extra",
     "@make-mjs/url": "file:../../packages/url"

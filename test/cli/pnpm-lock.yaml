@@ -3,6 +3,7 @@ dependencies:
   '@make-mjs/fs-extra': 'link:../../packages/fs-extra'
   '@tools/test-utils': 'link:../../tools/test-utils'
   '@types/js-yaml': 3.12.1
+  __mocks__: 'link:../__mocks__'
   js-yaml: 3.13.1
 lockfileVersion: 5.1
 packages:
@@ -40,4 +41,5 @@ specifiers:
   '@make-mjs/fs-extra': 'file:../../packages/fs-extra'
   '@tools/test-utils': 'file:../../tools/test-utils'
   '@types/js-yaml': ^3.12.1
+  __mocks__: 'file:../__mocks__'
   js-yaml: ^3.13.1

@@ -2,6 +2,7 @@ dependencies:
   '@make-mjs/fs-extra': 'link:../../packages/fs-extra'
   '@make-mjs/url': 'link:../../packages/url'
   '@make-mjs/utils': 'link:../../packages/utils'
+  __mocks__: 'link:../__mocks__'
   static-type-assert: 3.0.1
 lockfileVersion: 5.1
 packages:
@@ -27,4 +28,5 @@ specifiers:
   '@make-mjs/fs-extra': 'file:../../packages/fs-extra'
   '@make-mjs/url': 'file:../../packages/url'
   '@make-mjs/utils': 'file:../../packages/utils'
+  __mocks__: 'file:../__mocks__'
   static-type-assert: 3.0.1
