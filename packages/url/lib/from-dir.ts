@@ -1,5 +1,5 @@
 import { objectExtends } from '@tsfun/object'
-import { silenceRejection, joinUrl } from '@make-mjs/utils'
+import { silenceRejection, joinUrl, convertUrlToPath } from '@make-mjs/utils'
 import { pathExists, readJSON } from 'fs-extra'
 import fromFile from './from-file'
 
@@ -14,7 +14,7 @@ export async function fromDir (options: Options): Promise<string> {
   const { modulePath, moduleContainer, forceMjs } = options
 
   const manifestArray = moduleContainer.map(item => {
-    const manifest = joinUrl(item, modulePath, 'package.json')
+    const manifest = convertUrlToPath(joinUrl(item, modulePath, 'package.json'))
     const manifestExistsPromise = silenceRejection(pathExists(manifest))
     const manifestContentPromise = silenceRejection(readJSON(manifest))
     return { manifestExistsPromise, manifestContentPromise }

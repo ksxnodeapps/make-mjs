@@ -1,3 +1,5 @@
+import { convertUrlToPath } from '@make-mjs/utils'
+
 import {
   MODULE_CONTAINER,
   ENTRY_MODULE,
@@ -154,7 +156,7 @@ export const allThatIs = mockArray([
   EXTERNAL_MODULE_PATH_NONMJS,
   EXTERNAL_MODULE_MANIFEST_NONMJS,
   EXTERNAL_MODULE_ENTRY_NONMJS
-] as const)
+].map(convertUrlToPath))
 
 export const files = mockArray([
   INTERNAL_FILE_MODULE_PATH,
@@ -174,7 +176,7 @@ export const files = mockArray([
   EXTERNAL_MODULE_ENTRY_DEFAULT,
   EXTERNAL_MODULE_MANIFEST_NONMJS,
   EXTERNAL_MODULE_ENTRY_NONMJS
-] as const)
+].map(convertUrlToPath))
 
 export const directories = mockArray([
   MODULE_CONTAINER,
@@ -186,7 +188,7 @@ export const directories = mockArray([
   EXTERNAL_MODULE_PATH_MAIN,
   EXTERNAL_MODULE_PATH_DEFAULT,
   EXTERNAL_MODULE_PATH_NONMJS
-] as const)
+].map(convertUrlToPath))
 
 export interface ManifestContent {
   readonly main?: string
@@ -254,8 +256,9 @@ export function appendFileOrDir (
   fs: typeof files | typeof directories,
   addend: readonly string[]
 ) {
-  fs.append(addend)
-  allThatIs.append(addend)
+  const paths = addend.map(convertUrlToPath)
+  fs.append(paths)
+  allThatIs.append(paths)
 }
 
 export function appendFile (addend: readonly string[]) {
@@ -267,7 +270,10 @@ export function appendDir (addend: readonly string[]) {
 }
 
 export function appendManifest (entries: ReadonlyArray<readonly [string, ManifestContent]>) {
-  manifestFiles.append(entries)
+  manifestFiles.append(entries.map(([url, content]) => [
+    convertUrlToPath(url),
+    content
+  ]))
   appendFile(entries.map(entry => entry[0]))
 }
 
@@ -278,7 +284,7 @@ export namespace appendManifest {
 }
 
 export function appendTextFile (entries: ReadonlyArray<readonly [string, string]>) {
-  textFiles.append(entries)
+  textFiles.append(entries.map(([url, content]) => [convertUrlToPath(url), content]))
   appendFile(entries.map(entry => entry[0]))
   files.dedup()
   allThatIs.dedup()
@@ -297,7 +303,8 @@ function getParentDirectory (path: string) {
 }
 
 export function appendFileSystem (entries: ReadonlyArray<readonly [string, FileSystemItem]>) {
-  for (const [path, content] of entries) {
+  for (const [url, content] of entries) {
+    const path = convertUrlToPath(url)
     ensureDirSync(getParentDirectory(path))
 
     if (content === null) {

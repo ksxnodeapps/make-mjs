@@ -1,5 +1,5 @@
 import once from 'exec-once'
-import { joinUrl, parseUrl } from '@make-mjs/utils'
+import { joinUrl, parseUrl, convertUrlToPath } from '@make-mjs/utils'
 import { pathExists } from 'fs-extra'
 
 interface OptionsWithoutForceMjs {
@@ -40,7 +40,7 @@ export async function fromFile (options: Options): Promise<string> {
 
   for (const item of moduleContainer) {
     if (await pathExists(
-      joinUrl(item, mjsModulePath())
+      convertUrlToPath(joinUrl(item, mjsModulePath()))
     )) return mjsModulePath()
   }
 

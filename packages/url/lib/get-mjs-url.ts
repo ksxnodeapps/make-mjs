@@ -1,5 +1,5 @@
 import { addProperty } from '@tsfun/object'
-import { silenceRejection, joinUrl } from '@make-mjs/utils'
+import { silenceRejection, joinUrl, convertUrlToPath } from '@make-mjs/utils'
 import { pathExists, stat } from 'fs-extra'
 import DEFAULT_FILE_URL_RESOLVER from './from-file'
 import DEFAULT_DIR_URL_RESOLVER from './from-dir'
@@ -58,8 +58,9 @@ export async function getMjsUrl (options: MjsPathOptions): Promise<string> {
   }
 
   async function handleRoute (route: string, resolverOptions: ModulePathResolverOptions) {
-    const pathExistsPromise = silenceRejection(pathExists(route))
-    const modulePathStatsPromise = silenceRejection(stat(route))
+    const routePath = convertUrlToPath(route)
+    const pathExistsPromise = silenceRejection(pathExists(routePath))
+    const modulePathStatsPromise = silenceRejection(stat(routePath))
 
     if (await pathExistsPromise) {
       const stats = await modulePathStatsPromise
