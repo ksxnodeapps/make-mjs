@@ -68,9 +68,9 @@ function makeValidFiles () {
     `),
 
     'ghi/node_modules/deep-external/package.json': {
-      browser: 'deep-browser-entry.mjs'
+      module: 'deep-module-entry.mjs'
     },
-    'ghi/node_modules/deep-external/deep-browser-entry.mjs': DUMMY_JS_CONTENT,
+    'ghi/node_modules/deep-external/deep-module-entry.mjs': DUMMY_JS_CONTENT,
     'ghi/node_modules/@scope/foo/package.json': {
       main: 'deep-scope-foo-main-entry.js'
     },
@@ -181,7 +181,7 @@ describe('without isMjsPackage', () => {
       expect(
         formatCode(textFiles.get().get('ghi/deep-file-1.mjs')!)
       ).toBe(formatCode(`
-        export * from 'deep-external/deep-browser-entry.mjs'
+        export * from 'deep-external/deep-module-entry.mjs'
         export * from '@scope/foo/deep-scope-foo-main-entry.mjs'
       `))
     })
@@ -275,7 +275,7 @@ describe('with isMjsPackage that classifies "external-nonmjs-mjs" as an mjs pack
       expect(
         formatCode(textFiles.get().get('ghi/deep-file-1.mjs')!)
       ).toBe(formatCode(`
-        export * from 'deep-external/deep-browser-entry.mjs'
+        export * from 'deep-external/deep-module-entry.mjs'
         export * from '@scope/foo/deep-scope-foo-main-entry.mjs'
       `))
     })

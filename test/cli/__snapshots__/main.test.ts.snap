@@ -44,7 +44,7 @@ filenames:
   - abc/def/node_modules/deep-external/deep-module-entry.mjs
   - abc/def/ghi/jkl/deep-file-0.js
   - ghi/node_modules/deep-external/package.json
-  - ghi/node_modules/deep-external/deep-browser-entry.mjs
+  - ghi/node_modules/deep-external/deep-module-entry.mjs
   - ghi/node_modules/@scope/foo/package.json
   - ghi/node_modules/@scope/foo/deep-scope-foo-main-entry.js
   - ghi/node_modules/@scope/foo/deep-scope-foo-main-entry.mjs
@@ -94,7 +94,7 @@ manifestFiles:
       module: deep-module-entry.mjs
   - path: ghi/node_modules/deep-external/package.json
     content:
-      browser: deep-browser-entry.mjs
+      module: deep-module-entry.mjs
   - path: ghi/node_modules/@scope/foo/package.json
     content:
       main: deep-scope-foo-main-entry.js
@@ -134,7 +134,7 @@ textFiles:
         await import('external-mjs-main')
         await import('@scope/foo')
       }
-  - path: ghi/node_modules/deep-external/deep-browser-entry.mjs
+  - path: ghi/node_modules/deep-external/deep-module-entry.mjs
     content: not to be read
   - path: ghi/node_modules/@scope/foo/deep-scope-foo-main-entry.js
     content: not to be read
@@ -167,7 +167,7 @@ textFiles:
       }
   - path: ghi/deep-file-1.mjs
     content: |-
-      export * from 'deep-external/deep-browser-entry.mjs'
+      export * from 'deep-external/deep-module-entry.mjs'
       export * from '@scope/foo/deep-scope-foo-main-entry.mjs'
 
 "
@@ -205,7 +205,7 @@ filenames:
   - abc/def/node_modules/deep-external/deep-module-entry.mjs
   - abc/def/ghi/jkl/deep-file-0.js
   - ghi/node_modules/deep-external/package.json
-  - ghi/node_modules/deep-external/deep-browser-entry.mjs
+  - ghi/node_modules/deep-external/deep-module-entry.mjs
   - ghi/node_modules/@scope/foo/package.json
   - ghi/node_modules/@scope/foo/deep-scope-foo-main-entry.js
   - ghi/node_modules/@scope/foo/deep-scope-foo-main-entry.mjs
@@ -251,7 +251,7 @@ manifestFiles:
       module: deep-module-entry.mjs
   - path: ghi/node_modules/deep-external/package.json
     content:
-      browser: deep-browser-entry.mjs
+      module: deep-module-entry.mjs
   - path: ghi/node_modules/@scope/foo/package.json
     content:
       main: deep-scope-foo-main-entry.js
@@ -291,7 +291,7 @@ textFiles:
         await import('external-mjs-main')
         await import('@scope/foo')
       }
-  - path: ghi/node_modules/deep-external/deep-browser-entry.mjs
+  - path: ghi/node_modules/deep-external/deep-module-entry.mjs
     content: not to be read
   - path: ghi/node_modules/@scope/foo/deep-scope-foo-main-entry.js
     content: not to be read
@@ -312,7 +312,7 @@ textFiles:
       }
   - path: ghi/deep-file-1.mjs
     content: |-
-      export * from 'deep-external/deep-browser-entry.mjs'
+      export * from 'deep-external/deep-module-entry.mjs'
       export * from '@scope/foo/deep-scope-foo-main-entry.mjs'
 
 "
@@ -362,7 +362,7 @@ filenames:
   - abc/def/node_modules/deep-external/deep-module-entry.mjs
   - abc/def/ghi/jkl/deep-file-0.js
   - ghi/node_modules/deep-external/package.json
-  - ghi/node_modules/deep-external/deep-browser-entry.mjs
+  - ghi/node_modules/deep-external/deep-module-entry.mjs
   - ghi/node_modules/@scope/foo/package.json
   - ghi/node_modules/@scope/foo/deep-scope-foo-main-entry.js
   - ghi/node_modules/@scope/foo/deep-scope-foo-main-entry.mjs
@@ -412,7 +412,7 @@ manifestFiles:
       module: deep-module-entry.mjs
   - path: ghi/node_modules/deep-external/package.json
     content:
-      browser: deep-browser-entry.mjs
+      module: deep-module-entry.mjs
   - path: ghi/node_modules/@scope/foo/package.json
     content:
       main: deep-scope-foo-main-entry.js
@@ -452,7 +452,7 @@ textFiles:
         await import('external-mjs-main')
         await import('@scope/foo')
       }
-  - path: ghi/node_modules/deep-external/deep-browser-entry.mjs
+  - path: ghi/node_modules/deep-external/deep-module-entry.mjs
     content: not to be read
   - path: ghi/node_modules/@scope/foo/deep-scope-foo-main-entry.js
     content: not to be read
@@ -485,7 +485,7 @@ textFiles:
       }
   - path: ghi/deep-file-1.mjs
     content: |-
-      export * from 'deep-external/deep-browser-entry.mjs'
+      export * from 'deep-external/deep-module-entry.mjs'
       export * from '@scope/foo/deep-scope-foo-main-entry.mjs'
 
 "
@@ -523,7 +523,7 @@ filenames:
   - abc/def/node_modules/deep-external/deep-module-entry.mjs
   - abc/def/ghi/jkl/deep-file-0.js
   - ghi/node_modules/deep-external/package.json
-  - ghi/node_modules/deep-external/deep-browser-entry.mjs
+  - ghi/node_modules/deep-external/deep-module-entry.mjs
   - ghi/node_modules/@scope/foo/package.json
   - ghi/node_modules/@scope/foo/deep-scope-foo-main-entry.js
   - ghi/node_modules/@scope/foo/deep-scope-foo-main-entry.mjs
@@ -569,7 +569,7 @@ manifestFiles:
       module: deep-module-entry.mjs
   - path: ghi/node_modules/deep-external/package.json
     content:
-      browser: deep-browser-entry.mjs
+      module: deep-module-entry.mjs
   - path: ghi/node_modules/@scope/foo/package.json
     content:
       main: deep-scope-foo-main-entry.js
@@ -609,7 +609,7 @@ textFiles:
         await import('external-mjs-main')
         await import('@scope/foo')
       }
-  - path: ghi/node_modules/deep-external/deep-browser-entry.mjs
+  - path: ghi/node_modules/deep-external/deep-module-entry.mjs
     content: not to be read
   - path: ghi/node_modules/@scope/foo/deep-scope-foo-main-entry.js
     content: not to be read
@@ -630,7 +630,7 @@ textFiles:
       }
   - path: ghi/deep-file-1.mjs
     content: |-
-      export * from 'deep-external/deep-browser-entry.mjs'
+      export * from 'deep-external/deep-module-entry.mjs'
       export * from '@scope/foo/deep-scope-foo-main-entry.mjs'
 
 "

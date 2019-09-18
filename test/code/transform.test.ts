@@ -29,10 +29,6 @@ beforeEach(() => {
     'node_modules/external-main/dir-without-manifest',
     'node_modules/external-main/dir-with-manifest',
 
-    'node_modules/external-browser',
-    'node_modules/external-browser/dir-without-manifest',
-    'node_modules/external-browser/dir-with-manifest',
-
     'node_modules/external-module',
     'node_modules/external-module/dir-without-manifest',
     'node_modules/external-module/dir-with-manifest'
@@ -45,23 +41,19 @@ beforeEach(() => {
     'node_modules/nonmjs-external/index.js',
     'node_modules/external-default/index.mjs',
     'node_modules/external-main/index.mjs',
-    'node_modules/external-browser/index.mjs',
     'node_modules/external-module/index.mjs',
 
     'node_modules/nonmjs-external/file.js',
     'node_modules/external-default/file.mjs',
     'node_modules/external-main/file.mjs',
-    'node_modules/external-browser/file.mjs',
     'node_modules/external-module/file.mjs',
 
     'node_modules/external-main/main-entry.js',
     'node_modules/external-main/main-entry.mjs',
-    'node_modules/external-browser/browser-entry',
     'node_modules/external-module/module-entry',
 
     'node_modules/external-main/dir-with-manifest/dir-main-entry.js',
     'node_modules/external-main/dir-with-manifest/dir-main-entry.mjs',
-    'node_modules/external-browser/dir-with-manifest/dir-browser-entry',
     'node_modules/external-module/dir-with-manifest/dir-module-entry'
   ])
 
@@ -71,13 +63,11 @@ beforeEach(() => {
     ['node_modules/nonmjs-external/package.json', {}],
     ['node_modules/external-default/package.json', {}],
     ['node_modules/external-main/package.json', { main: 'main-entry.js' }],
-    ['node_modules/external-browser/package.json', { browser: 'browser-entry' }],
     ['node_modules/external-module/package.json', { module: 'module-entry' }],
 
     ['node_modules/nonmjs-external/dir-with-manifest/package.json', {}],
     ['node_modules/external-default/dir-with-manifest/package.json', {}],
     ['node_modules/external-main/dir-with-manifest/package.json', { main: 'dir-main-entry.js' }],
-    ['node_modules/external-browser/dir-with-manifest/package.json', { browser: 'dir-browser-entry' }],
     ['node_modules/external-module/dir-with-manifest/package.json', { module: 'dir-module-entry' }]
   ])
 })
@@ -103,11 +93,6 @@ describe('without isMjsPackage', () => {
     import 'external-main/dir-without-manifest'
     import 'external-main/dir-with-manifest'
     import 'external-main/file'
-
-    import 'external-browser'
-    import 'external-browser/dir-without-manifest'
-    import 'external-browser/dir-with-manifest'
-    import 'external-browser/file'
 
     import 'external-module'
     import 'external-module/dir-without-manifest'
@@ -153,11 +138,6 @@ describe('without isMjsPackage', () => {
       import 'external-main/dir-with-manifest/dir-main-entry.mjs'
       import 'external-main/file.mjs'
 
-      import 'external-browser/browser-entry'
-      import 'external-browser/dir-without-manifest'
-      import 'external-browser/dir-with-manifest/dir-browser-entry'
-      import 'external-browser/file.mjs'
-
       import 'external-module/module-entry'
       import 'external-module/dir-without-manifest'
       import 'external-module/dir-with-manifest/dir-module-entry'
@@ -201,11 +181,6 @@ describe('with isMjsPackage always return false', () => {
     import 'external-main/dir-without-manifest'
     import 'external-main/dir-with-manifest'
     import 'external-main/file'
-
-    import 'external-browser'
-    import 'external-browser/dir-without-manifest'
-    import 'external-browser/dir-with-manifest'
-    import 'external-browser/file'
 
     import 'external-module'
     import 'external-module/dir-without-manifest'
@@ -255,11 +230,6 @@ describe('with isMjsPackage always return false', () => {
       import 'external-main/dir-with-manifest/dir-main-entry.mjs'
       import 'external-main/file.mjs'
 
-      import 'external-browser/browser-entry'
-      import 'external-browser/dir-without-manifest'
-      import 'external-browser/dir-with-manifest/dir-browser-entry'
-      import 'external-browser/file.mjs'
-
       import 'external-module/module-entry'
       import 'external-module/dir-without-manifest'
       import 'external-module/dir-with-manifest/dir-module-entry'
@@ -300,11 +270,6 @@ describe('with isMjsPackage always return true', () => {
     import 'external-main/dir-without-manifest'
     import 'external-main/dir-with-manifest'
     import 'external-main/file'
-
-    import 'external-browser'
-    import 'external-browser/dir-without-manifest'
-    import 'external-browser/dir-with-manifest'
-    import 'external-browser/file'
 
     import 'external-module'
     import 'external-module/dir-without-manifest'
@@ -353,11 +318,6 @@ describe('with isMjsPackage always return true', () => {
       import 'external-main/dir-without-manifest/index.mjs'
       import 'external-main/dir-with-manifest/dir-main-entry.mjs'
       import 'external-main/file.mjs'
-
-      import 'external-browser/browser-entry'
-      import 'external-browser/dir-without-manifest/index.mjs'
-      import 'external-browser/dir-with-manifest/dir-browser-entry'
-      import 'external-browser/file.mjs'
 
       import 'external-module/module-entry'
       import 'external-module/dir-without-manifest/index.mjs'

@@ -33,9 +33,8 @@ export async function fromDir (options: Options): Promise<string> {
     const { manifestExistsPromise, manifestContentPromise } = item
 
     if (await manifestExistsPromise) {
-      const { module, browser, main } = await manifestContentPromise
+      const { module, main } = await manifestContentPromise
       if (module) return joinUrl(modulePath, module)
-      if (browser) return joinUrl(modulePath, browser)
       if (main) return handleMainEntry(main)
     }
   }

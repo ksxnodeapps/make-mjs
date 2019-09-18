@@ -2,7 +2,6 @@ import { joinUrl } from '@make-mjs/utils'
 
 export const MODULE_CONTAINER = 'node_modules'
 export const ENTRY_MODULE = 'entry-module'
-export const ENTRY_BROWSER = 'entry-browser'
 export const ENTRY_MAIN = 'entry-main'
 export const ENTRY_MAIN_JS = 'entry-main.js'
 export const ENTRY_MAIN_MJS = 'entry-main.mjs'
@@ -35,11 +34,6 @@ export const EXTERNAL_MODULE_NAME_MODULE = 'external-module-with-module-field'
 export const EXTERNAL_MODULE_PATH_MODULE = joinUrl(MODULE_CONTAINER, EXTERNAL_MODULE_NAME_MODULE)
 export const EXTERNAL_MODULE_MANIFEST_MODULE = joinUrl(EXTERNAL_MODULE_PATH_MODULE, 'package.json')
 export const EXTERNAL_MODULE_ENTRY_MODULE = joinUrl(EXTERNAL_MODULE_PATH_MODULE, ENTRY_MODULE)
-
-export const EXTERNAL_MODULE_NAME_BROWSER = 'external-module-with-browser-field'
-export const EXTERNAL_MODULE_PATH_BROWSER = joinUrl(MODULE_CONTAINER, EXTERNAL_MODULE_NAME_BROWSER)
-export const EXTERNAL_MODULE_MANIFEST_BROWSER = joinUrl(EXTERNAL_MODULE_PATH_BROWSER, 'package.json')
-export const EXTERNAL_MODULE_ENTRY_BROWSER = joinUrl(EXTERNAL_MODULE_PATH_BROWSER, ENTRY_BROWSER)
 
 export const EXTERNAL_MODULE_NAME_MAIN = 'external-module-with-main-field'
 export const EXTERNAL_MODULE_PATH_MAIN = joinUrl(MODULE_CONTAINER, EXTERNAL_MODULE_NAME_MAIN)

@@ -20,7 +20,6 @@ import {
   INTERNAL_NOT_FILE_NOR_DIR,
   EXTERNAL_MODULE_NAME,
   EXTERNAL_MODULE_NAME_MODULE,
-  EXTERNAL_MODULE_NAME_BROWSER,
   EXTERNAL_MODULE_NAME_MAIN,
   EXTERNAL_MODULE_NAME_DEFAULT,
   pathExists,
@@ -204,52 +203,6 @@ describe('external module', () => {
       })
     })
 
-    describe('"package.json" has a "browser" field', () => {
-      const manifestContent = readJSON(
-        joinUrl(MODULE_CONTAINER, EXTERNAL_MODULE_NAME_BROWSER, 'package.json')
-      )
-
-      it('assertion: "package.json" does not have "module" field', async () => {
-        expect(await manifestContent).not.toHaveProperty('module')
-      })
-
-      it('assertion: "package.json" has a "browser" field', async () => {
-        expect(await manifestContent).toHaveProperty('browser', expect.any(String))
-      })
-
-      it('assertion: "package.json" does not have "main" field', async () => {
-        expect(await manifestContent).not.toHaveProperty('main')
-      })
-
-      it('import by module name: append entry name', async () => {
-        expect(await get(EXTERNAL_MODULE_NAME_BROWSER))
-          .toBe(EXTERNAL_MODULE_NAME_BROWSER + '/' + (await manifestContent).browser)
-      })
-
-      it('import by file without extension: append ".mjs"', async () => {
-        appendFile([
-          joinUrl(MODULE_CONTAINER, EXTERNAL_MODULE_NAME_BROWSER, 'target/file.mjs')
-        ])
-
-        expect(await get(EXTERNAL_MODULE_NAME_BROWSER + '/target/file'))
-          .toBe(EXTERNAL_MODULE_NAME_BROWSER + '/target/file.mjs')
-      })
-
-      it('import by ".js" file: change extension to ".mjs"', async () => {
-        appendFile([
-          joinUrl(MODULE_CONTAINER, EXTERNAL_MODULE_NAME_BROWSER, 'target/file.mjs')
-        ])
-
-        expect(await get(EXTERNAL_MODULE_NAME_BROWSER + '/target/file.js'))
-          .toBe(EXTERNAL_MODULE_NAME_BROWSER + '/target/file.mjs')
-      })
-
-      it('import by ".mjs" file: does not change extension', async () => {
-        expect(await get(EXTERNAL_MODULE_NAME_BROWSER + '/target/file.mjs'))
-          .toBe(EXTERNAL_MODULE_NAME_BROWSER + '/target/file.mjs')
-      })
-    })
-
     describe('"package.json" has a "main" field', () => {
       const manifestContent = readJSON(
         joinUrl(MODULE_CONTAINER, EXTERNAL_MODULE_NAME_MAIN, 'package.json')
@@ -413,44 +366,6 @@ describe('external module', () => {
       })
     })
 
-    describe('"package.json" has a "browser" field', () => {
-      const manifestContent = readJSON(
-        joinUrl(MODULE_CONTAINER, EXTERNAL_MODULE_NAME_BROWSER, 'package.json')
-      )
-
-      it('assertion: "package.json" does not have "module" field', async () => {
-        expect(await manifestContent).not.toHaveProperty('module')
-      })
-
-      it('assertion: "package.json" has a "browser" field', async () => {
-        expect(await manifestContent).toHaveProperty('browser', expect.any(String))
-      })
-
-      it('assertion: "package.json" does not have "main" field', async () => {
-        expect(await manifestContent).not.toHaveProperty('main')
-      })
-
-      it('import by module name: append entry name', async () => {
-        expect(await get(EXTERNAL_MODULE_NAME_BROWSER))
-          .toBe(EXTERNAL_MODULE_NAME_BROWSER + '/' + (await manifestContent).browser)
-      })
-
-      it('import by file without extension: change nothing', async () => {
-        expect(await get(EXTERNAL_MODULE_NAME_BROWSER + '/target/file'))
-          .toBe(EXTERNAL_MODULE_NAME_BROWSER + '/target/file')
-      })
-
-      it('import by ".js" file: change nothing', async () => {
-        expect(await get(EXTERNAL_MODULE_NAME_BROWSER + '/target/file.js'))
-          .toBe(EXTERNAL_MODULE_NAME_BROWSER + '/target/file.js')
-      })
-
-      it('import by ".mjs" file: change nothing', async () => {
-        expect(await get(EXTERNAL_MODULE_NAME_BROWSER + '/target/file.mjs'))
-          .toBe(EXTERNAL_MODULE_NAME_BROWSER + '/target/file.mjs')
-      })
-    })
-
     describe('"package.json" has a "main" field', () => {
       const manifestContent = readJSON(
         joinUrl(MODULE_CONTAINER, EXTERNAL_MODULE_NAME_MAIN, 'package.json')
@@ -602,44 +517,6 @@ describe('external module', () => {
       it('import by ".mjs" file: does not change extension', async () => {
         expect(await get(EXTERNAL_MODULE_NAME_MODULE + '/target/file.mjs'))
           .toBe(EXTERNAL_MODULE_NAME_MODULE + '/target/file.mjs')
-      })
-    })
-
-    describe('"package.json" has a "browser" field', () => {
-      const manifestContent = readJSON(
-        joinUrl(MODULE_CONTAINER, EXTERNAL_MODULE_NAME_BROWSER, 'package.json')
-      )
-
-      it('assertion: "package.json" does not have "module" field', async () => {
-        expect(await manifestContent).not.toHaveProperty('module')
-      })
-
-      it('assertion: "package.json" has a "browser" field', async () => {
-        expect(await manifestContent).toHaveProperty('browser', expect.any(String))
-      })
-
-      it('assertion: "package.json" does not have "main" field', async () => {
-        expect(await manifestContent).not.toHaveProperty('main')
-      })
-
-      it('import by module name: append entry name', async () => {
-        expect(await get(EXTERNAL_MODULE_NAME_BROWSER))
-          .toBe(EXTERNAL_MODULE_NAME_BROWSER + '/' + (await manifestContent).browser)
-      })
-
-      it('import by file without extension: append ".mjs"', async () => {
-        expect(await get(EXTERNAL_MODULE_NAME_BROWSER + '/target/file'))
-          .toBe(EXTERNAL_MODULE_NAME_BROWSER + '/target/file.mjs')
-      })
-
-      it('import by ".js" file: change extension to ".mjs"', async () => {
-        expect(await get(EXTERNAL_MODULE_NAME_BROWSER + '/target/file.js'))
-          .toBe(EXTERNAL_MODULE_NAME_BROWSER + '/target/file.mjs')
-      })
-
-      it('import by ".mjs" file: does not change extension', async () => {
-        expect(await get(EXTERNAL_MODULE_NAME_BROWSER + '/target/file.mjs'))
-          .toBe(EXTERNAL_MODULE_NAME_BROWSER + '/target/file.mjs')
       })
     })
 

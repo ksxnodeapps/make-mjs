@@ -67,9 +67,9 @@ function makeValidFiles () {
     `),
 
     'ghi/node_modules/deep-external/package.json': {
-      browser: 'deep-browser-entry.mjs'
+      module: 'deep-module-entry.mjs'
     },
-    'ghi/node_modules/deep-external/deep-browser-entry.mjs': DUMMY_JS_CONTENT,
+    'ghi/node_modules/deep-external/deep-module-entry.mjs': DUMMY_JS_CONTENT,
     'ghi/node_modules/@scope/foo/package.json': {
       main: 'deep-scope-foo-main-entry.js'
     },
