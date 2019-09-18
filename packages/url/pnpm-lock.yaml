@@ -3,7 +3,7 @@ dependencies:
   '@tsfun/object': 0.0.3
   '@types/fs-extra': 8.0.0
   '@types/node': 12.7.5
-  exec-once: 0.0.2
+  exec-once: 0.1.0
   fs-extra: 8.1.0
   tslib: 1.10.0
 lockfileVersion: 5.1
@@ -26,13 +26,13 @@ packages:
     dev: false
     resolution:
       integrity: sha512-9fq4jZVhPNW8r+UYKnxF1e2HkDWOWKM5bC2/7c9wPV835I0aOrVbS/Hw/pWPk2uKrNXQqg9Z959Kz+IYDd5p3w==
-  /exec-once/0.0.2:
+  /exec-once/0.1.0:
     dependencies:
       '@types/node': 12.7.5
       tslib: 1.10.0
     dev: false
     resolution:
-      integrity: sha512-h3NkZoW2ETeMR2j9GN++c1/BLF+rq24+wLSsjPMhmzPzGVaN0PJdi/J4fcpjsCUlgVMUgJRcdhqvSurCFx4DWQ==
+      integrity: sha512-4AB1qE5nb8Z3yWlu6SqtFl4c/dhNR0PpuR7CfyWKLtkhaO0ABonQbAaXDGV4IIczuwjmUskN6/2cAv+V3BOzFQ==
   /fs-extra/8.1.0:
     dependencies:
       graceful-fs: 4.2.2
@@ -74,6 +74,6 @@ specifiers:
   '@tsfun/object': ^0.0.3
   '@types/fs-extra': ^8.0.0
   '@types/node': ^12.7.5
-  exec-once: ^0.0.2
+  exec-once: ^0.1.0
   fs-extra: ^8.1.0
   tslib: ^1.10.0
