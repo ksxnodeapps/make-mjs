@@ -72,13 +72,13 @@ beforeEach(() => {
     ['node_modules/external-default/package.json', {}],
     ['node_modules/external-main/package.json', { main: 'main-entry.js' }],
     ['node_modules/external-browser/package.json', { browser: 'browser-entry' }],
-    ['node_modules/external-module/package.json', { browser: 'module-entry' }],
+    ['node_modules/external-module/package.json', { module: 'module-entry' }],
 
     ['node_modules/nonmjs-external/dir-with-manifest/package.json', {}],
     ['node_modules/external-default/dir-with-manifest/package.json', {}],
     ['node_modules/external-main/dir-with-manifest/package.json', { main: 'dir-main-entry.js' }],
     ['node_modules/external-browser/dir-with-manifest/package.json', { browser: 'dir-browser-entry' }],
-    ['node_modules/external-module/dir-with-manifest/package.json', { browser: 'dir-module-entry' }]
+    ['node_modules/external-module/dir-with-manifest/package.json', { module: 'dir-module-entry' }]
   ])
 })
 
