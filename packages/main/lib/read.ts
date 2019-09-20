@@ -1,5 +1,6 @@
-import { readFile, lstat } from 'fs-extra'
-import traverse from './traverse'
+import { join } from 'path'
+import { readFile, readdir, lstat } from 'fs-extra'
+import traverse from 'fast-traverse'
 
 import {
   StatFunc,
@@ -22,11 +23,29 @@ export async function * read (options: ReadOptions): AsyncGenerator<File, void> 
     stat = DEFAULT_STAT_FUNC
   } = options
 
-  for await (const item of traverse(dirname, { deep, stat })) {
-    if (!filter(item)) continue
-    const { path } = item
-    const content = await readFile(path, 'utf8')
-    yield { path, content }
+  const traverseReturn = traverse({
+    dirname,
+    readdir,
+    stat,
+    join,
+    deep: param => deep({ base: param.basename, path: param.path })
+  })
+
+  for await (const { list, dirname } of traverseReturn) {
+    const promises = list
+      .map(base => {
+        const path = join(dirname, base)
+        return { base, path }
+      })
+      .filter(filter)
+      .map(async ({ path }) => {
+        const content = await readFile(path, 'utf8')
+        return { path, content }
+      })
+
+    for (const item of promises) {
+      yield item
+    }
   }
 }
 

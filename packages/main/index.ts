@@ -1,5 +1,4 @@
 export * from './lib/types'
-export * from './lib/traverse'
 export * from './lib/read'
 export * from './lib/transform'
 export * from './lib/write'
