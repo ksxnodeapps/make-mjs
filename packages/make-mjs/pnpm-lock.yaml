@@ -1,0 +1,24 @@
+dependencies:
+  '@make-mjs/cli': 'link:../cli'
+  '@make-mjs/code': 'link:../code'
+  '@make-mjs/main': 'link:../main'
+  '@make-mjs/url': 'link:../url'
+  '@types/node': 12.7.5
+  tslib: 1.10.0
+lockfileVersion: 5.1
+packages:
+  /@types/node/12.7.5:
+    dev: false
+    resolution:
+      integrity: sha512-9fq4jZVhPNW8r+UYKnxF1e2HkDWOWKM5bC2/7c9wPV835I0aOrVbS/Hw/pWPk2uKrNXQqg9Z959Kz+IYDd5p3w==
+  /tslib/1.10.0:
+    dev: false
+    resolution:
+      integrity: sha512-qOebF53frne81cf0S9B41ByenJ3/IuH8yJKngAX35CmiZySA0khhkovshKK+jGCaMnVomla7gVlIcc3EvKPbTQ==
+specifiers:
+  '@make-mjs/cli': ^0.3.0
+  '@make-mjs/code': ^0.2.0
+  '@make-mjs/main': ^0.3.0
+  '@make-mjs/url': ^0.2.0
+  '@types/node': ^12.7.5
+  tslib: ^1.10.0
