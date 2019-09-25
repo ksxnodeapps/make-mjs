@@ -1,6 +1,6 @@
 {
   "name": "@make-mjs/main",
-  "version": "0.4.1",
+  "version": "0.4.2",
   "description": "Main program",
   "author": "Hoàng Văn Khải <hvksmr1996@gmail.com>",
   "license": "MIT",
@@ -26,8 +26,8 @@
     "fast-traverse": "^0.0.0",
     "@tsfun/object": "^0.0.5",
     "tslib": "^1.10.0",
-    "@make-mjs/utils": "^0.0.2",
-    "@make-mjs/code": "^0.2.1",
+    "@make-mjs/utils": "^0.0.3",
+    "@make-mjs/code": "^0.2.2",
     "@types/fs-extra": "^8.0.0",
     "@types/node": "^12.7.5"
   }
