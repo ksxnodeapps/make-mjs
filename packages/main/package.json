@@ -12,6 +12,14 @@
   "bugs": {
     "url": "https://github.com/ksxnodeapps/make-mjs/issues"
   },
+  "keywords": [
+    "es-module",
+    "babel",
+    "import",
+    "esm",
+    "mjs"
+  ],
+  "sideEffects": false,
   "dependencies": {
     "fs-extra": "8.1.0",
     "ancestor-directories": "1.0.1",
