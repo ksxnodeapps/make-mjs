@@ -2,6 +2,10 @@
 
 Turn a Babel JavaScript code into a MJS code
 
+## APIs Documentation
+
+Go to [the GitHub page](https://ksxnodeapps.github.io/make-mjs/code)
+
 ## Example
 
 Let's say you have `./lib/foo.js` and `./lib/bar.js` and this file (named `index.js`):

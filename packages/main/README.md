@@ -2,6 +2,10 @@
 
 Main program
 
+## APIs Documentation
+
+Go to [the GitHub page](https://ksxnodeapps.github.io/make-mjs/main)
+
 ## Usage
 
 ```typescript

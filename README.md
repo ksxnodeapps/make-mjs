@@ -12,6 +12,10 @@ This is a collection of packages that help turn a normal Babel JavaScript file t
 * [@make-mjs/url](https://www.npmjs.com/package/@make-mjs/url): APIs to transform an import/export URL
 * [and more...](https://www.npmjs.com/org/make-mjs)
 
+## APIs Documentation
+
+Go to [the GitHub page](https://ksxnodeapps.github.io/make-mjs/)
+
 ## Development
 
 ### System Requirements
