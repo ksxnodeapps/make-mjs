@@ -16,9 +16,9 @@ packages:
     resolution:
       integrity: sha512-qOebF53frne81cf0S9B41ByenJ3/IuH8yJKngAX35CmiZySA0khhkovshKK+jGCaMnVomla7gVlIcc3EvKPbTQ==
 specifiers:
-  '@make-mjs/cli': ^0.3.4
-  '@make-mjs/code': ^0.2.3
-  '@make-mjs/main': ^0.4.3
-  '@make-mjs/url': ^0.2.3
+  '@make-mjs/cli': ^0.3.5
+  '@make-mjs/code': ^0.2.4
+  '@make-mjs/main': ^0.4.4
+  '@make-mjs/url': ^0.2.4
   '@types/node': ^12.7.5
   tslib: ^1.10.0
