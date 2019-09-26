@@ -20,6 +20,7 @@ temp.*
 *.tmpjs
 !jest.config.js
 /*/*/.npmignore
+/docs
 *.tsbuildinfo
 .vscode
 
