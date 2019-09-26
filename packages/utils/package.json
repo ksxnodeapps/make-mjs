@@ -1,7 +1,7 @@
 {
   "name": "@make-mjs/utils",
   "version": "0.0.3",
-  "description": "Utilities used by other packages",
+  "description": "Utilities used by other packages in @make-mjs",
   "author": "Hoàng Văn Khải <hvksmr1996@gmail.com>",
   "license": "MIT",
   "homepage": "https://github.com/ksxnodeapps/make-mjs#readme",
