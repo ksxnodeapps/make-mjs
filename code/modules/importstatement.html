@@ -38,6 +38,8 @@
 							</div>
 							<input type="checkbox" id="tsd-filter-inherited" checked />
 							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
+							<input type="checkbox" id="tsd-filter-externals" checked />
+							<label class="tsd-widget" for="tsd-filter-externals">Externals</label>
 						</div>
 					</div>
 					<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
@@ -66,30 +68,30 @@
 				<h2>Index</h2>
 				<section class="tsd-panel tsd-index-panel">
 					<div class="tsd-index-content">
-						<section class="tsd-index-section ">
+						<section class="tsd-index-section tsd-is-external">
 							<h3>Interfaces</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-interface tsd-parent-kind-module"><a href="../interfaces/importstatement.expression.html" class="tsd-kind-icon">Expression</a></li>
+								<li class="tsd-kind-interface tsd-parent-kind-module tsd-is-external"><a href="../interfaces/importstatement.expression.html" class="tsd-kind-icon">Expression</a></li>
 							</ul>
 						</section>
-						<section class="tsd-index-section ">
+						<section class="tsd-index-section tsd-is-external">
 							<h3>Type aliases</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-type-alias tsd-parent-kind-module"><a href="importstatement.html#declaration" class="tsd-kind-icon">Declaration</a></li>
+								<li class="tsd-kind-type-alias tsd-parent-kind-module tsd-is-external"><a href="importstatement.html#declaration" class="tsd-kind-icon">Declaration</a></li>
 							</ul>
 						</section>
 					</div>
 				</section>
 			</section>
-			<section class="tsd-panel-group tsd-member-group ">
+			<section class="tsd-panel-group tsd-member-group tsd-is-external">
 				<h2>Type aliases</h2>
-				<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-parent-kind-module">
+				<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-parent-kind-module tsd-is-external">
 					<a name="declaration" class="tsd-anchor"></a>
 					<h3>Declaration</h3>
 					<div class="tsd-signature tsd-kind-icon">Declaration<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">ImportDeclaration</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">ExportAllDeclaration</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">NamedReexport</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/ksxnodeapps/make-mjs/blob/dd22476/packages/code/lib/traverse-import-statements.ts#L24">lib/traverse-import-statements.ts:24</a></li>
+							<li>Defined in <a href="https://github.com/ksxnodeapps/make-mjs/blob/27a3030/packages/code/lib/traverse-import-statements.ts#L24">code/lib/traverse-import-statements.ts:24</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -101,17 +103,23 @@
 					<li class="globals  ">
 						<a href="../globals.html"><em>Globals</em></a>
 					</li>
-					<li class="current tsd-kind-module">
+					<li class="label tsd-is-external">
+						<span>Externals</span>
+					</li>
+					<li class="current tsd-kind-module tsd-is-external">
 						<a href="importstatement.html">Import<wbr>Statement</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="parseurl.html">parse<wbr>Url</a>
 					</li>
 				</ul>
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
-					<li class=" tsd-kind-interface tsd-parent-kind-module">
+					<li class=" tsd-kind-interface tsd-parent-kind-module tsd-is-external">
 						<a href="../interfaces/importstatement.expression.html" class="tsd-kind-icon">Expression</a>
 					</li>
-					<li class=" tsd-kind-type-alias tsd-parent-kind-module">
+					<li class=" tsd-kind-type-alias tsd-parent-kind-module tsd-is-external">
 						<a href="importstatement.html#declaration" class="tsd-kind-icon">Declaration</a>
 					</li>
 				</ul>
