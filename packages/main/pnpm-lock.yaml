@@ -3,9 +3,9 @@ dependencies:
   '@make-mjs/utils': 'link:../utils'
   '@tsfun/object': 0.0.6
   '@types/fs-extra': 8.0.0
-  '@types/node': 12.7.8
+  '@types/node': 12.7.9
   ancestor-directories: 1.0.1
-  fast-traverse: 0.0.0
+  fast-traverse: 0.1.0
   fs-extra: 8.1.0
   tslib: 1.10.0
 lockfileVersion: 5.1
@@ -20,22 +20,14 @@ packages:
       integrity: sha512-l1CdtJM8DUphfpIYeewB9+TBGEQ+RjEG7lKx/3QAL8MRvRHEKSgLTehqs2R3jZZ4P57QGd61xhVCOGlcvqmYCA==
   /@types/fs-extra/8.0.0:
     dependencies:
-      '@types/node': 12.7.5
+      '@types/node': 12.7.9
     dev: false
     resolution:
       integrity: sha512-bCtL5v9zdbQW86yexOlXWTEGvLNqWxMFyi7gQA7Gcthbezr2cPSOb8SkESVKA937QD5cIwOFLDFt0MQoXOEr9Q==
-  /@types/node/10.14.18:
+  /@types/node/10.14.19:
     dev: false
     resolution:
-      integrity: sha512-ryO3Q3++yZC/+b8j8BdKd/dn9JlzlHBPdm80656xwYUdmPkpTGTjkAdt6BByiNupGPE8w0FhBgvYy/fX9hRNGQ==
-  /@types/node/12.7.5:
-    dev: false
-    resolution:
-      integrity: sha512-9fq4jZVhPNW8r+UYKnxF1e2HkDWOWKM5bC2/7c9wPV835I0aOrVbS/Hw/pWPk2uKrNXQqg9Z959Kz+IYDd5p3w==
-  /@types/node/12.7.8:
-    dev: false
-    resolution:
-      integrity: sha512-FMdVn84tJJdV+xe+53sYiZS4R5yn1mAIxfj+DVoNiQjTYz1+OYmjwEZr1ev9nU0axXwda0QDbYl06QHanRVH3A==
+      integrity: sha512-j6Sqt38ssdMKutXBUuAcmWF8QtHW1Fwz/mz4Y+Wd9mzpBiVFirjpNQf363hG5itkG+yGaD+oiLyb50HxJ36l9Q==
   /@types/node/12.7.9:
     dev: false
     resolution:
@@ -46,7 +38,7 @@ packages:
       integrity: sha512-xcmtfHIgF9SYjhGdsZR1nQslxG4hu0cIpFfLQ4CWdw3KzHvl7ki1AzFLQUkbDTG42ZN3ZsQfdRzXRlkAvbIy5Q==
   /ancestor-directories/1.0.1:
     dependencies:
-      '@types/node': 10.14.18
+      '@types/node': 10.14.19
       monorepo-shared-assets: 0.0.16
       tslib: 1.10.0
     dev: false
@@ -54,13 +46,13 @@ packages:
       node: '>= 8.9.0'
     resolution:
       integrity: sha512-UpKIlCLCyheiSDDIkpf5Dk6yII1um/+NBBu8GkyCvHWlJ7wn0cxAj+PqDCx99ow5HaaHNhoRfo2QoHPE1fb5fg==
-  /fast-traverse/0.0.0:
+  /fast-traverse/0.1.0:
     dependencies:
-      '@types/node': 12.7.5
+      '@types/node': 12.7.9
       tslib: 1.10.0
     dev: false
     resolution:
-      integrity: sha512-7jG3PvMs2HIbU4diRQ0e6SQH9I74n52pzMxCq1R1Pau2OoU4AIzp4VCyXRoWD4ylcSsO62qrLMzCVF6+fB22sw==
+      integrity: sha512-IrC/YIJvvmg2o4529vxFsBoMMBE9CG03NKhsTwNwf1Bg2So44MtCA+1kKqIMSC5Lu3fcCGlupi7q/00fxgnQaA==
   /fs-extra/8.1.0:
     dependencies:
       graceful-fs: 4.2.2
@@ -89,7 +81,7 @@ packages:
       integrity: sha1-h3Gq4HmbZAdrdmQPygWPnBDjPss=
   /monorepo-shared-assets/0.0.16:
     dependencies:
-      '@types/node': 10.14.18
+      '@types/node': 10.14.19
       '@types/ramda': 0.25.51
       immutable: 3.8.2
       ramda: 0.25.0
@@ -127,6 +119,6 @@ specifiers:
   '@types/fs-extra': ^8.0.0
   '@types/node': ^12.7.8
   ancestor-directories: 1.0.1
-  fast-traverse: ^0.0.0
+  fast-traverse: ^0.1.0
   fs-extra: 8.1.0
   tslib: ^1.10.0
