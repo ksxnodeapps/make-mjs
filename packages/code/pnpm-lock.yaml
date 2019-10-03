@@ -4,11 +4,11 @@ dependencies:
   '@babel/traverse': 7.6.2
   '@babel/types': 7.6.1
   '@make-mjs/url': 'link:../url'
-  '@tsfun/object': 0.0.5
-  '@types/babel__generator': 7.0.2
+  '@tsfun/object': 0.0.6
+  '@types/babel__generator': 7.6.0
   '@types/babel__traverse': 7.0.7
   '@types/fs-extra': 8.0.0
-  '@types/node': 12.7.8
+  '@types/node': 12.7.9
   fs-extra: 8.1.0
   remote-controlled-promise: 0.0.4
   tslib: 1.10.0
@@ -94,20 +94,20 @@ packages:
     dev: false
     resolution:
       integrity: sha512-X7gdiuaCmA0uRjCmRtYJNAVCc/q+5xSgsfKJHqMN4iNLILX39677fJE1O40arPMh0TTtS9ItH67yre6c7k6t0g==
-  /@tsfun/object/0.0.5:
+  /@tsfun/object/0.0.6:
     dependencies:
-      '@types/node': 12.7.5
+      '@types/node': 12.7.9
       tslib: 1.10.0
-      utility-types: 3.7.0
+      utility-types: 3.8.0
     dev: false
     resolution:
-      integrity: sha512-6yOdL65oTaxMgV5sfvFJAa+QAvN+wm61Lzfgw4v4+DOgZcQQwYtxpth6KkfbDZPfMJJosV5CVWcRtsXSEL/WcQ==
-  /@types/babel__generator/7.0.2:
+      integrity: sha512-l1CdtJM8DUphfpIYeewB9+TBGEQ+RjEG7lKx/3QAL8MRvRHEKSgLTehqs2R3jZZ4P57QGd61xhVCOGlcvqmYCA==
+  /@types/babel__generator/7.6.0:
     dependencies:
       '@babel/types': 7.6.1
     dev: false
     resolution:
-      integrity: sha512-NHcOfab3Zw4q5sEE2COkpfXjoE7o+PmqD9DQW4koUT3roNxwziUdXGnRndMat/LJNUtePwn1TlP4do3uoe3KZQ==
+      integrity: sha512-c1mZUu4up5cp9KROs/QAw0gTeHrw/x7m52LcnvMxxOZ03DmLwPV0MlGmlgzV3cnSdjhJOZsj7E7FHeioai+egw==
   /@types/babel__traverse/7.0.7:
     dependencies:
       '@babel/types': 7.6.1
@@ -116,22 +116,18 @@ packages:
       integrity: sha512-CeBpmX1J8kWLcDEnI3Cl2Eo6RfbGvzUctA+CjZUhOKDFbLfcr7fc4usEqLNWetrlJd7RhAkyYe2czXop4fICpw==
   /@types/fs-extra/8.0.0:
     dependencies:
-      '@types/node': 12.7.5
+      '@types/node': 12.7.9
     dev: false
     resolution:
       integrity: sha512-bCtL5v9zdbQW86yexOlXWTEGvLNqWxMFyi7gQA7Gcthbezr2cPSOb8SkESVKA937QD5cIwOFLDFt0MQoXOEr9Q==
-  /@types/node/10.14.18:
+  /@types/node/10.14.19:
     dev: false
     resolution:
-      integrity: sha512-ryO3Q3++yZC/+b8j8BdKd/dn9JlzlHBPdm80656xwYUdmPkpTGTjkAdt6BByiNupGPE8w0FhBgvYy/fX9hRNGQ==
-  /@types/node/12.7.5:
+      integrity: sha512-j6Sqt38ssdMKutXBUuAcmWF8QtHW1Fwz/mz4Y+Wd9mzpBiVFirjpNQf363hG5itkG+yGaD+oiLyb50HxJ36l9Q==
+  /@types/node/12.7.9:
     dev: false
     resolution:
-      integrity: sha512-9fq4jZVhPNW8r+UYKnxF1e2HkDWOWKM5bC2/7c9wPV835I0aOrVbS/Hw/pWPk2uKrNXQqg9Z959Kz+IYDd5p3w==
-  /@types/node/12.7.8:
-    dev: false
-    resolution:
-      integrity: sha512-FMdVn84tJJdV+xe+53sYiZS4R5yn1mAIxfj+DVoNiQjTYz1+OYmjwEZr1ev9nU0axXwda0QDbYl06QHanRVH3A==
+      integrity: sha512-P57oKTJ/vYivL2BCfxCC5tQjlS8qW31pbOL6qt99Yrjm95YdHgNZwjrTTjMBh+C2/y6PXIX4oz253+jUzxKKfQ==
   /ansi-styles/3.2.1:
     dependencies:
       color-convert: 1.9.3
@@ -231,7 +227,7 @@ packages:
       integrity: sha512-sGkPx+VjMtmA6MX27oA4FBFELFCZZ4S4XqeGOXCv68tT+jb3vk/RyaKWP0PTKyWtmLSM0b+adUTEvbs1PEaH2w==
   /remote-controlled-promise/0.0.4:
     dependencies:
-      '@types/node': 10.14.18
+      '@types/node': 10.14.19
       tslib: 1.10.0
     dev: false
     engines:
@@ -268,19 +264,19 @@ packages:
       node: '>= 4.0.0'
     resolution:
       integrity: sha512-rBJeI5CXAlmy1pV+617WB9J63U6XcazHHF2f2dbJix4XzpUF0RS3Zbj0FGIOCAva5P/d/GBOYaACQ1w+0azUkg==
-  /utility-types/3.7.0:
+  /utility-types/3.8.0:
     dev: false
     engines:
       node: '>= 4'
     resolution:
-      integrity: sha512-mqRJXN7dEArK/NZNJUubjr9kbFFVZcmF/JHDc9jt5O/aYXUVmopHYujDMhLmLil1Bxo2+khe6KAIVvDH9Yc4VA==
+      integrity: sha512-UoKivAmVw5TL6AHuILieOJjIK9ajS0l5gyN5LbJglPuVwzfYBniDhe+3A5+ZBtS0TAHQs5qUxTwj9jXurINrcw==
 specifiers:
   '@babel/generator': ^7.6.0
   '@babel/parser': ^7.6.0
   '@babel/traverse': ^7.6.0
   '@babel/types': ^7.6.1
   '@make-mjs/url': ^0.2.4
-  '@tsfun/object': ^0.0.5
+  '@tsfun/object': ^0.0.6
   '@types/babel__generator': ^7.0.2
   '@types/babel__traverse': ^7.0.7
   '@types/fs-extra': ^8.0.0
