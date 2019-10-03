@@ -1,7 +1,7 @@
 dependencies:
   '@make-mjs/code': 'link:../code'
   '@make-mjs/utils': 'link:../utils'
-  '@tsfun/object': 0.0.5
+  '@tsfun/object': 0.0.6
   '@types/fs-extra': 8.0.0
   '@types/node': 12.7.8
   ancestor-directories: 1.0.1
@@ -10,14 +10,14 @@ dependencies:
   tslib: 1.10.0
 lockfileVersion: 5.1
 packages:
-  /@tsfun/object/0.0.5:
+  /@tsfun/object/0.0.6:
     dependencies:
-      '@types/node': 12.7.5
+      '@types/node': 12.7.9
       tslib: 1.10.0
-      utility-types: 3.7.0
+      utility-types: 3.8.0
     dev: false
     resolution:
-      integrity: sha512-6yOdL65oTaxMgV5sfvFJAa+QAvN+wm61Lzfgw4v4+DOgZcQQwYtxpth6KkfbDZPfMJJosV5CVWcRtsXSEL/WcQ==
+      integrity: sha512-l1CdtJM8DUphfpIYeewB9+TBGEQ+RjEG7lKx/3QAL8MRvRHEKSgLTehqs2R3jZZ4P57QGd61xhVCOGlcvqmYCA==
   /@types/fs-extra/8.0.0:
     dependencies:
       '@types/node': 12.7.5
@@ -36,6 +36,10 @@ packages:
     dev: false
     resolution:
       integrity: sha512-FMdVn84tJJdV+xe+53sYiZS4R5yn1mAIxfj+DVoNiQjTYz1+OYmjwEZr1ev9nU0axXwda0QDbYl06QHanRVH3A==
+  /@types/node/12.7.9:
+    dev: false
+    resolution:
+      integrity: sha512-P57oKTJ/vYivL2BCfxCC5tQjlS8qW31pbOL6qt99Yrjm95YdHgNZwjrTTjMBh+C2/y6PXIX4oz253+jUzxKKfQ==
   /@types/ramda/0.25.51:
     dev: false
     resolution:
@@ -110,16 +114,16 @@ packages:
       node: '>= 4.0.0'
     resolution:
       integrity: sha512-rBJeI5CXAlmy1pV+617WB9J63U6XcazHHF2f2dbJix4XzpUF0RS3Zbj0FGIOCAva5P/d/GBOYaACQ1w+0azUkg==
-  /utility-types/3.7.0:
+  /utility-types/3.8.0:
     dev: false
     engines:
       node: '>= 4'
     resolution:
-      integrity: sha512-mqRJXN7dEArK/NZNJUubjr9kbFFVZcmF/JHDc9jt5O/aYXUVmopHYujDMhLmLil1Bxo2+khe6KAIVvDH9Yc4VA==
+      integrity: sha512-UoKivAmVw5TL6AHuILieOJjIK9ajS0l5gyN5LbJglPuVwzfYBniDhe+3A5+ZBtS0TAHQs5qUxTwj9jXurINrcw==
 specifiers:
   '@make-mjs/code': ^0.2.4
   '@make-mjs/utils': ^0.0.5
-  '@tsfun/object': ^0.0.5
+  '@tsfun/object': ^0.0.6
   '@types/fs-extra': ^8.0.0
   '@types/node': ^12.7.8
   ancestor-directories: 1.0.1
