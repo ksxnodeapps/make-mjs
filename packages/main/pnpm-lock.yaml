@@ -5,7 +5,7 @@ dependencies:
   '@types/fs-extra': 8.0.0
   '@types/node': 12.7.8
   ancestor-directories: 1.0.1
-  fast-traverse: 0.0.0
+  fast-traverse: 0.1.0
   fs-extra: 8.1.0
   tslib: 1.10.0
 lockfileVersion: 5.1
@@ -54,13 +54,13 @@ packages:
       node: '>= 8.9.0'
     resolution:
       integrity: sha512-UpKIlCLCyheiSDDIkpf5Dk6yII1um/+NBBu8GkyCvHWlJ7wn0cxAj+PqDCx99ow5HaaHNhoRfo2QoHPE1fb5fg==
-  /fast-traverse/0.0.0:
+  /fast-traverse/0.1.0:
     dependencies:
-      '@types/node': 12.7.5
+      '@types/node': 12.7.9
       tslib: 1.10.0
     dev: false
     resolution:
-      integrity: sha512-7jG3PvMs2HIbU4diRQ0e6SQH9I74n52pzMxCq1R1Pau2OoU4AIzp4VCyXRoWD4ylcSsO62qrLMzCVF6+fB22sw==
+      integrity: sha512-IrC/YIJvvmg2o4529vxFsBoMMBE9CG03NKhsTwNwf1Bg2So44MtCA+1kKqIMSC5Lu3fcCGlupi7q/00fxgnQaA==
   /fs-extra/8.1.0:
     dependencies:
       graceful-fs: 4.2.2
@@ -127,6 +127,6 @@ specifiers:
   '@types/fs-extra': ^8.0.0
   '@types/node': ^12.7.8
   ancestor-directories: 1.0.1
-  fast-traverse: ^0.0.0
+  fast-traverse: ^0.1.0
   fs-extra: 8.1.0
   tslib: ^1.10.0
