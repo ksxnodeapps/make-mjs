@@ -1,6 +1,6 @@
 {
   "name": "make-mjs",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Turn a normal Babel JavaScript file that uses ES module import syntax into a .mjs file that imports exact URL.",
   "author": "Hoàng Văn Khải <hvksmr1996@gmail.com>",
   "license": "MIT",
@@ -23,10 +23,10 @@
   "bin": "bin",
   "dependencies": {
     "tslib": "^1.10.0",
-    "@make-mjs/cli": "^0.3.5",
-    "@make-mjs/main": "^0.4.4",
-    "@make-mjs/code": "^0.2.4",
-    "@make-mjs/url": "^0.2.4",
+    "@make-mjs/cli": "^0.3.6",
+    "@make-mjs/main": "^0.4.5",
+    "@make-mjs/code": "^0.2.5",
+    "@make-mjs/url": "^0.2.5",
     "@types/node": "^12.7.8"
   }
 }
