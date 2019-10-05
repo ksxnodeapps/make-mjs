@@ -22,11 +22,11 @@
   "sideEffects": false,
   "dependencies": {
     "fs-extra": "^8.1.0",
-    "exec-once": "^0.1.0",
-    "@tsfun/object": "^0.0.6",
+    "exec-once": "^0.1.2",
+    "@tsfun/object": "^0.0.7",
     "tslib": "^1.10.0",
     "@make-mjs/utils": "^0.0.6",
     "@types/fs-extra": "^8.0.0",
-    "@types/node": "^12.7.8"
+    "@types/node": "^12.7.11"
   }
 }

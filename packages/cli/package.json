@@ -27,7 +27,7 @@
     "yargs": "^14.0.0",
     "tslib": "^1.10.0",
     "@make-mjs/main": "^0.4.6",
-    "@types/yargs": "^13.0.2",
-    "@types/node": "^12.7.8"
+    "@types/yargs": "^13.0.3",
+    "@types/node": "^12.7.11"
   }
 }
