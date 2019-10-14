@@ -18,7 +18,7 @@ packages:
       integrity: sha512-VCZ1ON6ijErpGGlxUVywls/8YLnGVbG5HbugTb2T/mmFzE37RpIoi+s7vyDVwf4dOkFu87oUy5WX1acm3EN36g==
   /@types/fs-extra/8.0.0:
     dependencies:
-      '@types/node': 12.7.5
+      '@types/node': 12.7.11
     dev: false
     resolution:
       integrity: sha512-bCtL5v9zdbQW86yexOlXWTEGvLNqWxMFyi7gQA7Gcthbezr2cPSOb8SkESVKA937QD5cIwOFLDFt0MQoXOEr9Q==
@@ -26,10 +26,6 @@ packages:
     dev: false
     resolution:
       integrity: sha512-Otxmr2rrZLKRYIybtdG/sgeO+tHY20GxeDjcGmUnmmlCWyEnv2a2x1ZXBo3BTec4OiTXMQCiazB8NMBf0iRlFw==
-  /@types/node/12.7.5:
-    dev: false
-    resolution:
-      integrity: sha512-9fq4jZVhPNW8r+UYKnxF1e2HkDWOWKM5bC2/7c9wPV835I0aOrVbS/Hw/pWPk2uKrNXQqg9Z959Kz+IYDd5p3w==
   /exec-once/0.1.2:
     dependencies:
       '@types/node': 12.7.11
