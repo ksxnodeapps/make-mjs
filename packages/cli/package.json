@@ -21,7 +21,7 @@
   ],
   "sideEffects": false,
   "bin": {
-    "make-mjs": "bin/index"
+    "make-mjs-cli": "bin/index"
   },
   "dependencies": {
     "yargs": "^14.0.0",
