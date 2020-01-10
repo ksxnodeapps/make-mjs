@@ -1,33 +1,33 @@
 dependencies:
   '@make-mjs/utils': 'link:../../packages/utils'
-  '@tsfun/pipe': 0.0.2
+  '@tsfun/pipe': 0.0.8
 lockfileVersion: 5.1
 packages:
-  /@tsfun/pipe/0.0.2:
+  /@tsfun/pipe/0.0.8:
     dependencies:
-      '@tsfun/tap': 0.0.1
-      '@types/node': 12.7.3
+      '@tsfun/tap': 0.0.7
+      '@types/node': 12.12.24
       tslib: 1.10.0
     dev: false
     engines:
       node: '>= 8.9.0'
     resolution:
-      integrity: sha512-Q++TLwc/sfOZkJf5/njI4cThwAWoNaP9CY77wxl1PT9IXSyIz25KFFpjtzkxcgFudiTSunJB1DIxSGUDiHL7Bg==
-  /@tsfun/tap/0.0.1:
+      integrity: sha512-auf1izL9uE14eh99+EdnR66PMDjhwOQxyhuzV0Kc5pGkiX3XXUagpaNYOEPg67grYHVUsyhzCsJH2PLX1DKklg==
+  /@tsfun/tap/0.0.7:
     dependencies:
-      '@types/node': 12.7.3
+      '@types/node': 12.12.24
       tslib: 1.10.0
     dev: false
     resolution:
-      integrity: sha512-Vqp2NnGK4Af0Alvh2JqDHu41wIgY1HyQ6iBWLkNhbvRTYh60m6LJcg9h1sOLYLpg36rOJe1SWKwEqd1EGPHPVw==
-  /@types/node/12.7.3:
+      integrity: sha512-63sdVAxTGbkFp5kikmQJDxx/OuDJ93zy63sbksv7nCJvNA9/GabeZJE/MReVNfTz73/dtRPXCumTEIacakLUSw==
+  /@types/node/12.12.24:
     dev: false
     resolution:
-      integrity: sha512-3SiLAIBkDWDg6vFo0+5YJyHPWU9uwu40Qe+v+0MH8wRKYBimHvvAOyk3EzMrD/TrIlLYfXrqDqrg913PynrMJQ==
+      integrity: sha512-1Ciqv9pqwVtW6FsIUKSZNB82E5Cu1I2bBTj1xuIHXLe/1zYLl3956Nbhg2MzSYHVfl9/rmanjbQIb7LibfCnug==
   /tslib/1.10.0:
     dev: false
     resolution:
       integrity: sha512-qOebF53frne81cf0S9B41ByenJ3/IuH8yJKngAX35CmiZySA0khhkovshKK+jGCaMnVomla7gVlIcc3EvKPbTQ==
 specifiers:
   '@make-mjs/utils': 'file:../../packages/utils'
-  '@tsfun/pipe': ^0.0.2
+  '@tsfun/pipe': ^0.0.8

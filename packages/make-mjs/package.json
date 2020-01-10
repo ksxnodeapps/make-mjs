@@ -27,6 +27,6 @@
     "@make-mjs/main": "^0.4.7",
     "@make-mjs/code": "^0.2.6",
     "@make-mjs/url": "^0.2.6",
-    "@types/node": "^12.7.11"
+    "@types/node": "^13.1.6"
   }
 }

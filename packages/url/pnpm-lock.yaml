@@ -1,8 +1,8 @@
 dependencies:
   '@make-mjs/utils': 'link:../utils'
   '@tsfun/object': 0.0.7
-  '@types/fs-extra': 8.0.0
-  '@types/node': 12.7.11
+  '@types/fs-extra': 8.0.1
+  '@types/node': 13.1.6
   exec-once: 0.1.2
   fs-extra: 8.1.0
   tslib: 1.10.0
@@ -16,16 +16,20 @@ packages:
     dev: false
     resolution:
       integrity: sha512-VCZ1ON6ijErpGGlxUVywls/8YLnGVbG5HbugTb2T/mmFzE37RpIoi+s7vyDVwf4dOkFu87oUy5WX1acm3EN36g==
-  /@types/fs-extra/8.0.0:
+  /@types/fs-extra/8.0.1:
     dependencies:
-      '@types/node': 12.7.11
+      '@types/node': 13.1.6
     dev: false
     resolution:
-      integrity: sha512-bCtL5v9zdbQW86yexOlXWTEGvLNqWxMFyi7gQA7Gcthbezr2cPSOb8SkESVKA937QD5cIwOFLDFt0MQoXOEr9Q==
+      integrity: sha512-J00cVDALmi/hJOYsunyT52Hva5TnJeKP5yd1r+mH/ZU0mbYZflR0Z5kw5kITtKTRYMhm1JMClOFYdHnQszEvqw==
   /@types/node/12.7.11:
     dev: false
     resolution:
       integrity: sha512-Otxmr2rrZLKRYIybtdG/sgeO+tHY20GxeDjcGmUnmmlCWyEnv2a2x1ZXBo3BTec4OiTXMQCiazB8NMBf0iRlFw==
+  /@types/node/13.1.6:
+    dev: false
+    resolution:
+      integrity: sha512-Jg1F+bmxcpENHP23sVKkNuU3uaxPnsBMW0cLjleiikFKomJQbsn0Cqk2yDvQArqzZN6ABfBkZ0To7pQ8sLdWDg==
   /exec-once/0.1.2:
     dependencies:
       '@types/node': 12.7.11
@@ -72,8 +76,8 @@ packages:
 specifiers:
   '@make-mjs/utils': ^0.0.7
   '@tsfun/object': ^0.0.7
-  '@types/fs-extra': ^8.0.0
-  '@types/node': ^12.7.11
+  '@types/fs-extra': ^8.0.1
+  '@types/node': ^13.1.6
   exec-once: ^0.1.2
   fs-extra: ^8.1.0
   tslib: ^1.10.0

@@ -4,8 +4,8 @@
   "private": true,
   "dependencies": {
     "fs-extra": "^8.1.0",
-    "@types/fs-extra": "^8.0.0",
-    "fs-tree-utils": "^0.1.6",
+    "@types/fs-extra": "^8.0.1",
+    "fs-tree-utils": "^0.1.7",
     "@tools/places": "file:../places"
   }
 }

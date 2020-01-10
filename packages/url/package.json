@@ -26,7 +26,7 @@
     "@tsfun/object": "^0.0.7",
     "tslib": "^1.10.0",
     "@make-mjs/utils": "^0.0.7",
-    "@types/fs-extra": "^8.0.0",
-    "@types/node": "^12.7.11"
+    "@types/fs-extra": "^8.0.1",
+    "@types/node": "^13.1.6"
   }
 }
