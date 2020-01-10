@@ -212,7 +212,7 @@ packages:
     resolution:
       integrity: sha512-T39FNN1b6hCW4SOIk1XyTOWxtXdcen0t+XYrysQmChzSipvhBO8Bj0nK1ozAasdk24dNWuMZvr4k24nz+8HHLg==
 specifiers:
-  '@make-mjs/main': ^0.4.7
+  '@make-mjs/main': ^0.4.8
   '@types/node': ^13.1.6
   '@types/yargs': ^15.0.0
   tslib: ^1.10.0
