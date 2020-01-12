@@ -52,7 +52,7 @@ export async function transformCode (code: string, options: CodeTransformOptions
   const { parserOptions, generatorOptions } = options
   const ast = parse(code, parserOptions)
   await transformNode(ast, options)
-  return generate(ast, generatorOptions)
+  return generate(ast as any, generatorOptions)
 }
 
 export default transformCode

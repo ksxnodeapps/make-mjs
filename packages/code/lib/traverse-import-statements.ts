@@ -40,7 +40,7 @@ export interface TraversalOptions {
 export function traverseImportStatements (node: Node, options: TraversalOptions): void {
   const { declaration, expression } = options
 
-  traverse(node, {
+  traverse(node as any, {
     enter (path) {
       switch (path.node.type) {
         case 'ImportDeclaration':

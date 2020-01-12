@@ -9,7 +9,7 @@ export interface ReformatOptions {
 export function formatCode (code: string, options: ReformatOptions = {}): string {
   const { parserOptions, generatorOptions } = options
   const ast = parseCode(code, parserOptions)
-  return generateCode(ast, generatorOptions).code
+  return generateCode(ast as any, generatorOptions).code
 }
 
 export default formatCode
