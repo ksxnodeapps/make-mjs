@@ -10,7 +10,7 @@ dependencies:
   '@types/fs-extra': 8.0.1
   '@types/node': 13.1.6
   fs-extra: 8.1.0
-  remote-controlled-promise: 0.0.5
+  remote-controlled-promise: 0.0.6
   tslib: 1.10.0
 lockfileVersion: 5.1
 packages:
@@ -225,15 +225,15 @@ packages:
     dev: false
     resolution:
       integrity: sha512-sGkPx+VjMtmA6MX27oA4FBFELFCZZ4S4XqeGOXCv68tT+jb3vk/RyaKWP0PTKyWtmLSM0b+adUTEvbs1PEaH2w==
-  /remote-controlled-promise/0.0.5:
+  /remote-controlled-promise/0.0.6:
     dependencies:
-      '@types/node': 12.7.11
+      '@types/node': 13.1.6
       tslib: 1.10.0
     dev: false
     engines:
       node: '>= 8.9.0'
     resolution:
-      integrity: sha512-svkUAnx9NVLipKIwacdV3fiA/pV57eotr5ml5ndnlVjUFtc+kpLChBKNUoznMfeMM7qzU5w060Nt2zGR4aHtlw==
+      integrity: sha512-9PlWrJDC+1DnbBOvsEchPm1P1F/lHjuEMS/KmZjPfFibKmokIinf0NKfIOo5gQuJUYZltjNej3OIeICVDvnJLg==
   /source-map/0.5.7:
     dev: false
     engines:
@@ -282,5 +282,5 @@ specifiers:
   '@types/fs-extra': ^8.0.1
   '@types/node': ^13.1.6
   fs-extra: ^8.1.0
-  remote-controlled-promise: ^0.0.5
+  remote-controlled-promise: ^0.0.6
   tslib: ^1.10.0
