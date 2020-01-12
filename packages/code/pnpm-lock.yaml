@@ -4,7 +4,7 @@ dependencies:
   '@babel/traverse': 7.7.4
   '@babel/types': 7.7.4
   '@make-mjs/url': 'link:../url'
-  '@tsfun/object': 0.0.7
+  '@tsfun/object': 0.0.9
   '@types/babel__generator': 7.6.1
   '@types/babel__traverse': 7.0.8
   '@types/fs-extra': 8.0.1
@@ -94,14 +94,14 @@ packages:
     dev: false
     resolution:
       integrity: sha512-cz5Ji23KCi4T+YIE/BolWosrJuSmoZeN1EFnRtBwF+KKLi8GG/Z2c2hOJJeCXPk4mwk4QFvTmwIodJowXgttRA==
-  /@tsfun/object/0.0.7:
+  /@tsfun/object/0.0.9:
     dependencies:
-      '@types/node': 12.7.11
+      '@types/node': 13.1.6
       tslib: 1.10.0
-      utility-types: 3.8.0
+      utility-types: 3.10.0
     dev: false
     resolution:
-      integrity: sha512-VCZ1ON6ijErpGGlxUVywls/8YLnGVbG5HbugTb2T/mmFzE37RpIoi+s7vyDVwf4dOkFu87oUy5WX1acm3EN36g==
+      integrity: sha512-s6mMlqhHcZ3nkHHmQoCSFbyywEuKPqmGWV2/smaaaTYKiEW1YYrH7NNdGVp9/BQM90p8oXsbPcOrLiNp609Vlg==
   /@types/babel__generator/7.6.1:
     dependencies:
       '@babel/types': 7.7.4
@@ -264,19 +264,19 @@ packages:
       node: '>= 4.0.0'
     resolution:
       integrity: sha512-rBJeI5CXAlmy1pV+617WB9J63U6XcazHHF2f2dbJix4XzpUF0RS3Zbj0FGIOCAva5P/d/GBOYaACQ1w+0azUkg==
-  /utility-types/3.8.0:
+  /utility-types/3.10.0:
     dev: false
     engines:
       node: '>= 4'
     resolution:
-      integrity: sha512-UoKivAmVw5TL6AHuILieOJjIK9ajS0l5gyN5LbJglPuVwzfYBniDhe+3A5+ZBtS0TAHQs5qUxTwj9jXurINrcw==
+      integrity: sha512-O11mqxmi7wMKCo6HKFt5AhO4BwY3VV68YU07tgxfz8zJTIxr4BpsezN49Ffwy9j3ZpwwJp4fkRwjRzq3uWE6Rg==
 specifiers:
   '@babel/generator': ^7.7.7
   '@babel/parser': ^7.7.7
   '@babel/traverse': ^7.7.4
   '@babel/types': ^7.7.4
   '@make-mjs/url': ^0.2.7
-  '@tsfun/object': ^0.0.7
+  '@tsfun/object': ^0.0.9
   '@types/babel__generator': ^7.6.1
   '@types/babel__traverse': ^7.0.8
   '@types/fs-extra': ^8.0.1
