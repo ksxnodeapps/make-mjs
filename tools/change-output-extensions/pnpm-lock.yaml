@@ -2,9 +2,16 @@ dependencies:
   '@tools/places': 'link:../places'
   '@types/fs-extra': 8.0.1
   fs-extra: 8.1.0
-  fs-tree-utils: 0.1.7
+  fs-tree-utils: 0.1.8
 lockfileVersion: 5.1
 packages:
+  /@tsfun/array/0.0.0:
+    dependencies:
+      '@types/node': 13.1.6
+      tslib: 1.10.0
+    dev: false
+    resolution:
+      integrity: sha512-y18KD65Ba1a7jXJ8PBIGjfkCtR32wd0XOPaV5D8z9uBiNE+pIF0PCnHKVHZ4+GcaRa/Y7HkTWJxmcjs283ggmw==
   /@types/fs-extra/8.0.1:
     dependencies:
       '@types/node': 12.7.5
@@ -15,12 +22,10 @@ packages:
     dev: false
     resolution:
       integrity: sha512-9fq4jZVhPNW8r+UYKnxF1e2HkDWOWKM5bC2/7c9wPV835I0aOrVbS/Hw/pWPk2uKrNXQqg9Z959Kz+IYDd5p3w==
-  /@types/ramda/0.26.26:
-    dependencies:
-      ts-toolbelt: 4.14.6
+  /@types/node/13.1.6:
     dev: false
     resolution:
-      integrity: sha512-jDx2Lp2WvziMTcDxOU21yzRr6jP/VTWvpg6SQxeM63VldSjugUY1N9p1Q8YY/wpGvqzpkstUFmg2oGJdBSp5gg==
+      integrity: sha512-Jg1F+bmxcpENHP23sVKkNuU3uaxPnsBMW0cLjleiikFKomJQbsn0Cqk2yDvQArqzZN6ABfBkZ0To7pQ8sLdWDg==
   /fs-extra/8.1.0:
     dependencies:
       graceful-fs: 4.2.2
@@ -31,20 +36,19 @@ packages:
       node: '>=6 <7 || >=8'
     resolution:
       integrity: sha512-yhlQgA6mnOJUKOsRUFsgJdQCvkKhcz8tlZG5HBQfReYZy46OwLcY+Zia0mtdHsOo9y/hP+CxMN0TU9QxoOtG4g==
-  /fs-tree-utils/0.1.7:
+  /fs-tree-utils/0.1.8:
     dependencies:
+      '@tsfun/array': 0.0.0
       '@types/fs-extra': 8.0.1
-      '@types/node': 12.7.5
-      '@types/ramda': 0.26.26
+      '@types/node': 13.1.6
       fs-extra: 8.1.0
-      monorepo-shared-assets: 0.0.18
-      ramda: 0.26.1
+      monorepo-shared-assets: 0.0.19
       tslib: 1.10.0
     dev: false
     engines:
       node: '>= 8.9.0'
     resolution:
-      integrity: sha512-UiJ5pnplv6hOAWp4k42LNjhyRm8T3++wnXHxHvo2AP3/eMQhKMl4dVe7Knj3dfFHt0EeE6IHsQucCyCW6KlARA==
+      integrity: sha512-iovSWg4Ch1w7TTlgD0llxrOhPo3xnVks54HnUSXHOCL7Tm1JakcoxKAb5gJVSp5q/1ag7lKcQkf+DAWdBb0tUg==
   /graceful-fs/4.2.2:
     dev: false
     resolution:
@@ -59,26 +63,17 @@ packages:
       graceful-fs: 4.2.2
     resolution:
       integrity: sha1-h3Gq4HmbZAdrdmQPygWPnBDjPss=
-  /monorepo-shared-assets/0.0.18:
+  /monorepo-shared-assets/0.0.19:
     dependencies:
-      '@types/node': 12.7.5
-      '@types/ramda': 0.26.26
+      '@tsfun/array': 0.0.0
+      '@types/node': 13.1.6
       immutable: 4.0.0-rc.12
-      ramda: 0.26.1
       tslib: 1.10.0
     dev: false
     engines:
       node: '>= 8.9.0'
     resolution:
-      integrity: sha512-xVSAGL8nrYGqutC0d958FlvmZ8Vwn9VR9kO3eS9o9vlLsqDfvYKLlb2FKLfHJiRGhs8xC9aIPqX3bhs8fE/Vvw==
-  /ramda/0.26.1:
-    dev: false
-    resolution:
-      integrity: sha512-hLWjpy7EnsDBb0p+Z3B7rPi3GDeRG5ZtiI33kJhTt+ORCd38AbAIjB/9zRIUoeTbE/AVX5ZkU7m6bznsvrf8eQ==
-  /ts-toolbelt/4.14.6:
-    dev: false
-    resolution:
-      integrity: sha512-SONcnRd93+LuYGfn/CZg5A5qhCODohZslAVZKHHu5bnwUxoXLqd2k2VIdwRUXYfKnY+UCeNbI2pTPz+Dno6Mpg==
+      integrity: sha512-xUb+p+UnAiR5Zg34IYv8bO0FlFu84xkBJcZXHLLK5DNQS29NQwiNT/qcwS95BWgAcOGgD8M8Sqs2qoXvR9s5QQ==
   /tslib/1.10.0:
     dev: false
     resolution:
@@ -93,4 +88,4 @@ specifiers:
   '@tools/places': 'file:../places'
   '@types/fs-extra': ^8.0.1
   fs-extra: ^8.1.0
-  fs-tree-utils: ^0.1.7
+  fs-tree-utils: ^0.1.8
