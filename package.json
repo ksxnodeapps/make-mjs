@@ -12,7 +12,7 @@
   },
   "devDependencies": {
     "standard": "^14.3.1",
-    "tslint": "^5.20.1",
+    "tslint": "^6.0.0",
     "tslint-config-standard": "^9.0.0",
     "typescript": "^3.7.4",
     "toolcheck": "^0.1.3",
