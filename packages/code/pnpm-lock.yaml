@@ -4,7 +4,7 @@ dependencies:
   '@babel/traverse': 7.8.0
   '@babel/types': 7.8.0
   '@make-mjs/url': 'link:../url'
-  '@tsfun/object': 0.0.9
+  '@tsfun/object': 0.0.20
   '@types/babel__generator': 7.6.1
   '@types/babel__traverse': 7.0.8
   '@types/fs-extra': 8.0.1
@@ -102,14 +102,14 @@ packages:
     dev: false
     resolution:
       integrity: sha512-1RF84ehyx9HH09dMMwGWl3UTWlVoCPtqqJPjGuC4JzMe1ZIVDJ2DT8mv3cPv/A7veLD6sgR7vi95lJqm+ZayIg==
-  /@tsfun/object/0.0.9:
+  /@tsfun/object/0.0.20:
     dependencies:
-      '@types/node': 13.1.6
-      tslib: 1.10.0
+      '@types/node': 13.13.4
+      tslib: 1.11.1
       utility-types: 3.10.0
     dev: false
     resolution:
-      integrity: sha512-s6mMlqhHcZ3nkHHmQoCSFbyywEuKPqmGWV2/smaaaTYKiEW1YYrH7NNdGVp9/BQM90p8oXsbPcOrLiNp609Vlg==
+      integrity: sha512-niGBzZEa3M22bBPy7N+c2y1eqVZ7L/61Ix4zKMr++FNdnzTErf/CX6VqbU88liNRsYxs8n1E60G802OpqQIZ6Q==
   /@types/babel__generator/7.6.1:
     dependencies:
       '@babel/types': 7.7.4
@@ -132,6 +132,10 @@ packages:
     dev: false
     resolution:
       integrity: sha512-Jg1F+bmxcpENHP23sVKkNuU3uaxPnsBMW0cLjleiikFKomJQbsn0Cqk2yDvQArqzZN6ABfBkZ0To7pQ8sLdWDg==
+  /@types/node/13.13.4:
+    dev: false
+    resolution:
+      integrity: sha512-x26ur3dSXgv5AwKS0lNfbjpCakGIduWU1DU91Zz58ONRWrIKGunmZBNv4P7N+e27sJkiGDsw/3fT4AtsqQBrBA==
   /ansi-styles/3.2.1:
     dependencies:
       color-convert: 1.9.3
@@ -262,6 +266,10 @@ packages:
     dev: false
     resolution:
       integrity: sha512-qOebF53frne81cf0S9B41ByenJ3/IuH8yJKngAX35CmiZySA0khhkovshKK+jGCaMnVomla7gVlIcc3EvKPbTQ==
+  /tslib/1.11.1:
+    dev: false
+    resolution:
+      integrity: sha512-aZW88SY8kQbU7gpV19lN24LtXh/yD4ZZg6qieAJDDg+YBsJcSmLGK9QpnUjAKVG/xefmvJGd1WUmfpT/g6AJGA==
   /universalify/0.1.2:
     dev: false
     engines:
@@ -280,7 +288,7 @@ specifiers:
   '@babel/traverse': ^7.8.0
   '@babel/types': ^7.8.0
   '@make-mjs/url': ^0.2.8
-  '@tsfun/object': ^0.0.9
+  '@tsfun/object': ^0.0.20
   '@types/babel__generator': ^7.6.1
   '@types/babel__traverse': ^7.0.8
   '@types/fs-extra': ^8.0.1
