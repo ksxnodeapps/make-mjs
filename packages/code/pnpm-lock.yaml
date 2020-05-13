@@ -11,7 +11,7 @@ dependencies:
   '@types/node': 13.1.6
   fs-extra: 8.1.0
   remote-controlled-promise: 0.0.6
-  tslib: 1.10.0
+  tslib: 2.0.0
 lockfileVersion: 5.1
 packages:
   /@babel/code-frame/7.8.0:
@@ -262,6 +262,10 @@ packages:
     dev: false
     resolution:
       integrity: sha512-qOebF53frne81cf0S9B41ByenJ3/IuH8yJKngAX35CmiZySA0khhkovshKK+jGCaMnVomla7gVlIcc3EvKPbTQ==
+  /tslib/2.0.0:
+    dev: false
+    resolution:
+      integrity: sha512-lTqkx847PI7xEDYJntxZH89L2/aXInsyF2luSafe/+0fHOMjlBNXdH6th7f70qxLDhul7KZK0zC8V5ZIyHl0/g==
   /universalify/0.1.2:
     dev: false
     engines:
@@ -287,4 +291,4 @@ specifiers:
   '@types/node': ^13.1.6
   fs-extra: ^8.1.0
   remote-controlled-promise: ^0.0.6
-  tslib: ^1.10.0
+  tslib: ^2.0.0
