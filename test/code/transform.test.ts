@@ -6,7 +6,7 @@ import {
   emptyAll,
   appendFile,
   appendDir,
-  appendManifest
+  appendManifest,
 } from './fsx-mocks'
 
 beforeEach(() => {
@@ -31,7 +31,7 @@ beforeEach(() => {
 
     'node_modules/external-module',
     'node_modules/external-module/dir-without-manifest',
-    'node_modules/external-module/dir-with-manifest'
+    'node_modules/external-module/dir-with-manifest',
   ])
 
   appendFile([
@@ -54,7 +54,7 @@ beforeEach(() => {
 
     'node_modules/external-main/dir-with-manifest/dir-main-entry.js',
     'node_modules/external-main/dir-with-manifest/dir-main-entry.mjs',
-    'node_modules/external-module/dir-with-manifest/dir-module-entry'
+    'node_modules/external-module/dir-with-manifest/dir-module-entry',
   ])
 
   appendManifest([
@@ -68,7 +68,7 @@ beforeEach(() => {
     ['node_modules/nonmjs-external/dir-with-manifest/package.json', {}],
     ['node_modules/external-default/dir-with-manifest/package.json', {}],
     ['node_modules/external-main/dir-with-manifest/package.json', { main: 'dir-main-entry.js' }],
-    ['node_modules/external-module/dir-with-manifest/package.json', { module: 'dir-module-entry' }]
+    ['node_modules/external-module/dir-with-manifest/package.json', { module: 'dir-module-entry' }],
   ])
 })
 
@@ -112,7 +112,7 @@ describe('without isMjsPackage', () => {
 
   it('matches snapshot', async () => {
     const result = await transformCode(code, {
-      moduleContainer: ['node_modules']
+      moduleContainer: ['node_modules'],
     })
 
     expect(formatCode(result.code)).toMatchSnapshot()
@@ -155,7 +155,7 @@ describe('without isMjsPackage', () => {
     `)
 
     const result = await transformCode(code, {
-      moduleContainer: ['node_modules']
+      moduleContainer: ['node_modules'],
     })
 
     expect(formatCode(result.code)).toBe(expectedCode)
@@ -198,10 +198,10 @@ describe('with isMjsPackage always return false', () => {
     }
   `
 
-  function get () {
+  function get() {
     return transformCode(code, {
       moduleContainer: ['node_modules'],
-      isMjsPackage: () => false
+      isMjsPackage: () => false,
     })
   }
 
@@ -287,10 +287,10 @@ describe('with isMjsPackage always return true', () => {
     }
   `
 
-  function get () {
+  function get() {
     return transformCode(code, {
       moduleContainer: ['node_modules'],
-      isMjsPackage: () => true
+      isMjsPackage: () => true,
     })
   }
 

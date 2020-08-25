@@ -2,7 +2,7 @@ import { Linter } from 'eslint'
 
 const linter = new Linter()
 
-function rule<Value> (value: Value): ['error', Value] {
+function rule<Value>(value: Value): ['error', Value] {
   return ['error', value]
 }
 
@@ -11,12 +11,12 @@ const linterConfig: Linter.Config<Linter.RulesRecord> = {
     quotes: rule('single' as const),
     semi: rule('never' as const),
     indent: rule(2 as const),
-    'space-before-function-paren': rule('never' as const)
+    'space-before-function-paren': rule('never' as const),
   },
   parserOptions: {
     sourceType: 'module',
-    ecmaVersion: 2020
-  }
+    ecmaVersion: 2020,
+  },
 }
 
 /**
@@ -24,7 +24,7 @@ const linterConfig: Linter.Config<Linter.RulesRecord> = {
  * to enable comparing code in unit tests
  * @param code Code to format
  */
-export function formatCode (code: string) {
+export function formatCode(code: string) {
   const report = linter.verifyAndFix(code, linterConfig)
 
   if (!report.fixed && report.messages.length) {

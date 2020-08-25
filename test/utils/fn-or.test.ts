@@ -3,31 +3,31 @@ import { fnOr } from '@make-mjs/utils'
 describe('table', () => {
   it('F + F = F', () => {
     expect(
-      fnOr(() => false, () => false)(null)
+      fnOr(() => false, () => false)(null),
     ).toBe(false)
   })
 
   it('F + T = T', () => {
     expect(
-      fnOr(() => false, () => true)(null)
+      fnOr(() => false, () => true)(null),
     ).toBe(true)
   })
 
   it('T + F = T', () => {
     expect(
-      fnOr(() => true, () => false)(null)
+      fnOr(() => true, () => false)(null),
     ).toBe(true)
   })
 
   it('T + T = T', () => {
     expect(
-      fnOr(() => true, () => true)(null)
+      fnOr(() => true, () => true)(null),
     ).toBe(true)
   })
 })
 
 describe('when first function returns falsy value', () => {
-  function setup () {
+  function setup() {
     const arg = Symbol('x')
     const firstFunc = jest.fn(() => null)
     const secondFunc = jest.fn(() => 'second' as const)
@@ -48,7 +48,7 @@ describe('when first function returns falsy value', () => {
   })
 
   describe('when resulting function is called once', () => {
-    function call () {
+    function call() {
       const { arg, resultFunc, ...rest } = setup()
       const resultVal = resultFunc(arg)
       return { ...rest, arg, resultFunc, resultVal }
@@ -86,7 +86,7 @@ describe('when first function returns falsy value', () => {
   })
 
   describe('when resulting function is called multiple times', () => {
-    function call () {
+    function call() {
       const { arg, resultFunc, ...rest } = setup()
       const times = 5
       const resultVals = Array(times).fill(arg).map(resultFunc)
@@ -121,7 +121,7 @@ describe('when first function returns falsy value', () => {
 })
 
 describe('when first function returns truthy value', () => {
-  function setup () {
+  function setup() {
     const arg = Symbol('x')
     const firstFunc = jest.fn(() => 'first' as const)
     const secondFunc = jest.fn(() => 'second' as const)
@@ -142,7 +142,7 @@ describe('when first function returns truthy value', () => {
   })
 
   describe('when resulting function is called once', () => {
-    function call () {
+    function call() {
       const { arg, resultFunc, ...rest } = setup()
       const resultVal = resultFunc(arg)
       return { ...rest, arg, resultFunc, resultVal }
@@ -170,7 +170,7 @@ describe('when first function returns truthy value', () => {
   })
 
   describe('when resulting function is called multiple times', () => {
-    function call () {
+    function call() {
       const { arg, resultFunc, ...rest } = setup()
       const times = 5
       const resultVals = Array(times).fill(arg).map(resultFunc)

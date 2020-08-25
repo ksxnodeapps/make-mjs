@@ -10,7 +10,7 @@ export interface Options {
   readonly newExt?: string
 }
 
-export async function fromDir (options: Options): Promise<string> {
+export async function fromDir(options: Options): Promise<string> {
   const { modulePath, moduleContainer, forceMjs } = options
 
   const manifestArray = moduleContainer.map(item => {
@@ -20,11 +20,11 @@ export async function fromDir (options: Options): Promise<string> {
     return { manifestExistsPromise, manifestContentPromise }
   })
 
-  async function handleMainEntry (entry: string) {
+  async function handleMainEntry(entry: string) {
     const newModulePath = joinUrl(modulePath, entry)
     const fileOptions = objectExtends(options, {
       modulePath: newModulePath,
-      preferredCjsPath: forceMjs ? newModulePath : modulePath
+      preferredCjsPath: forceMjs ? newModulePath : modulePath,
     })
     return fromFile(fileOptions)
   }

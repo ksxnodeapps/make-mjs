@@ -2,12 +2,12 @@ import {
   mjsPackageTester,
   mjsPackageTesterDef,
   nonMjsPackageTester,
-  nonMjsPackageTesterDef
+  nonMjsPackageTesterDef,
 } from '@make-mjs/url'
 
 describe('mjsPackageTester', () => {
   describe('when package is in the list', () => {
-    function setup () {
+    function setup() {
       const mjsPackages = ['abc', 'def', 'ghi']
       const spy = jest.spyOn(mjsPackages as any, 'includes')
       const packageName = 'def'
@@ -33,7 +33,7 @@ describe('mjsPackageTester', () => {
   })
 
   describe('when package is not in the list', () => {
-    function setup () {
+    function setup() {
       const mjsPackages = ['abc', 'def', 'ghi']
       const spy = jest.spyOn(mjsPackages as any, 'includes')
       const packageName = 'outside'
@@ -62,7 +62,7 @@ describe('mjsPackageTester', () => {
 describe('mjsPackageTesterDef', () => {
   describe('without default function', () => {
     describe('when package is in the list', () => {
-      function setup () {
+      function setup() {
         const mjsPackages = ['abc', 'def', 'ghi']
         const spy = jest.spyOn(mjsPackages as any, 'includes')
         const packageName = 'def'
@@ -88,7 +88,7 @@ describe('mjsPackageTesterDef', () => {
     })
 
     describe('when package is not in the list', () => {
-      function setup () {
+      function setup() {
         const mjsPackages = ['abc', 'def', 'ghi']
         const spy = jest.spyOn(mjsPackages as any, 'includes')
         const packageName = 'outside'
@@ -116,7 +116,7 @@ describe('mjsPackageTesterDef', () => {
 
   describe('with default function', () => {
     describe('when package is in the list', () => {
-      function setup () {
+      function setup() {
         const mjsPackages = ['abc', 'def', 'ghi']
         const spy = jest.spyOn(mjsPackages as any, 'includes')
         const packageName = 'def'
@@ -149,7 +149,7 @@ describe('mjsPackageTesterDef', () => {
     })
 
     describe('when package is not in the list', () => {
-      function setup () {
+      function setup() {
         const mjsPackages = ['abc', 'def', 'ghi']
         const spy = jest.spyOn(mjsPackages as any, 'includes')
         const packageName = 'outside'
@@ -191,7 +191,7 @@ describe('mjsPackageTesterDef', () => {
 
 describe('nonMjsPackageTester', () => {
   describe('when package is not in the list', () => {
-    function setup () {
+    function setup() {
       const mjsPackages = ['abc', 'def', 'ghi']
       const spy = jest.spyOn(mjsPackages as any, 'includes')
       const packageName = 'def'
@@ -217,7 +217,7 @@ describe('nonMjsPackageTester', () => {
   })
 
   describe('when package is in the list', () => {
-    function setup () {
+    function setup() {
       const mjsPackages = ['abc', 'def', 'ghi']
       const spy = jest.spyOn(mjsPackages as any, 'includes')
       const packageName = 'outside'
@@ -246,7 +246,7 @@ describe('nonMjsPackageTester', () => {
 describe('nonMjsPackageTesterDef', () => {
   describe('without default function', () => {
     describe('when package is not in the list', () => {
-      function setup () {
+      function setup() {
         const mjsPackages = ['abc', 'def', 'ghi']
         const spy = jest.spyOn(mjsPackages as any, 'includes')
         const packageName = 'outside'
@@ -272,7 +272,7 @@ describe('nonMjsPackageTesterDef', () => {
     })
 
     describe('when package is in the list', () => {
-      function setup () {
+      function setup() {
         const mjsPackages = ['abc', 'def', 'ghi']
         const spy = jest.spyOn(mjsPackages as any, 'includes')
         const packageName = 'outside'
@@ -300,7 +300,7 @@ describe('nonMjsPackageTesterDef', () => {
 
   describe('with default function', () => {
     describe('when package is not in the list', () => {
-      function setup () {
+      function setup() {
         const mjsPackages = ['abc', 'def', 'ghi']
         const spy = jest.spyOn(mjsPackages as any, 'includes')
         const packageName = 'outside'
@@ -339,7 +339,7 @@ describe('nonMjsPackageTesterDef', () => {
     })
 
     describe('when package is in the list', () => {
-      function setup () {
+      function setup() {
         const mjsPackages = ['abc', 'def', 'ghi']
         const spy = jest.spyOn(mjsPackages as any, 'includes')
         const packageName = 'def'

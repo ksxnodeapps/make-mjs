@@ -2,7 +2,7 @@ import proceed, { EventType } from '@make-mjs/main'
 
 export enum ExitStatus {
   NoDirectory = 1,
-  Success = 0
+  Success = 0,
 }
 
 export interface Process {
@@ -21,12 +21,12 @@ export interface Options {
   readonly process: Process
 }
 
-export async function main (options: Options) {
+export async function main(options: Options) {
   const {
     directories,
     knownMjsPackages = [],
     console,
-    process
+    process,
   } = options
 
   if (!directories.length) {
@@ -38,8 +38,8 @@ export async function main (options: Options) {
     const events = proceed({
       dirname,
       codeTransformOptions: {
-        isMjsPackage: param => knownMjsPackages.includes(param.packageName)
-      }
+        isMjsPackage: param => knownMjsPackages.includes(param.packageName),
+      },
     })
 
     for await (const event of events) {

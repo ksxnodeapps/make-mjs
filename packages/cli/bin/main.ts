@@ -4,12 +4,12 @@ import main from '../index'
 
 const {
   _: directories,
-  knownMjsPackages = []
+  knownMjsPackages = [],
 } = yargs
   .usage('make-mjs [options] <directories>')
   .option('knownMjsPackages', {
     type: 'array',
-    describe: 'Names of packages that should support mjs'
+    describe: 'Names of packages that should support mjs',
   })
   .env('MAKE_MJS')
   .help()
@@ -19,7 +19,7 @@ main({
   directories,
   knownMjsPackages: knownMjsPackages.map(x => String(x)),
   console,
-  process
+  process,
 }).catch((error: any) => {
   console.error(error)
   process.exit(-1)

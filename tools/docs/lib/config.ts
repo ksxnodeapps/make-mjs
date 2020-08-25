@@ -8,5 +8,5 @@ export const title = 'Make MJS — API Reference'
  */
 export const ignoredPackages = [
   'make-mjs',
-  'utils'
+  'utils',
 ] as const

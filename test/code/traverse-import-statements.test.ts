@@ -1,6 +1,6 @@
 import { traverseImportStatements, parseCode } from '@make-mjs/code'
 
-function setup (code: string) {
+function setup(code: string) {
   const declaration = jest.fn()
   const expression = jest.fn()
   const options = { declaration, expression }
@@ -41,8 +41,8 @@ describe('when code contains a static import declaration', () => {
     const { declaration } = setup(code)
     expect(declaration).toBeCalledWith(expect.objectContaining({
       node: expect.objectContaining({
-        type: 'ImportDeclaration'
-      })
+        type: 'ImportDeclaration',
+      }),
     }))
   })
 
@@ -66,8 +66,8 @@ describe('when code contains a star re-export', () => {
     const { declaration } = setup(code)
     expect(declaration).toBeCalledWith(expect.objectContaining({
       node: expect.objectContaining({
-        type: 'ExportAllDeclaration'
-      })
+        type: 'ExportAllDeclaration',
+      }),
     }))
   })
 
@@ -91,8 +91,8 @@ describe('when code contains a named re-export', () => {
     const { declaration } = setup(code)
     expect(declaration).toBeCalledWith(expect.objectContaining({
       node: expect.objectContaining({
-        type: 'ExportNamedDeclaration'
-      })
+        type: 'ExportNamedDeclaration',
+      }),
     }))
   })
 
@@ -124,9 +124,9 @@ describe('when code contains a dynamic import expression', () => {
       node: expect.objectContaining({
         type: 'CallExpression',
         callee: expect.objectContaining({
-          type: 'Import'
-        })
-      })
+          type: 'Import',
+        }),
+      }),
     }))
   })
 })
@@ -150,8 +150,8 @@ describe('when code contains a static import declaration and a dynamic import ca
     const { declaration } = setup(code)
     expect(declaration).toBeCalledWith(expect.objectContaining({
       node: expect.objectContaining({
-        type: 'ImportDeclaration'
-      })
+        type: 'ImportDeclaration',
+      }),
     }))
   })
 
@@ -166,9 +166,9 @@ describe('when code contains a static import declaration and a dynamic import ca
       node: expect.objectContaining({
         type: 'CallExpression',
         callee: expect.objectContaining({
-          type: 'Import'
-        })
-      })
+          type: 'Import',
+        }),
+      }),
     }))
   })
 })

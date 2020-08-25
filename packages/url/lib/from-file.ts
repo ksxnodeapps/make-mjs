@@ -8,7 +8,7 @@ interface OptionsWithoutForceMjs {
   readonly preferredCjsPath?: string
 }
 
-export function fromFileWithoutChecking (options: OptionsWithoutForceMjs): string {
+export function fromFileWithoutChecking(options: OptionsWithoutForceMjs): string {
   const { modulePath, newExt = '.mjs', preferredCjsPath = modulePath } = options
   const { dir, name, ext } = parseUrl(modulePath)
   if (ext === '.js' || ext === '') return joinUrl(dir, name + newExt)
@@ -23,25 +23,29 @@ interface Options {
   readonly preferredCjsPath?: string
 }
 
-export async function fromFile (options: Options): Promise<string> {
+export async function fromFile(options: Options): Promise<string> {
   const {
     modulePath,
     moduleContainer,
     forceMjs,
     newExt,
-    preferredCjsPath = modulePath
+    preferredCjsPath = modulePath,
   } = options
 
   const mjsModulePath = once(
-    () => fromFileWithoutChecking({ modulePath, newExt, preferredCjsPath })
+    () => fromFileWithoutChecking({ modulePath, newExt, preferredCjsPath }),
   )
 
   if (forceMjs) return mjsModulePath()
 
   for (const item of moduleContainer) {
-    if (await pathExists(
-      convertUrlToPath(joinUrl(item, mjsModulePath()))
-    )) return mjsModulePath()
+    if (
+      await pathExists(
+        convertUrlToPath(joinUrl(item, mjsModulePath())),
+      )
+    ) {
+      return mjsModulePath()
+    }
   }
 
   return preferredCjsPath

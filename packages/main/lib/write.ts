@@ -3,12 +3,12 @@ import { File } from './types'
 
 export const enum EventType {
   BeforeWrite = 'BeforeWrite',
-  AfterWrite = 'AfterWrite'
+  AfterWrite = 'AfterWrite',
 }
 
 abstract class Event {
   public abstract readonly type: EventType
-  constructor (public readonly file: File) {}
+  constructor(public readonly file: File) {}
 }
 
 export class BeforeWriteEvent extends Event {
@@ -19,7 +19,7 @@ export class AfterWriteEvent extends Event {
   public readonly type = EventType.AfterWrite
 }
 
-export async function * write (files: AsyncIterable<File>) {
+export async function* write(files: AsyncIterable<File>) {
   for await (const file of files) {
     yield new BeforeWriteEvent(file)
     await writeFile(file.path, file.content)

@@ -210,7 +210,7 @@ abstract class Dict {
 
   public readonly changeOutputExtensions = new Command(
     'Change extension of all output *.js files to *.babel',
-    this.mkspawn(commands.changeOutputExtensions)
+    this.mkspawn(commands.changeOutputExtensions),
   )
 
   public readonly makeMJS = new Command(

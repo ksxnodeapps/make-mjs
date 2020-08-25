@@ -4,11 +4,11 @@ import read from './read'
 import transform from './transform'
 import write from './write'
 
-export async function * main (options: MainOptions) {
+export async function* main(options: MainOptions) {
   const input = read(options)
   const transformOptions = addProperty(options, 'files', input)
   const output = transform(transformOptions)
-  yield * write(output)
+  yield* write(output)
 }
 
 export default main

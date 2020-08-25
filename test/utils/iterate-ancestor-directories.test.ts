@@ -7,7 +7,7 @@ it('"abc/def/ghi/jkl"', () => {
     'abc/def/ghi',
     'abc/def',
     'abc',
-    ''
+    '',
   ])
 })
 
@@ -16,7 +16,7 @@ it('"abc/def/ghi/jkl/"', () => {
     'abc/def/ghi',
     'abc/def',
     'abc',
-    ''
+    '',
   ])
 })
 
@@ -25,7 +25,7 @@ it('"/abc/def/ghi/jkl"', () => {
     'abc/def/ghi',
     'abc/def',
     'abc',
-    ''
+    '',
   ])
 })
 
@@ -34,6 +34,6 @@ it('"/abc/def/ghi/jkl/"', () => {
     'abc/def/ghi',
     'abc/def',
     'abc',
-    ''
+    '',
   ])
 })
