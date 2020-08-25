@@ -2,17 +2,17 @@ dependencies:
   '@make-mjs/url': 'link:../../packages/url'
   '@make-mjs/utils': 'link:../../packages/utils'
   __mocks__: 'link:../__mocks__'
-  static-type-assert: 3.0.1
+  static-type-assert: 4.0.0
 lockfileVersion: 5.1
 packages:
-  /static-type-assert/3.0.1:
+  /static-type-assert/4.0.0:
     dependencies:
       typescript-compare: 0.0.2
     dev: false
     peerDependencies:
       typescript: ^3.0.3
     resolution:
-      integrity: sha512-zMKAbDEqRbysJdAmO6fcylkbTa1GQ285xZZvTxbjxNficxF+zVdkwsozJqbVntKds0oZ40kLFkPYTi2JO3zOBA==
+      integrity: sha512-Ss1RVV8Hp+DVaAQsGgssl2+xuLqyJQOJzrz/6GJG8wfObU7t8tFbQddquX+U//pwU1tSLghUgTQ4JQPaOxfsww==
   /typescript-compare/0.0.2:
     dependencies:
       typescript-logic: 0.0.0
@@ -27,4 +27,4 @@ specifiers:
   '@make-mjs/url': 'file:../../packages/url'
   '@make-mjs/utils': 'file:../../packages/utils'
   __mocks__: 'file:../__mocks__'
-  static-type-assert: 3.0.1
+  static-type-assert: ^4.0.0

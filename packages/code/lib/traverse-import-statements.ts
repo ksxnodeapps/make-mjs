@@ -9,12 +9,12 @@ import {
   Import,
   StringLiteral,
   NodePath,
-  NodePathVisitor
+  NodePathVisitor,
 } from './types'
 
 export type ImportStatement =
-  ImportStatement.Declaration |
-  ImportStatement.Expression
+  | ImportStatement.Declaration
+  | ImportStatement.Expression
 
 export namespace ImportStatement {
   interface NamedReexport extends ExportNamedDeclaration {
@@ -22,9 +22,9 @@ export namespace ImportStatement {
   }
 
   export type Declaration =
-    ImportDeclaration |
-    ExportAllDeclaration |
-    NamedReexport
+    | ImportDeclaration
+    | ExportAllDeclaration
+    | NamedReexport
 
   export interface Expression extends CallExpression {
     callee: Import
@@ -37,11 +37,11 @@ export interface TraversalOptions {
   readonly expression: NodePathVisitor<ImportStatement.Expression>
 }
 
-export function traverseImportStatements (node: Node, options: TraversalOptions): void {
+export function traverseImportStatements(node: Node, options: TraversalOptions): void {
   const { declaration, expression } = options
 
   traverse(node as any, {
-    enter (path) {
+    enter(path) {
       switch (path.node.type) {
         case 'ImportDeclaration':
         case 'ExportAllDeclaration':
@@ -56,7 +56,7 @@ export function traverseImportStatements (node: Node, options: TraversalOptions)
           }
           break
       }
-    }
+    },
   })
 }
 

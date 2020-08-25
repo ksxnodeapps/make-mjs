@@ -1,33 +1,33 @@
 dependencies:
   '@make-mjs/utils': 'link:../../packages/utils'
-  '@tsfun/pipe': 0.0.9
+  '@tsfun/pipe': 0.0.14
 lockfileVersion: 5.1
 packages:
-  /@tsfun/pipe/0.0.9:
+  /@tsfun/pipe/0.0.14:
     dependencies:
-      '@tsfun/tap': 0.0.8
-      '@types/node': 13.1.6
-      tslib: 1.10.0
+      '@tsfun/tap': 0.0.13
+      '@types/node': 13.13.15
+      tslib: 1.13.0
     dev: false
     engines:
       node: '>= 8.9.0'
     resolution:
-      integrity: sha512-KvkG9PqPhuiXw0qgtaRAWyJR1hU1iiWDmsbe2e0/MBu+wRHl5xelSFJjZkG3Q5bdie7LYw5juhsvTtyHizx4Lg==
-  /@tsfun/tap/0.0.8:
+      integrity: sha512-A3t5GatBJUbDBTSApWh2OxukQExqpkh+BgojjgF62Vg6dO/Uq+cyVzVFJW/B5P4a95GqGx4ozconjFqpEIPGDg==
+  /@tsfun/tap/0.0.13:
     dependencies:
-      '@types/node': 13.1.6
-      tslib: 1.10.0
+      '@types/node': 13.13.15
+      tslib: 1.13.0
     dev: false
     resolution:
-      integrity: sha512-QASQDYuFJZGFUb8maN/ip3g7r3zq3abQHkJsgypWgUtBSBdFLF5ZLq7BFpIR3bEpX1iGmhadGeU1yVQNKyeGjA==
-  /@types/node/13.1.6:
+      integrity: sha512-2iK0EnUQZeOQT4aZJbPvG9Hv0U9nHGxFVEemZffAlDkycVfE7klp0Kw/80SkiWVa23yqbDX5XR/KtnkVvvfDCg==
+  /@types/node/13.13.15:
     dev: false
     resolution:
-      integrity: sha512-Jg1F+bmxcpENHP23sVKkNuU3uaxPnsBMW0cLjleiikFKomJQbsn0Cqk2yDvQArqzZN6ABfBkZ0To7pQ8sLdWDg==
-  /tslib/1.10.0:
+      integrity: sha512-kwbcs0jySLxzLsa2nWUAGOd/s21WU1jebrEdtzhsj1D4Yps1EOuyI1Qcu+FD56dL7NRNIJtDDjcqIG22NwkgLw==
+  /tslib/1.13.0:
     dev: false
     resolution:
-      integrity: sha512-qOebF53frne81cf0S9B41ByenJ3/IuH8yJKngAX35CmiZySA0khhkovshKK+jGCaMnVomla7gVlIcc3EvKPbTQ==
+      integrity: sha512-i/6DQjL8Xf3be4K/E6Wgpekn5Qasl1usyw++dAA35Ue5orEn65VIxOA+YvNNl9HV3qv70T7CNwjODHZrLwvd1Q==
 specifiers:
   '@make-mjs/utils': 'file:../../packages/utils'
-  '@tsfun/pipe': ^0.0.9
+  '@tsfun/pipe': ^0.0.14

@@ -7,5 +7,5 @@ export {
   readdir,
   ensureDirSync,
   readFile,
-  writeFile
+  writeFile,
 } from './implementations'

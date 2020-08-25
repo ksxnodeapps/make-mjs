@@ -1,6 +1,6 @@
 export enum ModuleUrlKind {
   Internal = 'Internal',
-  External = 'External'
+  External = 'External',
 }
 
 export interface ModulePathParsingResultBase {
@@ -20,5 +20,5 @@ export interface ExternalModuleUrlParsingResult extends ModulePathParsingResultB
 }
 
 export type ModuleUrlParsingResult =
-  InternalModuleUrlParsingResult |
-  ExternalModuleUrlParsingResult
+  | InternalModuleUrlParsingResult
+  | ExternalModuleUrlParsingResult

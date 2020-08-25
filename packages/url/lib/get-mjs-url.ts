@@ -14,7 +14,7 @@ import {
   ModuleUrlResolver,
   ModulePathResolverOptions,
   ModuleUrlTester,
-  MjsPackageTester
+  MjsPackageTester,
 } from '../utils/options'
 
 export {
@@ -26,10 +26,10 @@ export {
   MjsPathOptions,
   ModuleUrlResolver,
   ModuleUrlTester,
-  MjsPackageTester
+  MjsPackageTester,
 }
 
-export async function getMjsUrl (options: MjsPathOptions): Promise<string> {
+export async function getMjsUrl(options: MjsPathOptions): Promise<string> {
   const {
     modulePath,
     moduleContainer,
@@ -37,7 +37,7 @@ export async function getMjsUrl (options: MjsPathOptions): Promise<string> {
     fromDir = DEFAULT_DIR_URL_RESOLVER,
     isMjsUrl = DEFAULT_MJS_URL_TESTER,
     isInternalModule = DEFAULT_INTERNAL_MODULE_TESTER,
-    isMjsPackage = DEFAULT_MJS_PACKAGE_TESTER
+    isMjsPackage = DEFAULT_MJS_PACKAGE_TESTER,
   } = options
 
   const parsingResult = parseModuleUrl(modulePath)
@@ -49,15 +49,15 @@ export async function getMjsUrl (options: MjsPathOptions): Promise<string> {
     fromDir,
     isMjsUrl,
     isInternalModule,
-    isMjsPackage
+    isMjsPackage,
   }
 
-  async function handleFile (resolverOptions: ModulePathResolverOptions) {
+  async function handleFile(resolverOptions: ModulePathResolverOptions) {
     if (await isMjsUrl(fullOptions)) return modulePath
     return fromFile(resolverOptions)
   }
 
-  async function handleRoute (route: string, resolverOptions: ModulePathResolverOptions) {
+  async function handleRoute(route: string, resolverOptions: ModulePathResolverOptions) {
     const routePath = convertUrlToPath(route)
     const pathExistsPromise = silenceRejection(pathExists(routePath))
     const modulePathStatsPromise = silenceRejection(stat(routePath))
@@ -72,7 +72,7 @@ export async function getMjsUrl (options: MjsPathOptions): Promise<string> {
     return null
   }
 
-  async function handleModuleContainer (forceMjs: boolean) {
+  async function handleModuleContainer(forceMjs: boolean) {
     const resolverOptions = addProperty(fullOptions, 'forceMjs', forceMjs)
 
     for (const directory of moduleContainer) {

@@ -6,7 +6,7 @@ import {
   StatFunc,
   ReadOptions,
   FilterFunc,
-  File
+  File,
 } from './types'
 
 const FILTER_EXT = ['.js', '.jsx']
@@ -15,12 +15,12 @@ const DEEP_FUNC_IGNORED = ['.git', 'node_modules']
 export const DEFAULT_DEEP_FUNC: FilterFunc = x => !DEEP_FUNC_IGNORED.includes(x.base)
 export const DEFAULT_STAT_FUNC: StatFunc = lstat
 
-export async function * read (options: ReadOptions): AsyncGenerator<File, void> {
+export async function* read(options: ReadOptions): AsyncGenerator<File, void> {
   const {
     dirname,
     filter = DEFAULT_FILTER_FUNC,
     deep = DEFAULT_DEEP_FUNC,
-    stat = DEFAULT_STAT_FUNC
+    stat = DEFAULT_STAT_FUNC,
   } = options
 
   const traverseReturn = traverse({
@@ -28,7 +28,7 @@ export async function * read (options: ReadOptions): AsyncGenerator<File, void> 
     readdir,
     stat,
     join,
-    deep: param => deep({ base: param.basename, path: param.path })
+    deep: param => deep({ base: param.basename, path: param.path }),
   })
 
   for await (const { list, dirname } of traverseReturn) {

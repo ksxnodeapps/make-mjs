@@ -7,13 +7,13 @@ const [command] = process.argv.slice(2)
 const IGNORED_DIRECTORIES = ['.git', 'node_modules']
 const CHOSEN_EXT = '.tmpjs'
 
-async function main () {
+async function main() {
   const list = await traverse(places.packages, {
     stat: fsx.lstat,
-    deep: param => !IGNORED_DIRECTORIES.includes(param.item)
+    deep: param => !IGNORED_DIRECTORIES.includes(param.item),
   })
 
-  function help () {
+  function help() {
     console.info('Usage')
     console.info('$ change-output-extensions help|rename|cleanup')
     console.info()
@@ -53,5 +53,5 @@ main().then(
   error => {
     console.error(error)
     process.exit(-1)
-  }
+  },
 )

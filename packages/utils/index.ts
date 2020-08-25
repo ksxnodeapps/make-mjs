@@ -8,7 +8,7 @@ export const REJECTION_SILENCER = (): void => undefined
  * Silence a unhandled promise rejection warning
  * @param promise Promise to silence
  */
-export function silenceRejection<X> (promise: Promise<X>) {
+export function silenceRejection<X>(promise: Promise<X>) {
   void promise.catch(REJECTION_SILENCER)
   return promise
 }
@@ -17,17 +17,15 @@ export function silenceRejection<X> (promise: Promise<X>) {
  * Remove trailing `'/'` if there is one
  * @param path Path to be rid of trailing separator
  */
-export function removeTrailingSeparator (path: string) {
-  return path.endsWith('/')
-    ? path.slice(0, -1)
-    : path
+export function removeTrailingSeparator(path: string) {
+  return path.endsWith('/') ? path.slice(0, -1) : path
 }
 
 /**
  * Like `path.join` but does not eliminate `'.'`
  * @param urlSegments Paths to join together
  */
-export function joinUrl (...urlSegments: string[]) {
+export function joinUrl(...urlSegments: string[]) {
   return urlSegments
     .map(removeTrailingSeparator)
     .filter(Boolean)
@@ -38,7 +36,7 @@ export function joinUrl (...urlSegments: string[]) {
  * Like `path.parse` but accept only `'/'` as separator
  * @param url Path to parse
  */
-export function parseUrl (url: string): parseUrl.Result {
+export function parseUrl(url: string): parseUrl.Result {
   if (url.endsWith('/')) return parseUrl(url.slice(0, -1))
   const segments = url.split('/')
   const base = segments.pop()
@@ -58,21 +56,19 @@ export namespace parseUrl {
   }
 }
 
-export function convertUrlToPath (url: string) {
+export function convertUrlToPath(url: string) {
   if (url === '') return ''
   const [first, ...rest] = url.split('/')
-  return first === ''
-    ? path.sep + path.join(...rest)
-    : path.join(first, ...rest)
+  return first === '' ? path.sep + path.join(...rest) : path.join(first, ...rest)
 }
 
 const EXT_REGEX = /(\.[^\.]*)?$/
 
-export function replacePathExtension (path: string, newExt: string) {
+export function replacePathExtension(path: string, newExt: string) {
   return path.replace(EXT_REGEX, newExt)
 }
 
-export function * iterateAncestorDirectories (path: string) {
+export function* iterateAncestorDirectories(path: string) {
   const segments = path.split('/').filter(Boolean)
 
   while (segments.length) {
@@ -89,9 +85,9 @@ export function * iterateAncestorDirectories (path: string) {
  * @param f First function to call
  * @param g Second function to call
  */
-export function fnAnd<X, Y, Z> (
+export function fnAnd<X, Y, Z>(
   f: (x: X) => Y,
-  g: (x: X) => Z
+  g: (x: X) => Z,
 ): (x: X) => Y | Z {
   return x => f(x) && g(x)
 }
@@ -104,9 +100,9 @@ export function fnAnd<X, Y, Z> (
  * @param f First function to call
  * @param g Second function to call
  */
-export function fnOr<X, Y, Z> (
+export function fnOr<X, Y, Z>(
   f: (x: X) => Y,
-  g: (x: X) => Z
+  g: (x: X) => Z,
 ): (x: X) => Y | Z {
   return x => f(x) || g(x)
 }

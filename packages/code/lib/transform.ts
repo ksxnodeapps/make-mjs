@@ -11,17 +11,17 @@ export interface NodeTransformOptions {
   readonly isMjsPackage?: MjsPackageTester
 }
 
-export async function transformNode (node: Node, options: NodeTransformOptions) {
+export async function transformNode(node: Node, options: NodeTransformOptions) {
   let promise = Promise.resolve()
 
-  function deferPromise () {
+  function deferPromise() {
     const lock = createLock<void>()
     promise = promise.then(() => lock.promise)
     return lock
   }
 
   traverse(node, {
-    async declaration (path) {
+    async declaration(path) {
       const lock = deferPromise()
       const newOptions = addProperty(options, 'modulePath', path.node.source.value)
       const newPath = await transformPath(newOptions)
@@ -29,7 +29,7 @@ export async function transformNode (node: Node, options: NodeTransformOptions) 
       await lock.resolve(undefined)
     },
 
-    async expression (path) {
+    async expression(path) {
       const lock = deferPromise()
       for (const item of path.node.arguments) {
         const newOptions = addProperty(options, 'modulePath', item.value)
@@ -37,7 +37,7 @@ export async function transformNode (node: Node, options: NodeTransformOptions) 
         item.value = newPath
       }
       await lock.resolve(undefined)
-    }
+    },
   })
 
   await promise
@@ -48,7 +48,7 @@ export interface CodeTransformOptions extends NodeTransformOptions {
   readonly generatorOptions?: GeneratorOptions
 }
 
-export async function transformCode (code: string, options: CodeTransformOptions) {
+export async function transformCode(code: string, options: CodeTransformOptions) {
   const { parserOptions, generatorOptions } = options
   const ast = parse(code, parserOptions)
   await transformNode(ast, options)

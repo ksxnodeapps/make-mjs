@@ -9,7 +9,7 @@ import {
   EXTERNAL_MODULE_NAME_DEFAULT,
   EXTERNAL_MODULE_NAME_MODULE,
   EXTERNAL_MODULE_NAME_MAIN,
-  EXTERNAL_MODULE_NAME_NONMJS
+  EXTERNAL_MODULE_NAME_NONMJS,
 } from './fsx-mocks'
 
 const getPresentMjs = (modulePath: string) =>
@@ -18,8 +18,7 @@ const getPresentMjs = (modulePath: string) =>
 const getAbsentMjs = (modulePath: string) =>
   fromDir({ moduleContainer: [MODULE_CONTAINER], forceMjs: true, modulePath })
 
-const getNonMjs = (modulePath: string) =>
-  fromDir({ moduleContainer: [MODULE_CONTAINER], forceMjs: false, modulePath })
+const getNonMjs = (modulePath: string) => fromDir({ moduleContainer: [MODULE_CONTAINER], forceMjs: false, modulePath })
 
 it('when manifest does not exist', async () => {
   expect(await getPresentMjs(EXTERNAL_MODULE_NAME))

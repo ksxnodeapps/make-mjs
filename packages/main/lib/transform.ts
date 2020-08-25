@@ -6,32 +6,32 @@ import { getModuleContainer } from '../utils/get-module-container'
 import {
   TransformOptions,
   PathTransformFunc,
-  File
+  File,
 } from './types'
 
 export const DEFAULT_PATH_TRANSFORM_FUNC: PathTransformFunc = path => replacePathExtension(path, '.mjs')
 
-export async function * transform (options: TransformOptions): AsyncGenerator<File, void> {
+export async function* transform(options: TransformOptions): AsyncGenerator<File, void> {
   const {
     files,
     getNewPath = DEFAULT_PATH_TRANSFORM_FUNC,
-    codeTransformOptions = {}
+    codeTransformOptions = {},
   } = options
 
   for await (const { path, content } of files) {
     const newPath = getNewPath(path)
     const parserOptions = { // object spread because of how @babel/parser read this options object
       ...codeTransformOptions.parserOptions || DEFAULT_PARSER_OPTIONS,
-      sourceFilename: path
+      sourceFilename: path,
     }
     const newCodeTransOpts: CodeTransformOptions = objectExtends(codeTransformOptions, {
       moduleContainer: Array.from(getModuleContainer(path)),
-      parserOptions
+      parserOptions,
     })
     const transformResult = await transformCode(content, newCodeTransOpts)
     yield {
       path: newPath,
-      content: transformResult.code
+      content: transformResult.code,
     }
   }
 }

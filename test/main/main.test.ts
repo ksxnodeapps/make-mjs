@@ -10,30 +10,30 @@ import {
   textFiles,
   emptyAll,
   fillAll,
-  appendFileSystem
+  appendFileSystem,
 } from './fsx-mocks'
 
 const DUMMY_JS_CONTENT = 'not to be read'
 
-function makeValidFiles () {
+function makeValidFiles() {
   emptyAll()
 
   appendFileSystem.fromObject({
     'node_modules/external-nonmjs-nonmjs/package.json': {
-      main: 'nonmjs-nonmjs-entry.js'
+      main: 'nonmjs-nonmjs-entry.js',
     },
     'node_modules/external-nonmjs-nonmjs/nonmjs-nonmjs-entry.js': DUMMY_JS_CONTENT,
     'node_modules/external-nonmjs-mjs/package.json': {
-      main: 'nonmjs-mjs-entry.js'
+      main: 'nonmjs-mjs-entry.js',
     },
     'node_modules/external-nonmjs-mjs/nonmjs-mjs-entry.js': DUMMY_JS_CONTENT,
     'node_modules/external-mjs-main/package.json': {
-      main: 'mjs-entry.js'
+      main: 'mjs-entry.js',
     },
     'node_modules/external-mjs-main/mjs-entry.js': DUMMY_JS_CONTENT,
     'node_modules/external-mjs-main/mjs-entry.mjs': DUMMY_JS_CONTENT,
     'node_modules/@scope/foo/package.json': {
-      module: 'scope-module-entry.mjs'
+      module: 'scope-module-entry.mjs',
     },
     'node_modules/@scope/foo/scope-module-entry.js': DUMMY_JS_CONTENT,
     'node_modules/@scope/foo/scope-module-entry.mjs': DUMMY_JS_CONTENT,
@@ -54,7 +54,7 @@ function makeValidFiles () {
     `),
 
     'abc/def/node_modules/deep-external/package.json': {
-      module: 'deep-module-entry.mjs'
+      module: 'deep-module-entry.mjs',
     },
     'abc/def/node_modules/deep-external/deep-module-entry.mjs': DUMMY_JS_CONTENT,
     'abc/def/ghi/jkl/deep-file-0.js': formatCode(`
@@ -68,23 +68,23 @@ function makeValidFiles () {
     `),
 
     'ghi/node_modules/deep-external/package.json': {
-      module: 'deep-module-entry.mjs'
+      module: 'deep-module-entry.mjs',
     },
     'ghi/node_modules/deep-external/deep-module-entry.mjs': DUMMY_JS_CONTENT,
     'ghi/node_modules/@scope/foo/package.json': {
-      main: 'deep-scope-foo-main-entry.js'
+      main: 'deep-scope-foo-main-entry.js',
     },
     'ghi/node_modules/@scope/foo/deep-scope-foo-main-entry.js': DUMMY_JS_CONTENT,
     'ghi/node_modules/@scope/foo/deep-scope-foo-main-entry.mjs': DUMMY_JS_CONTENT,
     'ghi/deep-file-1.js': formatCode(`
       export * from 'deep-external'
       export * from '@scope/foo'
-    `)
+    `),
   })
 }
 
-function getFilesystemSnapshot () {
-  function map2arr<Key, Value> (map: ReadonlyMap<Key, Value>) {
+function getFilesystemSnapshot() {
+  function map2arr<Key, Value>(map: ReadonlyMap<Key, Value>) {
     return Array.from(map).map(([path, content]) => ({ path, content }))
   }
 
@@ -94,10 +94,8 @@ function getFilesystemSnapshot () {
     manifestFiles: map2arr(manifestFiles.get()),
     textFiles: map2arr(textFiles.get()).map(({ path, content }) => ({
       path,
-      content: content === DUMMY_JS_CONTENT
-        ? content
-        : formatCode(content).trim()
-    }))
+      content: content === DUMMY_JS_CONTENT ? content : formatCode(content).trim(),
+    })),
   })
 
   return '\n' + yamlString + '\n'
@@ -106,7 +104,7 @@ function getFilesystemSnapshot () {
 afterEach(fillAll)
 
 describe('without isMjsPackage', () => {
-  async function setup (dirname: string) {
+  async function setup(dirname: string) {
     makeValidFiles()
     const events = []
     for await (const event of main({ dirname })) {
@@ -145,7 +143,7 @@ describe('without isMjsPackage', () => {
     it('new file is added to [dirname]', async () => {
       await setup(dirname)
       expect(
-        formatCode(textFiles.get().get('abc/def/ghi/jkl/deep-file-0.mjs')!)
+        formatCode(textFiles.get().get('abc/def/ghi/jkl/deep-file-0.mjs')!),
       ).toBe(formatCode(`
         export async function main() {
           await import('deep-external/deep-module-entry.mjs')
@@ -179,7 +177,7 @@ describe('without isMjsPackage', () => {
     it('new file is added to [dirname]', async () => {
       await setup(dirname)
       expect(
-        formatCode(textFiles.get().get('ghi/deep-file-1.mjs')!)
+        formatCode(textFiles.get().get('ghi/deep-file-1.mjs')!),
       ).toBe(formatCode(`
         export * from 'deep-external/deep-module-entry.mjs'
         export * from '@scope/foo/deep-scope-foo-main-entry.mjs'
@@ -194,14 +192,14 @@ describe('without isMjsPackage', () => {
 })
 
 describe('with isMjsPackage that classifies "external-nonmjs-mjs" as an mjs package', () => {
-  async function setup (dirname: string) {
+  async function setup(dirname: string) {
     makeValidFiles()
     const events = []
     const eventGenerator = main({
       dirname,
       codeTransformOptions: {
-        isMjsPackage: param => param.packageName === 'external-nonmjs-mjs'
-      }
+        isMjsPackage: param => param.packageName === 'external-nonmjs-mjs',
+      },
     })
     for await (const event of eventGenerator) {
       events.push(event)
@@ -239,7 +237,7 @@ describe('with isMjsPackage that classifies "external-nonmjs-mjs" as an mjs pack
     it('new file is added to [dirname]', async () => {
       await setup(dirname)
       expect(
-        formatCode(textFiles.get().get('abc/def/ghi/jkl/deep-file-0.mjs')!)
+        formatCode(textFiles.get().get('abc/def/ghi/jkl/deep-file-0.mjs')!),
       ).toBe(formatCode(`
         export async function main() {
           await import('deep-external/deep-module-entry.mjs')
@@ -273,7 +271,7 @@ describe('with isMjsPackage that classifies "external-nonmjs-mjs" as an mjs pack
     it('new file is added to [dirname]', async () => {
       await setup(dirname)
       expect(
-        formatCode(textFiles.get().get('ghi/deep-file-1.mjs')!)
+        formatCode(textFiles.get().get('ghi/deep-file-1.mjs')!),
       ).toBe(formatCode(`
         export * from 'deep-external/deep-module-entry.mjs'
         export * from '@scope/foo/deep-scope-foo-main-entry.mjs'

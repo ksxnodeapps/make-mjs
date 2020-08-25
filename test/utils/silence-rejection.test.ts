@@ -1,7 +1,7 @@
 import { REJECTION_SILENCER, silenceRejection } from '@make-mjs/utils'
 
 describe('when input promise resolves', () => {
-  function setup () {
+  function setup() {
     const value = Symbol('value')
     const input = Promise.resolve(value)
     const catchSpy = jest.spyOn(input, 'catch')
@@ -21,7 +21,7 @@ describe('when input promise resolves', () => {
 })
 
 describe('when input promise rejects', () => {
-  function setup () {
+  function setup() {
     const reason = Symbol('reason')
     const input = Promise.reject(reason)
     const catchSpy = jest.spyOn(input, 'catch')

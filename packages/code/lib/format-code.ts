@@ -6,7 +6,7 @@ export interface ReformatOptions {
   readonly generatorOptions?: GeneratorOptions
 }
 
-export function formatCode (code: string, options: ReformatOptions = {}): string {
+export function formatCode(code: string, options: ReformatOptions = {}): string {
   const { parserOptions, generatorOptions } = options
   const ast = parseCode(code, parserOptions)
   return generateCode(ast as any, generatorOptions).code
