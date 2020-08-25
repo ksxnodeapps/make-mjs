@@ -1,8 +1,8 @@
 {
   "private": true,
   "dependencies": {
-    "js-yaml": "^3.13.1",
-    "@types/js-yaml": "^3.12.1",
+    "js-yaml": "^3.14.0",
+    "@types/js-yaml": "^3.12.5",
     "__mocks__": "file:../__mocks__",
     "@tools/test-utils": "file:../../tools/test-utils",
     "@make-mjs/cli": "file:../../packages/cli"

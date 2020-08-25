@@ -57,5 +57,5 @@ specifiers:
   '@make-mjs/main': 'file:../../packages/main'
   '@tools/places': 'file:../places'
   '@tools/preloaded-node': 'file:../preloaded-node'
-  '@types/fs-extra': ^9.0.0
-  fs-extra: ^9.0.0
+  '@types/fs-extra': ^9.0.1
+  fs-extra: ^9.0.1
