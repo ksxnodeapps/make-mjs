@@ -4,8 +4,8 @@
   "private": true,
   "bin": "bin.js",
   "dependencies": {
-    "fs-extra": "^8.1.0",
-    "@types/fs-extra": "^8.0.1",
+    "fs-extra": "^9.0.0",
+    "@types/fs-extra": "^9.0.0",
     "@make-mjs/main": "file:../../packages/main",
     "@make-mjs/code": "file:../../packages/code",
     "@tools/preloaded-node": "file:../preloaded-node",
