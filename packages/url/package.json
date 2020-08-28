@@ -23,7 +23,7 @@
   "dependencies": {
     "fs-extra": "^9.0.1",
     "exec-once": "^0.1.7",
-    "@tsfun/object": "^0.0.20",
+    "@tsfun/object": "^0.0.21",
     "tslib": "^2.0.1",
     "@make-mjs/utils": "^0.0.9",
     "@types/fs-extra": "^9.0.1",

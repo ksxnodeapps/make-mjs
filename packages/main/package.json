@@ -24,7 +24,7 @@
     "fs-extra": "^9.0.1",
     "ancestor-directories": "^1.0.3",
     "fast-traverse": "^0.1.6",
-    "@tsfun/object": "^0.0.20",
+    "@tsfun/object": "^0.0.21",
     "tslib": "^2.0.1",
     "@make-mjs/utils": "^0.0.9",
     "@make-mjs/code": "^0.2.8",

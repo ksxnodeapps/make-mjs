@@ -27,7 +27,7 @@
     "@babel/generator": "^7.11.4",
     "@babel/traverse": "^7.11.0",
     "remote-controlled-promise": "^0.0.6",
-    "@tsfun/object": "^0.0.20",
+    "@tsfun/object": "^0.0.21",
     "tslib": "^2.0.1",
     "@make-mjs/url": "^0.2.8",
     "@types/babel__generator": "^7.6.1",
