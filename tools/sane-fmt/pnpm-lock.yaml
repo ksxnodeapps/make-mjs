@@ -1,24 +1,30 @@
 dependencies:
-  '@sane-fmt/wasm32-wasi': 0.4.5
+  '@sane-fmt/wasm32-wasi': 0.18.0
   '@tools/places': 'link:../places'
   exec-inline: 0.0.5
   isomorphic-git: 1.7.4
 lockfileVersion: 5.1
 packages:
-  /@sane-fmt/wasm32-wasi/0.4.5:
+  /@sane-fmt/wasm32-wasi/0.18.0:
     dependencies:
-      '@types/node': 13.13.15
-      '@wasmer/wasi': 0.11.2
+      '@types/node': 16.18.83
+      '@wasmer/wasi': 0.12.0
       tslib: 2.0.0
     dev: false
+    engines:
+      node: '>= 14.0.0'
     hasBin: true
     resolution:
-      integrity: sha512-0rKREKqE1RuaIkIPpDpgOnwRWjAZEgP1RUWNgsemHkbVADdl5FFPhewS3dlVPU6chAaOCJXIjADRxLAxXTlgCA==
+      integrity: sha512-DEi7ej7iiEb1gVxrzxIfFye4uPsd4LUodYge23uOFwWos76IJ1ExUffqF9I/G4orjFtUjq++pVR20QanFjlHAw==
   /@types/node/13.13.15:
     dev: false
     resolution:
       integrity: sha512-kwbcs0jySLxzLsa2nWUAGOd/s21WU1jebrEdtzhsj1D4Yps1EOuyI1Qcu+FD56dL7NRNIJtDDjcqIG22NwkgLw==
-  /@wasmer/wasi/0.11.2:
+  /@types/node/16.18.83:
+    dev: false
+    resolution:
+      integrity: sha512-TmBqzDY/GeCEmLob/31SunOQnqYE3ZiiuEh1U9o3HqE1E2cqKZQA5RQg4krEguCY3StnkXyDmCny75qyFLx/rA==
+  /@wasmer/wasi/0.12.0:
     dependencies:
       browser-process-hrtime: 1.0.0
       buffer-es6: 4.9.3
@@ -26,7 +32,7 @@ packages:
       randomfill: 1.0.4
     dev: false
     resolution:
-      integrity: sha512-9Oi68ZsD8HTZRjWj5VvnhN0dLL6nSacrgGvdwJeHd9q5bMrlFaXTckQAYm84zXJWg+b5yeFhaEZqGEhe7q4VFQ==
+      integrity: sha512-FJhLZKAfLWm/yjQI7eCRHNbA8ezmb7LSpUYFkHruZXs2mXk2+DaQtSElEtOoNrVQ4vApTyVaAd5/b7uEu8w6wQ==
   /async-lock/1.2.4:
     dev: false
     resolution:
@@ -38,7 +44,7 @@ packages:
   /buffer-es6/4.9.3:
     dev: false
     resolution:
-      integrity: sha1-8mNHuC33b9N+GLy1KIxJcM/VxAQ=
+      integrity: sha512-Ibt+oXxhmeYJSsCkODPqNpPmyegefiD8rfutH1NYGhMZQhSp95Rz7haemgnJ6dxa6LT+JLLbtgOMORRluwKktw==
   /clean-git-ref/2.0.1:
     dev: false
     resolution:
@@ -222,7 +228,7 @@ packages:
     resolution:
       integrity: sha1-tSQ9jz7BqjXxNkYFvA0QNuMKtp8=
 specifiers:
-  '@sane-fmt/wasm32-wasi': ^0.4.5
+  '@sane-fmt/wasm32-wasi': ^0.18.0
   '@tools/places': 'file:../places'
   exec-inline: ^0.0.5
   isomorphic-git: ^1.7.4
